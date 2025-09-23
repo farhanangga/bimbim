@@ -23,7 +23,7 @@ export default function SignInPage() {
             </div>
 
             {/* Right Side */}
-            <div className="w-[400px]">
+            <div className="w-[460px]">
                 <div className="bg-white rounded-2xl shadow-lg p-8">
                 <h2 className="text-2xl font-bold mb-1 text-black">Sign In</h2>
                 <p className="text-gray-500 text-sm mb-6">
@@ -115,8 +115,11 @@ export default function SignInPage() {
                 {/* Link daftar */}
                 <p className="text-center text-sm text-gray-600 mt-4">
                     tidak punya akun?{" "}
-                    <span className="text-blue-600 hover:underline cursor-pointer">
-                    Daftar di sini
+                    <span
+                      onClick={() => router.push("/signIn/signUp")}
+                      className="text-blue-600 hover:underline cursor-pointer"
+                    >
+                      Daftar di sini
                     </span>
                 </p>
                 </div>
