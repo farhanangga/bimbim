@@ -127,12 +127,10 @@ export default function SignInPage() {
 
       {/* Footer bergelombang */}
       <div className="w-full ">
-        <Image
+        <img
           src="/img/assets/footer.png"
           alt="footer"
-          width={1920}
-          height={200}
-          className="w-full object-cover "
+          className="w-full object-cover"
         />
       </div>
     </div>
