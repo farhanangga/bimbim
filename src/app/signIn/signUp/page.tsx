@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -24,12 +23,15 @@ export default function SignUpPage() {
           </div>
 
           {/* Right Side */}
-          <div className="w-[460px]"> {/* agak lebar */}
+          <div className="w-[460px]">
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h2 className="text-2xl font-bold mb-1 text-black">Sign Up</h2>
               <p className="text-gray-500 text-sm mb-6">
                 Isi data dibawah ini
-                <span className="float-right cursor-pointer text-gray-500 hover:underline">
+                <span
+                  onClick={() => router.push("/signIn")}
+                  className="float-right cursor-pointer text-gray-500 hover:underline"
+                >
                   Kembali
                 </span>
               </p>
@@ -98,7 +100,6 @@ export default function SignUpPage() {
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-[#5D33DA]"
                     >
                       {showPassword ? (
-                        // 👁️ Open Eye
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -121,7 +122,6 @@ export default function SignUpPage() {
                           />
                         </svg>
                       ) : (
-                        // 🚫👁️ Closed Eye
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -157,15 +157,17 @@ export default function SignUpPage() {
 
                 {/* Button Sign Up */}
                 <button
-                  type="submit"
+                  type="button"
+                  onClick={() => router.push("/signIn/kodeVerifikasi")}
                   className="w-full py-3 rounded-md bg-[#5D33DA] text-white font-semibold hover:bg-[#4A28B5] transition"
                 >
                   Sign Up
                 </button>
 
-                {/* Google Sign Up */}
-                <Link
-                  href="/api/auth/google"
+                {/* Google Sign Up (dummy) */}
+                <button
+                  type="button"
+                  onClick={() => router.push("/signIn/kodeVerifikasi")}
                   className="w-full py-3 rounded-md bg-blue-600 text-white font-semibold flex items-center justify-center gap-2 hover:bg-blue-700 transition"
                 >
                   <img
@@ -174,13 +176,16 @@ export default function SignUpPage() {
                     className="w-5 h-5"
                   />
                   Sign Up dengan Google
-                </Link>
+                </button>
               </form>
 
               {/* Link login */}
               <p className="text-center text-sm text-gray-600 mt-4">
                 Sudah punya akun?{" "}
-                <span onClick={() => router.push("/signIn")} className="text-blue-600 hover:underline cursor-pointer">
+                <span
+                  onClick={() => router.push("/signIn")}
+                  className="text-blue-600 hover:underline cursor-pointer"
+                >
                   Masuk di sini
                 </span>
               </p>
@@ -190,7 +195,7 @@ export default function SignUpPage() {
       </div>
 
       {/* Footer bergelombang */}
-      <div className="w-full ">
+      <div className="w-full">
         <img
           src="/img/assets/footer.png"
           alt="footer"
