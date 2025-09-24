@@ -67,7 +67,7 @@ export default function LandingPage() {
         />
 
         {/* konten di atas gambar */}
-        <div  className="absolute inset-0 flex flex-col items-center justify-center px-30">
+        <div  className="absolute inset-0 flex flex-col items-center justify-center px-40">
           <h2 className="text-3xl font-bold text-center mb-12">
             Pilih Paket yang Tepat untuk Bisnismu
           </h2>
