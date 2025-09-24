@@ -28,9 +28,12 @@ export default function SignInPage() {
                 <h2 className="text-2xl font-bold mb-1 text-black">Sign In</h2>
                 <p className="text-gray-500 text-sm mb-6">
                     Welcome To Bimbim !
-                    <span className="float-right cursor-pointer text-gray-500 hover:underline">
-                    Kembali
-                    </span>
+                    <span
+                  onClick={() => router.push("/")}
+                  className="float-right cursor-pointer text-gray-500 hover:underline"
+                >
+                  Kembali
+                </span>
                 </p>
 
                 <form  className="space-y-4">

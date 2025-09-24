@@ -29,7 +29,7 @@ export default function SignUpPage() {
               <p className="text-gray-500 text-sm mb-6">
                 Isi data dibawah ini
                 <span
-                  onClick={() => router.push("/signIn")}
+                  onClick={() => router.push("/")}
                   className="float-right cursor-pointer text-gray-500 hover:underline"
                 >
                   Kembali
