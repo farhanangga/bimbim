@@ -7,9 +7,9 @@ export default function LandingPage() {
   return (
     <div className="relative min-h-screen flex flex-col bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF] text-gray-800">
       {/* Navbar */}
-      <nav className="flex items-center justify-between px-40 py-6">
+      <nav className="flex items-center justify-between px-30 py-6">
         <h1 className="text-2xl font-bold text-blue-700">Bimbim</h1>
-        <ul className="hidden md:flex gap-8 font-black text-gray-700">
+        <ul className="hidden md:flex gap-8 font-bld text-gray-700">
           <li>
             <a href="#fitur" className="hover:text-blue-600 cursor-pointer">Fitur</a>
           </li>
@@ -26,7 +26,7 @@ export default function LandingPage() {
         <ul className="hidden md:flex gap-8 font-medium text-gray-700">
           <li 
             onClick={() => router.push("/signIn")} 
-            className="hover:text-blue-600 cursor-pointer font-black"
+            className="hover:text-blue-600 cursor-pointer font-bld"
           >
             Sign In
           </li>
@@ -34,7 +34,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="grid md:grid-cols-2 items-center px-40">
+      <section className="grid md:grid-cols-2 items-center px-30">
         <div>
           <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
             Kelola Bisnis Lebih Mudah dengan Kasir Digital{" "}
@@ -67,7 +67,7 @@ export default function LandingPage() {
         />
 
         {/* konten di atas gambar */}
-        <div  className="absolute inset-0 flex flex-col items-center justify-center px-40">
+        <div  className="absolute inset-0 flex flex-col items-center justify-center px-30">
           <h2 className="text-3xl font-bold text-center mb-12">
             Pilih Paket yang Tepat untuk Bisnismu
           </h2>
@@ -142,7 +142,7 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section id="ulasan" className="px-40 py-20">
+      <section id="ulasan" className="px-30 py-20">
         <div className="flex flex-col gap-8">
           {[
             {
@@ -206,7 +206,7 @@ export default function LandingPage() {
           alt="Background wave"
           className="w-full h-auto block"
         />
-        <div className="absolute inset-0 grid md:grid-cols-2 gap-12 items-center px-40">
+        <div className="absolute inset-0 grid md:grid-cols-2 gap-12 items-center px-30">
           {/* Judul */}
           <h2 className="text-4xl md:text-5xl font-extrabold leading-snug text-left">
             KENAPA HARUS <br /> PAKAI{" "}
@@ -280,7 +280,7 @@ export default function LandingPage() {
         />
 
         {/* Konten di atas gambar */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-150 text-black">
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-130 text-black">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full max-w-5xl mx-auto">
             <h3 className="text-2xl font-bold mb-6 md:mb-0">Bimbim</h3>
             <div className="space-y-1 text-sm text-center md:text-left">
