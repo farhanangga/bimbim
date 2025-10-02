@@ -96,6 +96,7 @@ export default function SignInPage() {
                     {/* Button Sign In */}
                     <button
                     type="submit"
+                    onClick={() => router.push("/dashboard/main")}
                     className="w-full py-3 rounded-md bg-[#5D33DA] text-white font-semibold hover:bg-[#4A28B5] transition"
                     >
                     Sign In

@@ -187,7 +187,7 @@ export default function DashboardPage() {
                         <td className="py-3 px-4">{trx.tanggal}</td>
                         <td className="py-3 px-4">{trx.jumlah}</td>
                         <td className="py-3 px-4">{trx.total}</td>
-                        <td className="py-3 px-4 text-center">
+                        <td className="py-3 w-30 text-center">
                         <button className="text-white bg-[#5D33DA] px-8 py-3 rounded-lg hover:bg-[#4A28B5] transition">
                             Detail
                         </button>
@@ -209,7 +209,7 @@ export default function DashboardPage() {
                     <th className="py-3 px-4 text-center rounded-tl-lg">No</th>
                     <th className="py-3 px-4">Nama Barang</th>
                     <th className="py-3 px-4">Total</th>
-                    <th className="py-3 px-4 text-center rounded-tr-lg">Aksi</th>
+                    <th className="py-3 px-4 text-center rounded-tr-lg">Detail</th>
                     </tr>
                 </thead>
                 <tbody className="text-sm text-gray-800">
@@ -230,7 +230,7 @@ export default function DashboardPage() {
                         </td>
                         <td className="py-3 px-4">{item.namaBarang}</td>
                         <td className="py-3 px-4">{item.total}</td>
-                        <td className="py-3 w-60 text-center">
+                        <td className="py-3 w-30 text-center">
                         <button className="text-white bg-[#5D33DA] px-8 py-3 rounded-lg hover:bg-[#4A28B5] transition">
                             Detail
                         </button>

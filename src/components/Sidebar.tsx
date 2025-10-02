@@ -1,10 +1,25 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { FaChartBar, FaBox, FaFileAlt, FaCog, FaShoppingCart } from "react-icons/fa";
 
 export default function Sidebar() {
   const router = useRouter();
+  const pathname = usePathname() || ""; // pastikan bukan null
+
+  console.log("📌 Pathname aktif sekarang:", pathname);
+
+  // fungsi helper untuk style aktif
+  const getMenuClass = (path: string) => {
+    const base = "flex items-center gap-3 p-3 rounded-lg cursor-pointer";
+    const active = "bg-white font-semibold text-[#1D172F] shadow";
+    const inactive = "hover:bg-white text-[#1D172F]";
+
+    const isActive = pathname.startsWith(path);
+    console.log(`cek path: ${path} | isActive: ${isActive}`);
+
+    return `${base} ${isActive ? active : inactive}`;
+  };
 
   return (
     <div className="fixed left-0 top-0 h-full w-64 flex flex-col justify-between">
@@ -13,31 +28,31 @@ export default function Sidebar() {
         <ul className="space-y-2 px-4">
           <li
             onClick={() => router.push("/dashboard/main")}
-            className="flex items-center gap-3 p-3 rounded-lg bg-white cursor-pointer"
+            className={getMenuClass("/dashboard/main")}
           >
             <FaChartBar /> Dashboard
           </li>
           <li
-            onClick={() => router.push("/transaksi")}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-white cursor-pointer"
+            onClick={() => router.push("/dashboard/transaksi/main")}
+            className={getMenuClass("/dashboard/transaksi/main")}
           >
             <FaShoppingCart /> Transaksi
           </li>
           <li
-            onClick={() => router.push("/produk")}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-white cursor-pointer"
+            onClick={() => router.push("/dashboard/produk/main")}
+            className={getMenuClass("/dashboard/produk/main")}
           >
             <FaBox /> Produk
           </li>
           <li
-            onClick={() => router.push("/laporan")}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-white cursor-pointer"
+            onClick={() => router.push("/dashboard/laporan/main")}
+            className={getMenuClass("/dashboard/laporan/main")}
           >
             <FaFileAlt /> Laporan
           </li>
           <li
             onClick={() => router.push("/pengaturan")}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-white cursor-pointer"
+            className={getMenuClass("/pengaturan")}
           >
             <FaCog /> Pengaturan
           </li>
