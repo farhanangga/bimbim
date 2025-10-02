@@ -53,13 +53,13 @@ export default function SignInPage() {
                     <div>
                     <label className="block text-sm font-semibold text-black">Password</label>
                     <div className="relative w-full">
-      <input
-        type={showPassword ? "text" : "password"}
-        placeholder="Masukkan password"
-        className="w-full px-4 pr-10 mt-1 py-3 rounded-md border border-gray-300 bg-gray-100 
-                   text-black placeholder-gray-400 
-                   focus:outline-none focus:border-[#5D33DA] focus:ring-2 focus:ring-[#5D33DA]"
-      />
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Masukkan password"
+                      className="w-full px-4 pr-10 mt-1 py-3 rounded-md border border-gray-300 bg-gray-100 
+                                text-black placeholder-gray-400 
+                                focus:outline-none focus:border-[#5D33DA] focus:ring-2 focus:ring-[#5D33DA]"
+                    />
 
       {/* Toggle Button */}
       <button
