@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@next/font": "^14.2.15",
     "next": "^15.5.3",
     "react": "^19.1.0",
