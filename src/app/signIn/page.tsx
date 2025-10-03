@@ -95,12 +95,16 @@ export default function SignInPage() {
 
                     {/* Button Sign In */}
                     <button
-                    type="submit"
-                    onClick={() => router.push("/dashboard/main")}
-                    className="w-full py-3 rounded-md bg-[#5D33DA] text-white font-semibold hover:bg-[#4A28B5] transition"
+                      type="submit"
+                      onClick={(e) => {
+                        e.preventDefault(); // cegah reload halaman
+                        router.push("/dashboard/main");
+                      }}
+                      className="w-full py-3 rounded-md bg-[#5D33DA] text-white font-semibold hover:bg-[#4A28B5] transition"
                     >
-                    Sign In
+                      Sign In
                     </button>
+
 
                     {/* Google Sign In */}
                     <Link
