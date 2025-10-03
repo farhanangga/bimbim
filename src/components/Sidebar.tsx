@@ -76,7 +76,7 @@ export default function Sidebar() {
           </div>
 
           {/* Mode Kasir */}
-          <button className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold">
+          <button onClick={() => router.push("/dashboard/modeKasir/main")} className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-800">
             MODE KASIR
           </button>
 
