@@ -37,25 +37,25 @@ html {
 
 /* Saat hover div baru muncul */
 .custom-scrollbar:hover::-webkit-scrollbar-thumb {
-  background: #ffffff;      /* abu terang */
+  background: #ffffff00;      /* abu terang */
 }
 .custom-scrollbar:hover::-webkit-scrollbar-thumb:hover {
-  background: #a3a3a3;      /* abu lebih gelap */
+  background: #a3a3a300;      /* abu lebih gelap */
 }
 
 /* Track */
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #fafafa;
+  background: #fafafa50;
   border-radius: 10px;
 }
 
 /* Firefox */
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: transparent #fafafa;
+  scrollbar-color: transparent #fafafa51;
 }
 .custom-scrollbar:hover {
-  scrollbar-color: #c5c5c5 #fafafa;
+  scrollbar-color: #c5c5c5b2 #fafafab0;
 }
 
 
