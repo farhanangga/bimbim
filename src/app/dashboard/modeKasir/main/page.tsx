@@ -23,14 +23,14 @@ export default function KasirPage() {
       {/* Konten */}
       <div className="flex flex-1 items-center justify-center px-6">
         {/* Div Putih Utama */}
-        <div className="relative flex flex-col bg-white rounded-xl w-[1200px] h-[700px] shadow-lg my-5">
+        <div className="relative flex p-6 flex-col bg-white rounded-xl w-[1200px] h-[700px] shadow-lg my-5">
 
           {/* TopBar */}
           <TopBar />
 
-          <div className="flex flex-1 px-1 py-4 mt-15">
+          <div className="flex flex-1 px-1 ">
             {/* Card Transaksi */}
-            <div className="flex-1 bg-white rounded-xl p-6 mx-6 h-max  flex flex-col">
+            <div className="flex-1 bg-white rounded-xl mx-6 h-max  flex flex-col">
               <h2 className="text-lg font-semibold mb-4 text-black">
                 Transaksi Terakhir
               </h2>
