@@ -1,7 +1,11 @@
 "use client";
 import TopBar from "@/components/TopBar";
+import { useRouter } from "next/navigation";
 
 export default function KasirPage() {
+
+  const router = useRouter();
+  
   return (
     <div className="relative min-h-screen flex flex-col bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF]">
       
@@ -23,7 +27,10 @@ export default function KasirPage() {
                 placeholder="Ketik di sini....." 
                 className="text-black w-full px-4 py-3 bg-white rounded-md focus:outline-none focus:ring-grey-200 mb-4"
               />
-              <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-md">
+
+              <button 
+              onClick={() => router.push("/dashboard/modeKasir/detailPembelian1")} 
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-md">
                 Selanjutnya
               </button>
             </div>
