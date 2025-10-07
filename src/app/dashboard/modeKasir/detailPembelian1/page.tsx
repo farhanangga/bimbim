@@ -65,7 +65,7 @@ export default function DetailPembelianPage() {
                 </button>
 
                 <button
-                  onClick={() => router.push("/dashboard/modeKasir/")}
+                  onClick={() => router.push("/dashboard/modeKasir/pembayaran")}
                   className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-md"
                 >
                   Selanjutnya
