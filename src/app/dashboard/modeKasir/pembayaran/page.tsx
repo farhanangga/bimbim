@@ -10,17 +10,20 @@ export default function PilihMetodePembayaranPage() {
     {
       id: 1,
       nama: "BAYAR DI TEMPAT",
-      icon: "/img/assets/bayar_ditempat.png", // ganti sesuai path gambarnya
+      icon: "/img/assets/bayar_ditempat.png",
+      link: "/dashboard/modeKasir/inputUang", // ganti sesuai path gambarnya
     },
     {
       id: 2,
       nama: "QRIS",
       icon: "/img/assets/qris.png",
+      link: "/dashboard/modeKasir/inputQris",
     },
     {
       id: 3,
       nama: "DEBIT",
       icon: "/img/assets/debit.png",
+      link: "/dashboard/modeKasir/inputUang",
     },
   ];
 
@@ -43,7 +46,7 @@ export default function PilihMetodePembayaranPage() {
               {metodePembayaran.map((metode) => (
                 <div
                   key={metode.id}
-                  onClick={() => router.push(`/dashboard/modeKasir/konfirmasiPembayaran?metode=${metode.nama}`)}
+                  onClick={() => router.push(`${metode.link}`)}
                   className="flex flex-col items-center justify-center bg-white rounded-xl p-8 shadow-md hover:shadow-lg cursor-pointer hover:scale-105 transition-transform duration-200"
                 >
                   <img
