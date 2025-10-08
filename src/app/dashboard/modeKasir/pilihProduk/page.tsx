@@ -3,11 +3,18 @@ import TopBar from "@/components/TopBar";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
+interface Produk {
+  id: number;
+  nama: string;
+  harga: number;
+  stok: number;
+}
+
 export default function PilihProdukPage() {
   const router = useRouter();
 
   // Data produk
-  const produkList = [
+  const produkList: Produk[] = [
     { id: 1, nama: "NASI PADANG", harga: 25000, stok: 15 },
     { id: 2, nama: "AYAM GEPREK", harga: 20000, stok: 20 },
     { id: 3, nama: "NASI AYAM GEPREK", harga: 28000, stok: 10 },
@@ -30,29 +37,20 @@ export default function PilihProdukPage() {
     { id: 20, nama: "AIR MINERAL", harga: 3000, stok: 60 },
   ];
 
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState<Produk | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredProduk, setFilteredProduk] = useState(produkList);
+  const [filteredProduk, setFilteredProduk] = useState<Produk[]>(produkList);
 
   // 🔒 Kunci scroll saat modal terbuka
   useEffect(() => {
     document.body.style.overflow = selectedProduct ? "hidden" : "auto";
-    return () => (document.body.style.overflow = "auto");
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [selectedProduct]);
 
-  const openModal = (product) => {
-    setSelectedProduct(product);
-    setQuantity(1);
-  };
-
-  const closeModal = () => setSelectedProduct(null);
-
-  const handleTambah = () => {
-    router.push("/dashboard/modeKasir/detailPembelian1");
-  };
-
-  // 🔍 Fungsi pencarian spesifik (nama harus cocok persis)
+  // 🔍 Fungsi pencarian
   const handleSearch = () => {
     const term = searchTerm.trim().toLowerCase();
     if (term === "") {
@@ -63,6 +61,17 @@ export default function PilihProdukPage() {
       );
       setFilteredProduk(hasil);
     }
+  };
+
+  const openModal = (product: Produk) => {
+    setSelectedProduct(product);
+    setQuantity(1);
+  };
+
+  const closeModal = () => setSelectedProduct(null);
+
+  const handleTambah = () => {
+    router.push("/dashboard/modeKasir/detailPembelian1");
   };
 
   return (
@@ -78,7 +87,7 @@ export default function PilihProdukPage() {
             <div className="flex justify-between w-full">
               <input
                 type="text"
-                placeholder="Ketik nama produk secara spesifik..."
+                placeholder="Ketik nama produk..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="flex-1 px-4 py-3 text-black rounded-l-md bg-gray-100 focus:outline-none w-full"
@@ -133,7 +142,7 @@ export default function PilihProdukPage() {
               onClick={closeModal}
             >
               <div
-                className="bg-white rounded-xl shadow-lg p-10 "
+                className="bg-white rounded-xl shadow-lg p-10"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex items-center justify-between gap-10">
