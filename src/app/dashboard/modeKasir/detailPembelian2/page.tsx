@@ -78,7 +78,7 @@ export default function DetailPembelianPage() {
 
                 <div className="flex justify-between">
                   <span className="font-semibold text-gray-900">
-                    Metode Pembayaran
+                    Pembayaran
                   </span>
                   <span className="text-gray-900">{dataPembelian.metode}</span>
                 </div>

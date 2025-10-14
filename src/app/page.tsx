@@ -4,138 +4,249 @@ import { useRouter } from "next/navigation";
 
 export default function LandingPage() {
   const router = useRouter();
+
+  // ===========================
+  // 🎨 SEMUA WARNA DIKONTROL DI SINI
+  // ===========================
+  const colors = {
+    // Background gradient utama
+    bgFrom: "#D8E1FF",
+    bgVia: "#88AEFF",
+    bgTo: "#A88FFF",
+    bgPricing: "#CCDCFF",
+
+    // Gradient tema utama
+    gradientFrom1: "#5D3ADA",
+    gradientTo1: "#2B68FF",
+
+    // Gradient lembut (30%)
+    gradientFrom2: "#AB8FFF",
+    gradientTo2: "#88AEFF",
+
+    // Warna teks
+    textPrimary: "#1D172F", // text-gray-800
+    textLight: "#FFFFFF",
+    textHighlight: "#2563EB", // text-blue-600
+    textBintang: "#FACC15", // yellow-400
+    red:"#fa1515ff",
+    // Warna elemen lain
+    bgWhite: "#FFFFFF",
+    shadow: "rgba(0,0,0,0.15)",
+  };
+
+  // ===========================
+  // 🧩 DATA UTAMA
+  // ===========================
+  const navLinks = [
+    { label: "Fitur", href: "#fitur" },
+    { label: "Berlangganan", href: "#berlangganan" },
+    { label: "Ulasan", href: "#ulasan" },
+    { label: "FAQ", href: "#faq" },
+  ];
+
+  const pricingPlans = [
+    {
+      title: "FREE PLAN",
+      price: "Rp0 / selamanya",
+      features: [
+        "Maksimal 20 barang",
+        "1 Pengguna (kasir)",
+        "Pencatatan transaksi dasar",
+        "Laporan penjualan harian sederhana",
+        "Akses cloud & sinkronisasi otomatis",
+      ],
+      button: "Mulai Dengan FREE PLAN",
+    },
+    {
+      title: "BASIC PLAN",
+      price: "Rp49.000 / Bulan",
+      features: [
+        "Tanpa batas barang",
+        "Hingga 2 pengguna (kasir & pegawai)",
+        "Laporan penjualan harian & mingguan",
+        "Manajemen stok otomatis",
+        "Ekspor laporan ke Excel & PDF",
+      ],
+    },
+    {
+      title: "PRO PLAN",
+      price: "Rp199.000 / Bulan",
+      features: [
+        "Semua fitur Basic",
+        "Pengguna tak terbatas",
+        "Laporan penjualan lengkap (harian, mingguan, bulanan)",
+        "Multi perangkat (HP, tablet, PC)",
+        "Notifikasi stok menipis",
+      ],
+    },
+    {
+      title: "ENTERPRIZE PLAN",
+      price: "Rp599.000 / Tahun",
+      features: [
+        "Semua fitur Basic",
+        "Pengguna tak terbatas",
+        "Laporan penjualan lengkap",
+        "Multi perangkat",
+        "Dukungan pelanggan prioritas",
+      ],
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: "Bryan Brando",
+      text: "Sejak pakai Bimbim, transaksi di toko jadi lebih cepat dan laporan keuangan langsung otomatis. Sangat membantu untuk usaha kecil seperti saya.",
+      img: "/img/assets/profil/profil-1.png",
+    },
+    {
+      name: "Amy August",
+      text: "Aplikasi kasir terbaik! Mudah digunakan, fiturnya lengkap, dan harga sangat terjangkau untuk bisnis kami.",
+      img: "/img/assets/profil/profil-2.png",
+    },
+    {
+      name: "Meliana Jane",
+      text: "Aplikasi ini mudah sekali untuk digunakan, saya sangat menyukainya karena ini dapat membantu saya mengelola bisnis saya dengan baik.",
+      img: "/img/assets/profil/profil-3.png",
+    },
+  ];
+
+  const benefits = [
+    "Hemat waktu dengan pencatatan transaksi otomatis",
+    "Data tersimpan aman di cloud, tidak takut hilang",
+    "Mudah digunakan tanpa perlu pelatihan khusus",
+    "Membantu bisnis lebih teratur dan profesional",
+    "Mendukung pertumbuhan usaha dengan analisis penjualan",
+  ];
+
+  const faqItems = [
+    {
+      q: "Apakah Bimbim bisa digunakan offline?",
+      a: "Bisa, namun data akan otomatis sinkron saat online.",
+    },
+    {
+      q: "Apakah aman menyimpan data di Bimbim?",
+      a: "Sangat aman, semua data tersimpan di cloud dengan enkripsi tingkat tinggi.",
+    },
+    {
+      q: "Apakah saya bisa ekspor laporan ke Excel?",
+      a: "Bisa, semua laporan bisa diunduh ke format Excel & PDF.",
+    },
+    {
+      q: "Apakah ada dukungan pelanggan?",
+      a: "Ya, kami menyediakan support via WhatsApp & Email 24/7.",
+    },
+  ];
+
+  // ===========================
+  // 🧱 RENDER KOMPONEN
+  // ===========================
   return (
-    <div className="relative min-h-screen flex flex-col bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF] text-gray-800">
+    <div
+      style={{
+        background: `linear-gradient(to top right, ${colors.bgFrom}, ${colors.bgVia}, ${colors.bgTo})`,
+        color: colors.textPrimary,
+        minHeight: "100vh",
+      }}
+      className="flex flex-col"
+    >
       {/* Navbar */}
-      <nav className="flex items-center justify-between px-30 py-6">
-        <h1 className="text-2xl font-bold text-blue-700">Bimbim</h1>
-        <ul className="hidden md:flex gap-8 font-bld text-gray-700">
-          <li>
-            <a href="#fitur" className="hover:text-blue-600 cursor-pointer">Fitur</a>
-          </li>
-          <li>
-            <a href="#harga" className="hover:text-blue-600 cursor-pointer">Harga</a>
-          </li>
-          <li>
-            <a href="#ulasan" className="hover:text-blue-600 cursor-pointer">Ulasan</a>
-          </li>
-          <li>
-            <a href="#faq" className="hover:text-blue-600 cursor-pointer">FAQ</a>
-          </li>
-        </ul>
-        <ul className="hidden md:flex gap-8 font-medium text-gray-700">
-          <li 
-            onClick={() => router.push("/signIn")} 
-            className="hover:text-blue-600 cursor-pointer font-bld"
-          >
-            Sign In
-          </li>
-        </ul>
+      <nav
+        className="flex justify-center mx-30"
+        style={{ color: colors.textPrimary }}
+      >
+        <div className="flex items-center justify-between py-6 max-w-360 w-full">
+          <h1 style={{ color: colors.textHighlight }} className="text-2xl font-bold">
+            Bimbim
+          </h1>
+          <ul className="hidden md:flex gap-8 font-bold">
+            {navLinks.map((link, i) => (
+              <li key={i}>
+                <a href={link.href} style={{ color: colors.textPrimary }}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ul className="hidden md:flex gap-8 font-medium">
+            <li
+              onClick={() => router.push("/signIn")}
+              style={{ color: colors.textPrimary, fontWeight: "bold" }}
+              className="cursor-pointer"
+            >
+              Sign In
+            </li>
+          </ul>
+        </div>
       </nav>
 
       {/* Hero */}
-      <section className="grid md:grid-cols-2 items-center px-30">
-        <div>
-          <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-            Kelola Bisnis Lebih Mudah dengan Kasir Digital{" "}
-            <span className="text-blue-600">Bimbim</span>
-          </h2>
-          <p className="mb-8 text-lg text-gray-700 max-w-lg">
-            Sistem kasir modern yang membantu Anda mencatat transaksi,
-            mengelola stok, dan memantau laporan penjualan dengan cepat &
-            akurat.
-          </p>
-          <button className="px-8 py-3 bg-gradient-to-r from-[#5D3ADA] to-[#2B68FF] text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition">
-            Mulai
-          </button>
-        </div>
-        <div className="flex justify-center mt-10 md:mt-0">
-          <img
-            src="/img/assets/model.png"
-            alt="Kasir Digital"
-            className="max-w-sm md:max-w-xl drop-shadow-xl"
-          />
+      <section className="flex justify-center mx-30">
+        <div className="grid md:grid-cols-2 items-center max-w-360 pb-30 w-full">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+              Kelola Bisnis Lebih Mudah dengan Kasir Digital{" "}
+              <span style={{ color: colors.textHighlight }}>Bimbim</span>
+            </h2>
+            <p style={{ color: colors.textPrimary }} className="mb-8 text-lg max-w-lg">
+              Sistem kasir modern yang membantu Anda mencatat transaksi,
+              mengelola stok, dan memantau laporan penjualan dengan cepat & akurat.
+            </p>
+            <button
+              style={{
+                background: colors.textPrimary,
+                color: colors.textLight,
+              }}
+              className="px-8 py-3 rounded-lg font-semibold shadow hover:opacity-90 transition"
+            >
+              Mulai Sekarang
+            </button>
+          </div>
+          <div className="flex justify-center mt-10 md:mt-0">
+            <img
+              src="/img/assets/model.png"
+              alt="Kasir Digital"
+              className="max-w-100 md:max-w-100 drop-shadow-xl"
+            />
+          </div>
         </div>
       </section>
 
       {/* Pricing */}
-      <section id="harga" className="relative w-full overflow-hidden">
-        <img
-          src="/img/assets/bg-white.png"
-          alt="Background wave"
-          className="w-full h-auto block"
-        />
-
-        {/* konten di atas gambar */}
-        <div  className="absolute inset-0 flex flex-col items-center justify-center px-40">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Pilih Paket yang Tepat untuk Bisnismu
-          </h2>
-
-          {/* Pricing Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 flex flex-col justify-between">
-            {/* FREE PLAN */}
-            <div className=" bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-2xl shadow-lg p-6 text-center">
-              <h3 className="text-xl font-bold text-gray-800">FREE PLAN</h3>
-              <p className="text-gray-700 font-semibold">Rp0 / selamanya</p>
-              <ul className="mt-4 text-sm text-gray-600 space-y-2">
-                <li>Maksimal 20 barang</li>
-                <li>1 Pengguna (kasir)</li>
-                <li>Pencatatan transaksi dasar</li>
-                <li>Laporan penjualan harian sederhana</li>
-                <li>Akses cloud & sinkronisasi otomatis</li>
-              </ul>
-              <button className="mt-6 bg-gradient-to-r from-[#5D3ADA] to-[#2B68FF] text-white px-6 py-2 rounded-xl">
-                Mulai Dengan FREE PLAN
-              </button>
-            </div>
-
-            {/* BASIC PLAN */}
-            <div className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-2xl shadow-lg p-6 text-center flex flex-col justify-between">
-              <h3 className="text-xl font-bold text-gray-800">BASIC PLAN</h3>
-              <p className="text-gray-700 font-semibold">Rp49.000 / Bulan</p>
-              <ul className="mt-4 text-sm text-gray-600 space-y-2">
-                <li>Tanpa batas barang</li>
-                <li>Hingga 2 pengguna (kasir & pegawai)</li>
-                <li>Laporan penjualan harian & mingguan</li>
-                <li>Manajemen stok otomatis</li>
-                <li>Ekspor laporan ke Excel & PDF</li>
-              </ul>
-              <button className="mt-6 bg-gradient-to-r from-[#5D3ADA] to-[#2B68FF] text-white px-6 py-2 rounded-xl">
-                Mulai Dengan BASIC PLAN
-              </button>
-            </div>
-
-            {/* PRO PLAN */}
-            <div className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-2xl shadow-lg p-6 text-center  flex flex-col justify-between">
-              <h3 className="text-xl font-bold text-gray-800">PRO PLAN</h3>
-              <p className="text-gray-700 font-semibold">Rp199.000 / Bulan</p>
-              <ul className="mt-4 text-sm text-gray-600 space-y-2">
-                <li>Semua fitur Basic</li>
-                <li>Pengguna tak terbatas</li>
-                <li>Laporan penjualan lengkap (harian, mingguan, bulanan)</li>
-                <li>Multi perangkat (HP, tablet, PC)</li>
-                <li>Notifikasi stok menipis</li>
-              </ul>
-              <button className="mt-6 bg-gradient-to-r from-[#5D3ADA] to-[#2B68FF] text-white px-6 py-2 rounded-xl">
-                Mulai Dengan PRO PLAN
-              </button>
-            </div>
-
-            {/* ENTERPRIZE PLAN */}
-            <div className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-2xl shadow-lg p-6 text-center flex flex-col justify-between">
-              <h3 className="text-xl font-bold text-gray-800">ENTERPRIZE PLAN</h3>
-              <p className="text-gray-700 font-semibold">Rp599.000 / Tahun</p>
-              <ul className="mt-4 text-sm text-gray-600 space-y-2">
-                <li>Semua fitur Basic</li>
-                <li>Pengguna tak terbatas</li>
-                <li>Laporan penjualan lengkap</li>
-                <li>Multi perangkat</li>
-                <li>Dukungan pelanggan prioritas</li>
-              </ul>
-              <button className="mt-6 bg-gradient-to-r from-[#5D3ADA] to-[#2B68FF] text-white px-6 py-2 rounded-xl">
-                Mulai Dengan ENTERPRIZE PLAN
-              </button>
+      <section id="berlangganan" className="flex justify-center " >
+        <div className="flex justify-center px-30 w-full" style={{background: colors.bgWhite}}>
+          <div className="flex flex-col items-center justify-center pt-15 pb-30 max-w-360 w-full" style={{background: colors.bgWhite}}>
+            <h2 className="text-3xl font-bold text-center mb-12" style={{color: colors.gradientTo1}}>Berlangganan</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+              {pricingPlans.map((plan, i) => (
+                <div
+                  key={i}
+                  style={{
+                    background: colors.bgPricing,
+                    color: colors.textPrimary,
+                    boxShadow: `0 4px 8px ${colors.shadow}`,
+                  }}
+                  className="rounded-xl p-6 text-center flex flex-col justify-between max-w-70 w-full"
+                >
+                  <h3 className="text-xl font-bold">{plan.title}</h3>
+                  <p style={{ color: colors.textPrimary }} className="font-semibold">
+                    {plan.price}
+                  </p>
+                  <ul className="mt-4 text-sm space-y-2">
+                    {plan.features.map((f, i) => (
+                      <li key={i}>{f}</li>
+                    ))}
+                  </ul>
+                  <button
+                    style={{
+                      background: `linear-gradient(to right, ${colors.gradientFrom1}, ${colors.gradientTo1})`,
+                      color: colors.textLight,
+                    }}
+                    className="mt-6 px-6 py-3 rounded-sm"
+                  >
+                    Berlangganan
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -144,45 +255,25 @@ export default function LandingPage() {
       {/* Testimonials */}
       <section id="ulasan" className="px-30 py-20">
         <div className="flex flex-col gap-8">
-          {[
-            {
-              name: "Bryan Brando",
-              text: "Sejak pakai Bimbim, transaksi di toko jadi lebih cepat dan laporan keuangan langsung otomatis. Sangat membantu untuk usaha kecil seperti saya.",
-              img: "/img/assets/profil/profil-1.png",
-            },
-            {
-              name: "Amy August",
-              text: "Aplikasi kasir terbaik! Mudah digunakan, fiturnya lengkap, dan harga sangat terjangkau untuk bisnis kamii.",
-              img: "/img/assets/profil/profil-2.png",
-            },
-            {
-              name: "Meliana Jane",
-              text: "Aplikasi ini mudah sekali untuk digunakan, saya sangat menyukainya karena in dapat membantu saya mengelola bisnis saya dengan baik.",
-              img: "/img/assets/profil/profil-3.png",
-            },
-          ].map((t, i) => (
+          {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl shadow-md p-6 flex items-start gap-4"
+              style={{
+                backgroundColor: colors.bgWhite,
+                color: colors.textPrimary,
+                boxShadow: `0 4px 12px ${colors.shadow}`,
+              }}
+              className="rounded-2xl p-6 flex items-start gap-4"
             >
-              {/* Foto Profil */}
-              <img
-                src={t.img}
-                alt={t.name}
-                className="w-20 h-20 rounded-full object-cover"
-              />
-
-              {/* Konten Testimoni */}
+              <img src={t.img} alt={t.name} className="w-20 h-20 rounded-full object-cover" />
               <div>
-                <h4 className="font-bold text-gray-900">{t.name}</h4>
-
-                {/* Rating bintang */}
-                <div className="flex text-yellow-400 mb-2">
+                <h4 className="font-bold">{t.name}</h4>
+                <div style={{ color: colors.textBintang }} className="flex mb-2">
                   {Array(5)
                     .fill(0)
-                    .map((_, i) => (
+                    .map((_, j) => (
                       <svg
-                        key={i}
+                        key={j}
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5 fill-current"
                         viewBox="0 0 20 20"
@@ -191,40 +282,31 @@ export default function LandingPage() {
                       </svg>
                     ))}
                 </div>
-
-                <p className="text-gray-700 leading-relaxed">{t.text}</p>
+                <p style={{ color: colors.textPrimary }}>{t.text}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* benefit */}
+      {/* Benefit */}
       <section id="fitur" className="relative w-full overflow-hidden">
-        <img
-          src="/img/assets/bg-white.png"
-          alt="Background wave"
-          className="w-full h-auto block"
-        />
+        <img src="/img/assets/bg-white.png" alt="Background wave" className="w-full h-auto block" />
         <div className="absolute inset-0 grid md:grid-cols-2 gap-12 items-center px-30">
-          {/* Judul */}
           <h2 className="text-4xl md:text-5xl font-extrabold leading-snug text-left">
             KENAPA HARUS <br /> PAKAI{" "}
-            <span className="text-blue-600">Bimbim?</span>
+            <span style={{ color: colors.textHighlight }}>Bimbim?</span>
           </h2>
-
-          {/* Daftar Benefit */}
           <div className="flex flex-col gap-4">
-            {[
-              "Hemat waktu dengan pencatatan transaksi otomatis",
-              "Data tersimpan aman di cloud, tidak takut hilang",
-              "Mudah digunakan tanpa perlu pelatihan khusus",
-              "Membantu bisnis lebih teratur dan profesional",
-              "Mendukung pertumbuhan usaha dengan analisis penjualan",
-            ].map((item, i) => (
+            {benefits.map((item, i) => (
               <div
                 key={i}
-                className="px-8 py-8 rounded-xl text-gray-900 font-medium shadow-md bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30"
+                style={{
+                  background: `linear-gradient(to right, ${colors.gradientFrom2}, ${colors.gradientTo2})`,
+                  color: colors.textPrimary,
+                  boxShadow: `0 2px 6px ${colors.shadow}`,
+                }}
+                className="px-8 py-8 rounded-xl font-medium"
               >
                 {item}
               </div>
@@ -236,51 +318,41 @@ export default function LandingPage() {
       {/* FAQ */}
       <section id="faq" className="px-8 md:px-20 py-20">
         <div className="max-w-5xl mx-auto space-y-6">
-        {[
-          {
-            q: "Apakah Bimbim bisa digunakan offline?",
-            a: "Bisa, namun data akan otomatis sinkron saat online.",
-          },
-          {
-            q: "Apakah aman menyimpan data di Bimbim?",
-            a: "Sangat aman, semua data tersimpan di cloud dengan enkripsi tingkat tinggi.",
-          },
-          {
-            q: "Apakah saya bisa ekspor laporan ke Excel?",
-            a: "Bisa, semua laporan bisa diunduh ke format Excel & PDF.",
-          },
-          {
-            q: "Apakah ada dukungan pelanggan?",
-            a: "Ya, kami menyediakan support via WhatsApp & Email 24/7.",
-          },
-        ].map((item, i) => (
-          <div
-            key={i}
-            className={`w-4/5 bg-white rounded-2xl shadow-md p-6 
-              ${i % 2 === 0 ? "mr-auto" : "ml-auto"}`}
-          >
-            <p className="font-semibold mb-2">{item.q}</p>
-            <div className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 text-black w-full rounded-lg px-4 py-2 inline-block">
-              <p className="font-semibold">
-                {item.a}
+          {faqItems.map((item, i) => (
+            <div
+              key={i}
+              style={{
+                backgroundColor: colors.bgWhite,
+                boxShadow: `0 4px 10px ${colors.shadow}`,
+              }}
+              className={`w-4/5 rounded-2xl p-6 ${
+                i % 2 === 0 ? "mr-auto" : "ml-auto"
+              }`}
+            >
+              <p className="font-semibold mb-2" style={{ color: colors.textPrimary }}>
+                {item.q}
               </p>
+              <div
+                style={{
+                  background: `linear-gradient(to right, ${colors.gradientFrom2}, ${colors.gradientTo2})`,
+                  color: colors.textPrimary,
+                }}
+                className="w-full rounded-lg px-4 py-2 inline-block"
+              >
+                <p className="font-semibold">{item.a}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="relative w-full overflow-hidden">
-        {/* Background wave */}
-        <img
-          src="/img/assets/bg-footer.png"
-          alt="Background wave"
-          className="w-full h-auto block"
-        />
-
-        {/* Konten di atas gambar */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-130 text-black">
+        <img src="/img/assets/bg-footer.png" alt="Background wave" className="w-full h-auto block" />
+        <div
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center px-130"
+          style={{ color: colors.textPrimary }}
+        >
           <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full max-w-5xl mx-auto">
             <h3 className="text-2xl font-bold mb-6 md:mb-0">Bimbim</h3>
             <div className="space-y-1 text-sm text-center md:text-left">
