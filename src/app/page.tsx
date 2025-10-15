@@ -9,28 +9,21 @@ export default function LandingPage() {
   // 🎨 SEMUA WARNA DIKONTROL DI SINI
   // ===========================
   const colors = {
-    // Background gradient utama
-    bgFrom: "#D8E1FF",
-    bgVia: "#88AEFF",
-    bgTo: "#A88FFF",
+
+    warnaUtama1: "#2B68FF",
+    warnaUtama2: "#5D3ADA",
+    warnaLembut1: "#AB8FFF",
+    warnaLembut2: "#88AEFF",
+    warnaTextUtama: "#1D172F",
+    warnaText2:"#FFFFFF",
+    warnaText3: "#2B68FF",
+    warnaTerang: "#FFFFFF",
+    warnaButton1:"#2B68FF",
+    warnaButton2: "#5D3ADA",
+    warnaUtama3: "#1D172F",
     bgPricing: "#CCDCFF",
+    textBintang: "#FACC15",
 
-    // Gradient tema utama
-    gradientFrom1: "#5D3ADA",
-    gradientTo1: "#2B68FF",
-
-    // Gradient lembut (30%)
-    gradientFrom2: "#AB8FFF",
-    gradientTo2: "#88AEFF",
-
-    // Warna teks
-    textPrimary: "#1D172F", // text-gray-800
-    textLight: "#FFFFFF",
-    textHighlight: "#2563EB", // text-blue-600
-    textBintang: "#FACC15", // yellow-400
-    red:"#fa1515ff",
-    // Warna elemen lain
-    bgWhite: "#FFFFFF",
     shadow: "rgba(0,0,0,0.15)",
   };
 
@@ -143,8 +136,8 @@ export default function LandingPage() {
   return (
     <div
       style={{
-        background: `linear-gradient(to top right, ${colors.bgFrom}, ${colors.bgVia}, ${colors.bgTo})`,
-        color: colors.textPrimary,
+        background: `linear-gradient(to top right, ${colors.warnaTerang}, ${colors.warnaLembut2}, ${colors.warnaLembut1})`,
+        color: colors.warnaTextUtama,
         minHeight: "100vh",
       }}
       className="flex flex-col"
@@ -152,16 +145,16 @@ export default function LandingPage() {
       {/* Navbar */}
       <nav
         className="flex justify-center mx-30"
-        style={{ color: colors.textPrimary }}
+        style={{ color: colors.warnaTextUtama }}
       >
-        <div className="flex items-center justify-between py-6 max-w-360 w-full">
-          <h1 style={{ color: colors.textHighlight }} className="text-2xl font-bold">
+        <div className="flex items-center justify-between py-6 max-w-5xl w-full">
+          <h1 style={{ color: colors.warnaText3 }} className="text-2xl font-bold">
             Bimbim
           </h1>
           <ul className="hidden md:flex gap-8 font-bold">
             {navLinks.map((link, i) => (
               <li key={i}>
-                <a href={link.href} style={{ color: colors.textPrimary }}>
+                <a href={link.href} style={{ color: colors.warnaTextUtama }}>
                   {link.label}
                 </a>
               </li>
@@ -170,7 +163,7 @@ export default function LandingPage() {
           <ul className="hidden md:flex gap-8 font-medium">
             <li
               onClick={() => router.push("/signIn")}
-              style={{ color: colors.textPrimary, fontWeight: "bold" }}
+              style={{ color: colors.warnaTextUtama, fontWeight: "bold" }}
               className="cursor-pointer"
             >
               Sign In
@@ -181,20 +174,20 @@ export default function LandingPage() {
 
       {/* Hero */}
       <section className="flex justify-center mx-30">
-        <div className="grid md:grid-cols-2 items-center max-w-360 pb-30 w-full">
+        <div className="grid md:grid-cols-2 items-center max-w-5xl pb-30 w-full">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
               Kelola Bisnis Lebih Mudah dengan Kasir Digital{" "}
-              <span style={{ color: colors.textHighlight }}>Bimbim</span>
+              <span style={{ color: colors.warnaText3 }}>Bimbim</span>
             </h2>
-            <p style={{ color: colors.textPrimary }} className="mb-8 text-lg max-w-lg">
+            <p style={{ color: colors.warnaTextUtama }} className="mb-8 text-lg max-w-lg">
               Sistem kasir modern yang membantu Anda mencatat transaksi,
               mengelola stok, dan memantau laporan penjualan dengan cepat & akurat.
             </p>
             <button
               style={{
-                background: colors.textPrimary,
-                color: colors.textLight,
+                background: colors.warnaTextUtama,
+                color: colors.warnaTerang,
               }}
               className="px-8 py-3 rounded-lg font-semibold shadow hover:opacity-90 transition"
             >
@@ -213,22 +206,22 @@ export default function LandingPage() {
 
       {/* Pricing */}
       <section id="berlangganan" className="flex justify-center " >
-        <div className="flex justify-center px-30 w-full" style={{background: colors.bgWhite}}>
-          <div className="flex flex-col items-center justify-center pt-15 pb-30 max-w-360 w-full" style={{background: colors.bgWhite}}>
-            <h2 className="text-3xl font-bold text-center mb-12" style={{color: colors.gradientTo1}}>Berlangganan</h2>
+        <div className="flex justify-center px-30 w-full" style={{background: colors.warnaTerang}}>
+          <div className="flex flex-col items-center justify-center pt-15 pb-30 max-w-5xl w-full" style={{background: colors.warnaTerang}}>
+            <h2 className="text-3xl font-bold text-center mb-12" style={{color: colors.warnaUtama1}}>Berlangganan</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
               {pricingPlans.map((plan, i) => (
                 <div
                   key={i}
                   style={{
                     background: colors.bgPricing,
-                    color: colors.textPrimary,
+                    color: colors.warnaTextUtama,
                     boxShadow: `0 4px 8px ${colors.shadow}`,
                   }}
                   className="rounded-xl p-6 text-center flex flex-col justify-between max-w-70 w-full"
                 >
                   <h3 className="text-xl font-bold">{plan.title}</h3>
-                  <p style={{ color: colors.textPrimary }} className="font-semibold">
+                  <p style={{ color: colors.warnaTextUtama }} className="font-semibold">
                     {plan.price}
                   </p>
                   <ul className="mt-4 text-sm space-y-2">
@@ -238,8 +231,8 @@ export default function LandingPage() {
                   </ul>
                   <button
                     style={{
-                      background: `linear-gradient(to right, ${colors.gradientFrom1}, ${colors.gradientTo1})`,
-                      color: colors.textLight,
+                      background: `linear-gradient(to right, ${colors.warnaUtama2}, ${colors.warnaUtama1})`,
+                      color: colors.warnaTerang,
                     }}
                     className="mt-6 px-6 py-3 rounded-sm"
                   >
@@ -253,91 +246,105 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section id="ulasan" className="px-30 py-20">
-        <div className="flex flex-col gap-8">
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              style={{
-                backgroundColor: colors.bgWhite,
-                color: colors.textPrimary,
-                boxShadow: `0 4px 12px ${colors.shadow}`,
-              }}
-              className="rounded-2xl p-6 flex items-start gap-4"
-            >
-              <img src={t.img} alt={t.name} className="w-20 h-20 rounded-full object-cover" />
-              <div>
-                <h4 className="font-bold">{t.name}</h4>
-                <div style={{ color: colors.textBintang }} className="flex mb-2">
-                  {Array(5)
-                    .fill(0)
-                    .map((_, j) => (
-                      <svg
-                        key={j}
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 fill-current"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                </div>
-                <p style={{ color: colors.textPrimary }}>{t.text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Benefit */}
-      <section id="fitur" className="relative w-full overflow-hidden">
-        <img src="/img/assets/bg-white.png" alt="Background wave" className="w-full h-auto block" />
-        <div className="absolute inset-0 grid md:grid-cols-2 gap-12 items-center px-30">
-          <h2 className="text-4xl md:text-5xl font-extrabold leading-snug text-left">
-            KENAPA HARUS <br /> PAKAI{" "}
-            <span style={{ color: colors.textHighlight }}>Bimbim?</span>
-          </h2>
-          <div className="flex flex-col gap-4">
-            {benefits.map((item, i) => (
+      <section id="ulasan" className="py-20">
+        <div className="flex justify-center px-30 w-full">
+          <div className="flex flex-col gap-8 max-w-5xl w-full">
+            {testimonials.map((t, i) => (
               <div
                 key={i}
                 style={{
-                  background: `linear-gradient(to right, ${colors.gradientFrom2}, ${colors.gradientTo2})`,
-                  color: colors.textPrimary,
-                  boxShadow: `0 2px 6px ${colors.shadow}`,
+                  backgroundColor: colors.warnaTerang,
+                  color: colors.warnaTextUtama,
+                  boxShadow: `0 4px 12px ${colors.shadow}`,
                 }}
-                className="px-8 py-8 rounded-xl font-medium"
+                className={`rounded-2xl p-6 flex items-start gap-4 w-240 ${
+                  i % 2 === 0 ? "self-start" : "self-end"
+                }`}
               >
-                {item}
+                <img
+                  src={t.img}
+                  alt={t.name}
+                  className="w-20 h-20 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-bold">{t.name}</h4>
+                  <div
+                    style={{ color: colors.textBintang }}
+                    className="flex mb-2"
+                  >
+                    {Array(5)
+                      .fill(0)
+                      .map((_, j) => (
+                        <svg
+                          key={j}
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 fill-current"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                  </div>
+                  <p style={{ color: colors.warnaTextUtama }}>{t.text}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Benefit */}
+      <section id="fitur" className="">
+        <div className="flex justify-center px-30 w-full" style={{background: colors.warnaTerang}}>
+          <div className="flex items-center justify-between pt-15 pb-30 max-w-5xl w-full">
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-snug text-left">
+              KENAPA HARUS <br /> PAKAI{" "}
+              <span style={{ color: colors.warnaText3 }}>Bimbim?</span>
+            </h2>
+            <div className="flex flex-col gap-4">
+              {benefits.map((item, i) => (
+                <div
+                  key={i}
+                  style={{
+                    background: `linear-gradient(to right, ${colors.warnaLembut1}, ${colors.warnaLembut2})`,
+                    color: colors.warnaTextUtama,
+                    boxShadow: `0 2px 6px ${colors.shadow}`,
+                  }}
+                  className="px-8 py-8 rounded-xl font-medium"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section id="faq" className="px-8 md:px-20 py-20">
-        <div className="max-w-5xl mx-auto space-y-6">
+        <div className="max-w-5xl mx-auto flex flex-col gap-6">
           {faqItems.map((item, i) => (
-            <div
-              key={i}
-              style={{
-                backgroundColor: colors.bgWhite,
-                boxShadow: `0 4px 10px ${colors.shadow}`,
-              }}
-              className={`w-4/5 rounded-2xl p-6 ${
-                i % 2 === 0 ? "mr-auto" : "ml-auto"
-              }`}
-            >
-              <p className="font-semibold mb-2" style={{ color: colors.textPrimary }}>
-                {item.q}
-              </p>
+            <div key={i} className="flex flex-col gap-3">
+              {/* Question (rata kiri) */}
               <div
                 style={{
-                  background: `linear-gradient(to right, ${colors.gradientFrom2}, ${colors.gradientTo2})`,
-                  color: colors.textPrimary,
+                  backgroundColor: colors.warnaTerang,
+                  color: colors.warnaTextUtama,
+                  boxShadow: `0 4px 10px ${colors.shadow}`,
                 }}
-                className="w-full rounded-lg px-4 py-2 inline-block"
+                className="w-4/5 rounded-sm p-4 self-start"
+              >
+                <p className="font-semibold">{item.q}</p>
+              </div>
+
+              {/* Answer (rata kanan, gaya bubble warna gradasi) */}
+              <div
+                style={{
+                  background: `linear-gradient(to right, ${colors.warnaLembut1}, ${colors.warnaLembut2})`,
+                  color: colors.warnaTextUtama,
+                  boxShadow: `0 4px 10px ${colors.shadow}`,
+                }}
+                className="w-4/5 rounded-sm p-4 self-end"
               >
                 <p className="font-semibold">{item.a}</p>
               </div>
@@ -347,25 +354,49 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="relative w-full overflow-hidden">
-        <img src="/img/assets/bg-footer.png" alt="Background wave" className="w-full h-auto block" />
-        <div
-          className="absolute inset-0 z-10 flex flex-col items-center justify-center px-130"
-          style={{ color: colors.textPrimary }}
-        >
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full max-w-5xl mx-auto">
+      <footer 
+          style={{ backgroundColor: colors.warnaTextUtama,color: colors.warnaTerang }}>
+        <div className="flex justify-center">
+          <div className="flex flex-col justify-between pt-15 pb-30 max-w-5xl w-full px-30">
+
             <h3 className="text-2xl font-bold mb-6 md:mb-0">Bimbim</h3>
-            <div className="space-y-1 text-sm text-center md:text-left">
-              <p>support@bimbim.id</p>
-              <p>+62 812 3456 7890</p>
-              <p>Jakarta, Indonesia</p>
-            </div>
+
+              <div className="flex justify-between">
+
+                <div className="flex flex-col justify-between">
+
+                  <div>
+                    <p>Instagram</p>
+                    <p>Twitter</p>
+                    <p>Facebook</p>
+                    <p>Youtube</p>
+                  </div>
+
+                  <div>
+                    <p>Berlangganan</p>
+                    <p>Manfaat</p>
+                    <p>Ulasan</p>
+                    <p>FaQ</p>
+                  </div>
+
+                </div>
+              
+                <div className="w-50">
+                  <p>jl.Yos Sudarso no 43, Lemahwunggkuk ,Suka jadi, Jakarta Barat, DKI Jakarta, Indonesia</p>
+                  <p>+62 812 3456 7890</p>
+                  <p>Jakarta, Indonesia</p>
+                </div>
+                
+              </div>
+              <p className="text-center text-sm">
+                © 2025 Bimbim Kasir. All Rights Reserved.
+              </p>
           </div>
-          <p className="text-center mt-8 text-sm">
-            © 2025 Bimbim Kasir. All Rights Reserved.
-          </p>
+          
         </div>
+        
       </footer>
+
     </div>
   );
 }
