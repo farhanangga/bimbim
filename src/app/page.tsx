@@ -171,7 +171,7 @@ export default function LandingPage() {
 
           {/* Teks di bawah gambar saat mobile */}
           <div className="order-2 md:order-1 flex flex-col items-center md:items-start">
-            <h2 className="text-4xl sm:text-3xl md:text-5xl font-bold leading-tight mb-4 md:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-4 md:mb-6">
               Kelola Bisnis Lebih Mudah dengan{" "}
               <span style={{ color: colors.warnaUtama1 }}>Bimbim</span>
             </h2>
@@ -220,7 +220,7 @@ export default function LandingPage() {
                     background: `linear-gradient(to right, ${colors.warnaUtama2}, ${colors.warnaUtama1})`,
                     color: colors.warnaTerang,
                   }}
-                  className="sm:w-auto mt-6 md:px-4 px-20 py-4 rounded-md text-sm md:text-base"
+                  className="mt-6 md:px-4 py-4 rounded-md text-sm"
                 >
                   Berlangganan
                 </button>
