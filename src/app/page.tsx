@@ -157,7 +157,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="flex justify-center px-4 md:px-10 mt-10 md:mt-0">
+      <section className="flex justify-center px-4 md:px-10 mt-10 md:mt-20">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center max-w-5xl gap-10 py-10 md:py-5 text-center md:text-left">
           
           {/* Gambar di atas pada mobile */}
