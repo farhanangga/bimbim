@@ -8,44 +8,53 @@ export default function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-between bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF]">
+    <div className="relative min-h-screen flex flex-col justify-between bg-gradient-to-tr from-[#88AEFF] to-[#A88FFF]">
       {/* Main Content */}
-      <div className="flex flex-1 items-center justify-center px-6 py-7">
-        <div className="flex w-full max-w-[1180px] justify-between items-center mx-auto">
-          {/* Left Side */}
-          <div className="flex-1 flex flex-col justify-center text-left">
-            <h1 className="text-[128px] h-40 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#5D33DA] to-[#266BFF]">
-              Bimbim
-            </h1>
-            <h1 className="pl-1.5 text-[48px] text-black font-bold">
-              KASIR DIGITAL
-            </h1>
-          </div>
+      <div className="flex flex-1 items-center justify-center px-4 py-10">
+        <div
+          className="
+            flex w-full max-w-[1180px] justify-between items-center mx-auto
+            flex-col md:flex-row gap-10 md:gap-0
+          "
+        >
+          {/* LEFT SIDE */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <h1 className="text-6xl md:text-[128px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#5D33DA] to-[#266BFF] leading-none">
+            Bimbim
+          </h1>
+          <h2 className="text-xl md:text-[48px] font-semibold text-black mt-2 md:-mt-2">
+            Kasir Digital
+          </h2>
+        </div>
 
-          {/* Right Side */}
-          <div className="w-[460px]">
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold mb-1 text-black">Sign Up</h2>
-              <p className="text-gray-500 text-sm mb-6">
-                Isi data dibawah ini
-                <span
-                  onClick={() => router.push("/")}
-                  className="float-right cursor-pointer text-gray-500 hover:underline"
-                >
-                  Kembali
-                </span>
+          {/* RIGHT SIDE */}
+          <div className="w-full max-w-[460px]">
+            <div className="bg-white rounded-2xl shadow-lg p-5 md:p-8">
+              <h2 className="text-2xl font-bold mb-1 text-black text-left">
+                Daftar
+              </h2>
+              <div className="flex items-center justify-between mb-6">
+              <p className="text-gray-400 text-sm">
+                Isi semua data di bawah ini!!
               </p>
+              <span
+                onClick={() => router.back()}
+                className= "text-gray-400 text-sm"
+              >
+                Back
+              </span>
+              </div>
 
               <form className="space-y-4">
                 {/* Nama Depan & Belakang */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-black">
                       Nama Depan
                     </label>
                     <input
                       type="text"
-                      placeholder="Nama depan"
+                      placeholder="Klik di sini..."
                       className="w-full px-4 mt-1 py-3 rounded-md border border-gray-300 bg-gray-100 
                         text-black placeholder-gray-400 
                         focus:outline-none focus:border-[#5D33DA] focus:ring-2 focus:ring-[#5D33DA]"
@@ -57,7 +66,7 @@ export default function SignUpPage() {
                     </label>
                     <input
                       type="text"
-                      placeholder="Nama belakang"
+                      placeholder="Klik di sini..."
                       className="w-full px-4 mt-1 py-3 rounded-md border border-gray-300 bg-gray-100 
                         text-black placeholder-gray-400 
                         focus:outline-none focus:border-[#5D33DA] focus:ring-2 focus:ring-[#5D33DA]"
@@ -72,7 +81,7 @@ export default function SignUpPage() {
                   </label>
                   <input
                     type="email"
-                    placeholder="Masukkan email"
+                    placeholder="Klik di sini..."
                     className="w-full px-4 mt-1 py-3 rounded-md border border-gray-300 bg-gray-100 
                       text-black placeholder-gray-400 
                       focus:outline-none focus:border-[#5D33DA] focus:ring-2 focus:ring-[#5D33DA]"
@@ -87,13 +96,11 @@ export default function SignUpPage() {
                   <div className="relative w-full">
                     <input
                       type={showPassword ? "text" : "password"}
-                      placeholder="Masukkan password"
+                      placeholder="Klik di sini..."
                       className="w-full px-4 pr-10 mt-1 py-3 rounded-md border border-gray-300 bg-gray-100 
                         text-black placeholder-gray-400 
                         focus:outline-none focus:border-[#5D33DA] focus:ring-2 focus:ring-[#5D33DA]"
                     />
-
-                    {/* Toggle Button */}
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
@@ -148,23 +155,27 @@ export default function SignUpPage() {
                   </label>
                   <input
                     type="password"
-                    placeholder="Konfirmasi password"
+                    placeholder="Klik di sini..."
                     className="w-full px-4 mt-1 py-3 rounded-md border border-gray-300 bg-gray-100 
                       text-black placeholder-gray-400 
                       focus:outline-none focus:border-[#5D33DA] focus:ring-2 focus:ring-[#5D33DA]"
                   />
                 </div>
 
-                {/* Button Sign Up */}
+                {/* Error */}
+                <p className="text-red-600 text-sm hidden">
+                  Email yang anda gunakan sudah terdaftar!
+                </p>
+
+                {/* Buttons */}
                 <button
                   type="button"
                   onClick={() => router.push("/signIn/kodeVerifikasi")}
                   className="w-full py-3 rounded-md bg-[#5D33DA] text-white font-semibold hover:bg-[#4A28B5] transition"
                 >
-                  Sign Up
+                  Daftar
                 </button>
 
-                {/* Google Sign Up (dummy) */}
                 <button
                   type="button"
                   onClick={() => router.push("/signIn/kodeVerifikasi")}
@@ -175,11 +186,11 @@ export default function SignUpPage() {
                     alt="Google"
                     className="w-5 h-5"
                   />
-                  Sign Up dengan Google
+                  Daftar dengan Google
                 </button>
               </form>
 
-              {/* Link login */}
+              {/* Login link */}
               <p className="text-center text-sm text-gray-600 mt-4">
                 Sudah punya akun?{" "}
                 <span
@@ -194,8 +205,8 @@ export default function SignUpPage() {
         </div>
       </div>
 
-      {/* Footer bergelombang */}
-      <div className="w-full">
+      {/* Footer Wave */}
+      <div className="hidden md:block w-full">
         <img
           src="/img/assets/footer.png"
           alt="footer"
