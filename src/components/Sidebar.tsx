@@ -10,14 +10,22 @@ export default function Sidebar() {
   console.log("📌 Pathname aktif sekarang:", pathname);
 
   // fungsi helper untuk style aktif
-  const getMenuClass = (path: string) => {
+ const getMenuClass = (path: string) => {
     const base = "flex items-center gap-3 p-3 rounded-lg cursor-pointer";
-    const active = "bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 md:bg-white font-semibold text-[#1D172F] shadow";
-    const inactive = "hover:bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 md:hover:bg-white text-[#1D172F]";
+
+    const active = `
+      bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30
+      md:bg-white md:bg-none
+      font-semibold text-[#1D172F] shadow
+    `;
+
+    const inactive = `
+      hover:bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30
+      md:hover:bg-white md:hover:bg-none
+      text-[#1D172F]
+    `;
 
     const isActive = pathname.startsWith(path);
-    console.log(`cek path: ${path} | isActive: ${isActive}`);
-
     return `${base} ${isActive ? active : inactive}`;
   };
 
