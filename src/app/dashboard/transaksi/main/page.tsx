@@ -204,7 +204,7 @@ export default function TransaksiPage() {
       )}
 
       {/* Hamburger Mobile */}
-      <div className="md:hidden flex items-center p-4 bg-white shadow sticky top-0 z-30">
+      <div className="fixed md:hidden flex items-center p-4 bg-white shadow sticky top-0 z-30">
         <button onClick={() => setSidebarOpen(true)}>
           <Menu size={28} />
         </button>
