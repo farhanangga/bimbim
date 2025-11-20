@@ -15,13 +15,13 @@ export default function Sidebar() {
 
     const active = `
       bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30
-      md:bg-white md:bg-none
+      lg:bg-white lg:bg-none
       font-semibold text-[#1D172F] shadow
     `;
 
     const inactive = `
       hover:bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30
-      md:hover:bg-white md:hover:bg-none
+      lg:hover:bg-white lg:hover:bg-none
       text-[#1D172F]
     `;
 

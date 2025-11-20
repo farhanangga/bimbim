@@ -84,13 +84,13 @@ export default function DashboardPage() {
       <div className="fixed inset-0 bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF] -z-10" />
 
       {/* Sidebar Desktop */}
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <Sidebar />
       </div>
 
       {/* Sidebar Mobile (Overlay) */}
       {sidebarOpen && (
-        <div className="fixed inset-0 z-40 flex md:hidden">
+        <div className="fixed inset-0 z-40 flex lg:hidden">
           <div className="fixed inset-0 bg-black/50" onClick={() => setSidebarOpen(false)} />
           <div className="relative bg-white w-64 h-full shadow-xl z-50">
             <Sidebar />
@@ -99,7 +99,7 @@ export default function DashboardPage() {
       )}
 
       {/* Tombol Hamburger */}
-      <div className="md:hidden flex items-center p-4 bg-white shadow sticky top-0 z-30">
+      <div className="lg:hidden flex items-center p-4 bg-white shadow sticky top-0 z-30">
         <button
           onClick={() => setSidebarOpen(true)}
           className="text-[#1D172F] focus:outline-none"
@@ -110,8 +110,8 @@ export default function DashboardPage() {
       </div>
 
       {/* Main Content */}
-      <div className="md:ml-64 p-4 md:p-6">
-        <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 space-y-6">
+      <div className="lg:ml-64 p-0 lg:p-6">
+        <div className="bg-white p-4 lg:p-6 rounded-none lg:rounded-2xl shadow-lg space-y-8">
           {/* Header Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
