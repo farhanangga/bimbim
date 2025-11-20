@@ -98,31 +98,78 @@ export default function TransaksiPage() {
   }
 
   // Basic frontend filter function (no backend)
-  function applyFilter(list: Trx[], search, jenis, date, range) {
-    const q = String(search).trim();
+  type Trx = {
+    id: string;
+    nama: string;
+    tanggal: string;
+    jumlah: number;
+    total: string;
+  };
 
-    return list.filter((row) => {
+  function applyFilter(
+    list: Trx[],
+    search: string,
+    jenis: string | null,
+    date: string | null,
+    range: string | null
+  ): Trx[] {
+
+    const q = String(search).trim().toLowerCase();
+
+    // ==== Range Date Filter ====
+    const today = new Date();
+    let startRange: Date | null = null;
+
+    if (range === "Hari Ini") {
+      startRange = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    } 
+    else if (range === "Minggu Ini") {
+      const day = today.getDay();
+      const diff = today.getDate() - day + (day === 0 ? -6 : 1);
+      startRange = new Date(today.setDate(diff));
+    } 
+    else if (range === "Bulan Ini") {
+      startRange = new Date(today.getFullYear(), today.getMonth(), 1);
+    }
+
+    return list.filter((row: Trx) => {
+      const rowDate = new Date(row.tanggal);
+
+      // === Filter by date picker ===
       if (date && row.tanggal !== date) return false;
 
+      // === Filter by range ===
+      if (startRange) {
+        if (rowDate < startRange) return false;
+      }
+
+      // === Search filter ===
       if (q) {
-        const qLower = q.toLowerCase();
         switch (jenis) {
           case "Nama":
-            return row.nama.toLowerCase().includes(qLower);
+            return row.nama.toLowerCase().includes(q);
+
           case "id transaksi":
-            return row.id.toLowerCase().includes(qLower);
+            return row.id.toLowerCase().includes(q);
+
           case "jumlah =":
             return Number(row.jumlah) === Number(q);
+
           case "jumlah >":
             return Number(row.jumlah) > Number(q);
+
           case "jumlah <":
             return Number(row.jumlah) < Number(q);
+
           case "total harga =":
             return parseCurrencyNumber(row.total) === Number(q.replace(/[^\d]/g, ""));
+
           case "total harga >":
             return parseCurrencyNumber(row.total) > Number(q.replace(/[^\d]/g, ""));
+
           case "total harga <":
             return parseCurrencyNumber(row.total) < Number(q.replace(/[^\d]/g, ""));
+
           default:
             return true;
         }
@@ -131,6 +178,7 @@ export default function TransaksiPage() {
       return true;
     });
   }
+
 
   const filteredDaftar = useMemo(() => {
     return applyFilter(daftarTransaksi, searchTextTrx, selectedJenisTrx, selectedDateTrx, selectedRangeTrx);
@@ -201,6 +249,7 @@ export default function TransaksiPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
               </svg>
             </button>
+             
           </div>
           <div className="bg-gray-50 p-4 rounded-xl shadow overflow-x-auto">
             <table className="w-full min-w-[700px] text-left border-collapse">
