@@ -103,7 +103,7 @@ export default function TransaksiPage() {
     search: string | number | null | undefined,
     jenis: string | null | undefined,
     date: string | null | undefined,
-    range: any // range tidak dipakai → biarkan any agar tidak error
+    range: unknown // range tidak dipakai → biarkan any agar tidak error
   ) {
     const q = String(search ?? "").trim();
 
