@@ -13,7 +13,6 @@ interface Produk {
 export default function PilihProdukPage() {
   const router = useRouter();
 
-  // Data produk
   const produkList: Produk[] = [
     { id: 1, nama: "NASI PADANG", harga: 25000, stok: 15 },
     { id: 2, nama: "AYAM GEPREK", harga: 20000, stok: 20 },
@@ -42,7 +41,6 @@ export default function PilihProdukPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProduk, setFilteredProduk] = useState<Produk[]>(produkList);
 
-  // 🔒 Kunci scroll saat modal terbuka
   useEffect(() => {
     document.body.style.overflow = selectedProduct ? "hidden" : "auto";
     return () => {
@@ -50,7 +48,6 @@ export default function PilihProdukPage() {
     };
   }, [selectedProduct]);
 
-  // 🔍 Fungsi pencarian
   const handleSearch = () => {
     const term = searchTerm.trim().toLowerCase();
     if (term === "") {
@@ -76,21 +73,22 @@ export default function PilihProdukPage() {
 
   return (
     <div className="relative min-h-screen flex flex-col bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF]">
-      <div className="flex flex-1 items-center justify-center px-6">
-        <div className="relative flex flex-col bg-white p-6 rounded-xl w-[1200px] h-[700px] shadow-lg my-5 overflow-hidden">
+      <div className="flex flex-1 items-center justify-center px-3 md:px-6">
+        <div className="relative flex flex-col bg-white p-4 md:p-6 rounded-xl w-full max-w-[1200px] h-auto md:h-[700px] shadow-lg my-5 overflow-hidden">
+
           <TopBar />
 
           <p className="font-semibold mb-3 text-gray-800 text-lg">Pilih Produk</p>
 
-          {/* 🔍 Input Pencarian */}
-          <div className="flex justify-between items-center gap-3 mb-6 w-full">
-            <div className="flex justify-between w-full">
+          {/* 🔍 Search */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 mb-6 w-full">
+            <div className="flex w-full">
               <input
                 type="text"
                 placeholder="Ketik nama produk..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="flex-1 px-4 py-3 text-black rounded-l-md bg-gray-100 focus:outline-none w-full"
+                className="flex-1 px-4 py-3 text-black rounded-l-md bg-gray-100 focus:outline-none"
               />
               <button
                 onClick={handleSearch}
@@ -100,79 +98,96 @@ export default function PilihProdukPage() {
               </button>
             </div>
 
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md w-50">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md w-full md:w-auto">
               Jenis Produk
             </button>
           </div>
 
-          {/* Grid Produk */}
-          <div className="grid grid-cols-5 gap-4 bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 p-4 rounded-xl overflow-y-auto h-125">
+          {/* Grid Produk – RESPONSIVE */}
+          <div className="
+            grid 
+            grid-cols-2 
+            sm:grid-cols-3 
+            md:grid-cols-4 
+            lg:grid-cols-5 
+            gap-4 
+            bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 
+            p-4 
+            rounded-xl 
+            overflow-y-auto 
+            max-h-[70vh] md:h-125
+          ">
             {filteredProduk.length > 0 ? (
               filteredProduk.map((item) => (
                 <div
                   key={item.id}
                   onClick={() => openModal(item)}
-                  className="cursor-pointer bg-white rounded-lg p-3 h-55 shadow-sm hover:shadow-md transition"
+                  className="cursor-pointer bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition h-auto"
                 >
-                  <div className="bg-gray-200 rounded-md h-36 flex items-center justify-center">
-                    <div className="w-12 h-12 bg-gray-300 rounded-md" />
+                  <div className="bg-gray-200 rounded-md h-28 md:h-36 flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gray-300 rounded-md" />
                   </div>
+
                   <div className="flex flex-col justify-between mt-3 text-sm">
-                    <p className="font-bold text-black">{item.nama}</p>
-                    <div className="flex justify-between">
+                    <p className="font-bold text-black leading-tight">{item.nama}</p>
+                    <div className="flex justify-between text-xs md:text-sm">
                       <p className="text-black font-semibold">Stok: {item.stok}</p>
-                      <p className="text-black">
-                        Rp {item.harga.toLocaleString("id-ID")}
-                      </p>
+                      <p className="text-black">Rp {item.harga.toLocaleString("id-ID")}</p>
                     </div>
                   </div>
                 </div>
               ))
             ) : (
-              <p className="text-center text-gray-600 col-span-5 py-10">
+              <p className="text-center text-gray-600 col-span-full py-10">
                 Produk tidak ditemukan
               </p>
             )}
           </div>
 
-          {/* Modal */}
+          {/* Modal RESPONSIVE */}
           {selectedProduct && (
             <div
-              className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center"
+              className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center px-4"
               onClick={closeModal}
             >
               <div
-                className="bg-white rounded-xl shadow-lg p-10"
+                className="bg-white rounded-xl shadow-lg p-6 md:p-10 w-full max-w-md"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="flex items-center justify-between gap-10">
-                  <div className="flex flex-col justify-between">
-                    <div className="bg-gray-200 rounded-md w-52 h-38 flex items-center justify-center mb-3">
+                <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+
+                  {/* Left */}
+                  <div className="flex flex-col items-center md:items-start">
+                    <div className="bg-gray-200 rounded-md w-40 h-32 md:w-52 md:h-38 flex items-center justify-center mb-3">
                       <div className="w-12 h-12 bg-gray-300 rounded-md" />
                     </div>
 
                     <p className="font-bold text-lg text-black">
                       {selectedProduct.nama}
                     </p>
-                    <div className="flex justify-between">
+
+                    <div className="flex justify-between w-full">
                       <p className="text-gray-700">Stok: {selectedProduct.stok}</p>
-                      <p className="text-gray-700 mb-4">
+                      <p className="text-gray-700">
                         Rp {selectedProduct.harga.toLocaleString("id-ID")}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex flex-col justify-between gap-5 w-50">
-                    <div className="flex items-center justify-center gap-4 mb-5">
+                  {/* Right */}
+                  <div className="flex flex-col justify-between gap-5 w-full md:w-52">
+                    <div className="flex items-center justify-center gap-4">
                       <button
                         onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                         className="bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 rounded-md text-lg font-bold"
                       >
                         -
                       </button>
+
                       <span className="text-2xl font-semibold text-black">
                         {quantity}
                       </span>
+
                       <button
                         onClick={() => setQuantity((q) => q + 1)}
                         className="bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 rounded-md text-lg font-bold"
@@ -196,10 +211,12 @@ export default function PilihProdukPage() {
                       </button>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>
           )}
+
         </div>
       </div>
 
