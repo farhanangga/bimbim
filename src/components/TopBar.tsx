@@ -27,11 +27,9 @@ export default function TopBar() {
     }
   };
 
-  // Hilangkan trailing slash agar perbandingan aman
   const cleanPath = pathname?.replace(/\/$/, "");
   const hideNavButtons = cleanPath === "/dashboard/modeKasir/main";
 
-  // Fungsi back dengan pengkondisian khusus
   const handleBack = () => {
     if (cleanPath === "/dashboard/modeKasir/detailPembelian1") {
       router.push("/dashboard/modeKasir/inputNama");
@@ -41,14 +39,22 @@ export default function TopBar() {
   };
 
   return (
-    <div className="flex justify-between items-center w-full mb-4">
-      {/* Kiri: Tombol Back & Home */}
+    <div
+      className="
+        flex justify-between items-center w-full mb-4 
+        px-1 md:px-0
+      "
+    >
+      {/* Kiri: Back + Home */}
       {!hideNavButtons ? (
-        <div className="flex gap-3">
-          {/* Back */}
+        <div className="flex gap-2 md:gap-3">
+          {/* Back Button */}
           <button
             onClick={handleBack}
-            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition"
+            className="
+              p-2 md:p-2.5 rounded-full bg-gray-100 hover:bg-gray-200 
+              transition active:scale-95
+            "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +62,7 @@ export default function TopBar() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-6 h-6 text-gray-600"
+              className="w-5 h-5 md:w-6 md:h-6 text-gray-600"
             >
               <path
                 strokeLinecap="round"
@@ -66,28 +72,34 @@ export default function TopBar() {
             </svg>
           </button>
 
-          {/* Home */}
+          {/* Home Button */}
           <button
             onClick={() => router.push("/dashboard/modeKasir/main")}
-            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition"
+            className="
+              p-2 md:p-2.5 rounded-full bg-gray-100 hover:bg-gray-200 
+              transition active:scale-95
+            "
           >
-            <HomeIcon className="h-6 w-6 text-gray-600" />
+            <HomeIcon className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
           </button>
         </div>
       ) : (
-        <div /> // spacer agar tombol fullscreen tetap di kanan
+        <div className="w-10 md:w-12" /> // spacer ketika tombol kiri hilang
       )}
 
-      {/* Kanan: Tombol Fullscreen */}
+      {/* Kanan: Fullscreen */}
       <div>
         <button
           onClick={toggleFullscreen}
-          className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition"
+          className="
+            p-2 md:p-2.5 rounded-full bg-gray-100 hover:bg-gray-200 
+            transition active:scale-95
+          "
         >
           {isFullscreen ? (
-            <ArrowsPointingInIcon className="h-6 w-6 text-gray-600" />
+            <ArrowsPointingInIcon className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
           ) : (
-            <ArrowsPointingOutIcon className="h-6 w-6 text-gray-600" />
+            <ArrowsPointingOutIcon className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
           )}
         </button>
       </div>
