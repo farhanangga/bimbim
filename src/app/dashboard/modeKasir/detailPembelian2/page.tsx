@@ -51,7 +51,7 @@ export default function DetailPembelianPage() {
           <div className="flex flex-col md:flex-row flex-1 mt-4 gap-4 md:gap-6">
 
             {/* Detail Pembelian */}
-            <div className="flex flex-col justify-between w-full md:w-[300px] bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-lg p-4 sm:p-6">
+            <div className="text-gray-800 flex flex-col justify-between w-full md:w-[300px] bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-lg p-4 sm:p-6">
 
               <div className="space-y-2 text-sm sm:text-base">
                 <h3 className="font-semibold text-gray-800 mb-4 text-base sm:text-lg">
