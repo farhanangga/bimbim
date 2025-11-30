@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 export default function DetailPembelianPage() {
   const router = useRouter();
 
-  // Data produk
   const [keranjang] = useState([
     { id: 1, nama: "ES TEH MANIS", harga: 5000, jumlah: 1 },
     { id: 2, nama: "NASI PADANG", harga: 15000, jumlah: 2 },
@@ -18,13 +17,9 @@ export default function DetailPembelianPage() {
   const [showModalStruk, setShowModalStruk] = useState(false);
   const [showModalSelesai, setShowModalSelesai] = useState(false);
 
-  // Disable scroll saat modal terbuka
   useEffect(() => {
-    if (showModalStruk || showModalSelesai) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow =
+      showModalStruk || showModalSelesai ? "hidden" : "auto";
   }, [showModalStruk, showModalSelesai]);
 
   const totalJumlah = keranjang.reduce((sum, item) => sum + item.jumlah, 0);
@@ -44,84 +39,78 @@ export default function DetailPembelianPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF] relative">
+    <div className="min-h-screen flex flex-col bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF]">
+      
       {/* Konten Tengah */}
-      <div className="flex flex-1 items-center justify-center px-6">
-        <div className="flex flex-col bg-white p-6 rounded-xl w-[1200px] h-[700px] shadow-lg my-5">
+      <div className="flex flex-1 items-center justify-center px-3 sm:px-6">
+        <div className="flex flex-col bg-white p-4 sm:p-6 rounded-xl w-full max-w-[1200px] h-auto min-h-[650px] shadow-lg my-5">
+
           <TopBar />
 
           {/* Isi Konten */}
-          <div className="flex flex-row flex-1 mt-3 gap-6">
+          <div className="flex flex-col md:flex-row flex-1 mt-4 gap-4 md:gap-6">
+
             {/* Detail Pembelian */}
-            <div className="flex flex-col justify-between w-[300px] bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-lg p-6">
-              <div className="space-y-2">
-                <h3 className="font-semibold text-gray-800 mb-4">
+            <div className="flex flex-col justify-between w-full md:w-[300px] bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-lg p-4 sm:p-6">
+
+              <div className="space-y-2 text-sm sm:text-base">
+                <h3 className="font-semibold text-gray-800 mb-4 text-base sm:text-lg">
                   Detail Pembelian
                 </h3>
 
                 <div className="flex justify-between">
-                  <span className="font-semibold text-gray-900">Nama</span>
-                  <span className="text-gray-900">{dataPembelian.nama}</span>
+                  <span className="font-semibold">Nama</span>
+                  <span>{dataPembelian.nama}</span>
                 </div>
 
                 <div className="flex justify-between">
-                  <span className="font-semibold text-gray-900">
-                    Tanggal Transaksi
-                  </span>
-                  <span className="text-gray-900">{dataPembelian.tanggal}</span>
+                  <span className="font-semibold">Tanggal Transaksi</span>
+                  <span>{dataPembelian.tanggal}</span>
                 </div>
 
                 <div className="flex justify-between">
-                  <span className="font-semibold text-gray-900">Jumlah</span>
-                  <span className="text-gray-900">{totalJumlah}</span>
+                  <span className="font-semibold">Jumlah</span>
+                  <span>{totalJumlah}</span>
                 </div>
 
                 <div className="flex justify-between">
-                  <span className="font-semibold text-gray-900">
-                    Pembayaran
-                  </span>
-                  <span className="text-gray-900">{dataPembelian.metode}</span>
+                  <span className="font-semibold">Pembayaran</span>
+                  <span>{dataPembelian.metode}</span>
                 </div>
 
                 <div className="flex justify-between">
-                  <span className="font-semibold text-gray-900">Total</span>
-                  <span className="text-gray-900">
-                    Rp {dataPembelian.total.toLocaleString("id-ID")}
-                  </span>
+                  <span className="font-semibold">Total</span>
+                  <span>Rp {dataPembelian.total.toLocaleString("id-ID")}</span>
                 </div>
 
                 <div className="flex justify-between">
-                  <span className="font-semibold text-gray-900">Uang Masuk</span>
-                  <span className="text-gray-900">
-                    Rp {dataPembelian.uangMasuk.toLocaleString("id-ID")}
-                  </span>
+                  <span className="font-semibold">Uang Masuk</span>
+                  <span>Rp {dataPembelian.uangMasuk.toLocaleString("id-ID")}</span>
                 </div>
 
                 <div className="flex justify-between">
-                  <span className="font-semibold text-gray-900">Kembalian</span>
-                  <span className="text-gray-900">
-                    Rp {dataPembelian.kembalian.toLocaleString("id-ID")}
-                  </span>
+                  <span className="font-semibold">Kembalian</span>
+                  <span>Rp {dataPembelian.kembalian.toLocaleString("id-ID")}</span>
                 </div>
 
                 <div className="flex justify-between">
-                  <span className="font-semibold text-gray-900">Status</span>
-                  <span className="text-gray-900">{dataPembelian.status}</span>
+                  <span className="font-semibold">Status</span>
+                  <span>{dataPembelian.status}</span>
                 </div>
               </div>
 
               {/* Tombol */}
-              <div className="flex flex-col justify-between mt-6">
+              <div className="flex flex-col mt-6 space-y-3">
                 <button
                   onClick={() => setShowModalStruk(true)}
-                  className="w-full bg-[#3575FF] hover:bg-[#245CE5] text-white py-3 rounded-md mb-4"
+                  className="w-full bg-[#3575FF] hover:bg-[#245CE5] text-white py-3 rounded-md text-sm sm:text-base"
                 >
                   Cetak Struk
                 </button>
 
                 <button
                   onClick={() => setShowModalSelesai(true)}
-                  className="w-full bg-gradient-to-r from-[#5D33DA] to-[#8F3AFF] hover:opacity-90 text-white py-3 rounded-md"
+                  className="w-full bg-gradient-to-r from-[#5D33DA] to-[#8F3AFF] hover:opacity-90 text-white py-3 rounded-md text-sm sm:text-base"
                 >
                   Selesai
                 </button>
@@ -129,15 +118,18 @@ export default function DetailPembelianPage() {
             </div>
 
             {/* Keranjang */}
-            <div className="flex-1 bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-lg py-6 pl-6 flex flex-col h-146">
-              <h3 className="font-semibold text-gray-800 mb-5">
+            <div className="flex-1 bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-lg py-4 sm:py-6 pl-4 sm:pl-6 flex flex-col">
+
+              <h3 className="font-semibold text-gray-800 mb-4 sm:mb-5 text-base sm:text-lg">
                 Detail Barang yang dibeli
               </h3>
-              <div className="flex flex-col flex-1 overflow-y-auto space-y-3 pr-6 custom-scrollbar">
+
+              <div className="flex flex-col flex-1 overflow-y-auto space-y-3 pr-3 sm:pr-6 custom-scrollbar">
+
                 {keranjang.map((item, index) => (
                   <div
                     key={`${item.id}-${index}`}
-                    className="flex items-center justify-between bg-white/70 rounded-lg p-4 shadow-sm"
+                    className="flex items-center justify-between bg-white/70 rounded-lg p-3 sm:p-4 shadow-sm text-sm sm:text-base"
                   >
                     <div className="flex items-center gap-3">
                       <div className="bg-blue-200 text-blue-900 font-semibold w-6 h-6 flex items-center justify-center rounded-full">
@@ -147,9 +139,8 @@ export default function DetailPembelianPage() {
                         <p className="font-semibold text-gray-800 leading-tight">
                           {item.nama}
                         </p>
-                        <p className="text-gray-600 ">
-                          Rp {item.harga.toLocaleString("id-ID")} ×{" "}
-                          {item.jumlah}
+                        <p className="text-gray-600">
+                          Rp {item.harga.toLocaleString("id-ID")} × {item.jumlah}
                         </p>
                       </div>
                     </div>
@@ -158,33 +149,31 @@ export default function DetailPembelianPage() {
                     </p>
                   </div>
                 ))}
+
               </div>
             </div>
+
           </div>
         </div>
       </div>
 
       {/* Modal STRUK */}
       {showModalStruk && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl shadow-lg w-[400px] p-8 text-center">
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
+          <div className="bg-white rounded-2xl shadow-lg w-full max-w-[400px] p-6 sm:p-8 text-center">
             <div className="flex justify-center mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-20 h-20 text-green-500"
+                className="w-16 h-16 sm:w-20 sm:h-20 text-green-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={2.5}
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <h2 className="text-xl font-semibold text-gray-800 mb-6">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 sm:mb-6">
               Struk Berhasil Dicetak
             </h2>
             <button
@@ -199,25 +188,21 @@ export default function DetailPembelianPage() {
 
       {/* Modal SELESAI */}
       {showModalSelesai && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl shadow-lg w-[400px] p-8 text-center">
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
+          <div className="bg-white rounded-2xl shadow-lg w-full max-w-[400px] p-6 sm:p-8 text-center">
             <div className="flex justify-center mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-20 h-20 text-green-500"
+                className="w-16 h-16 sm:w-20 sm:h-20 text-green-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={2.5}
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <h2 className="text-xl font-semibold text-gray-800 mb-6">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 sm:mb-6">
               Transaksi Selesai
             </h2>
             <button
