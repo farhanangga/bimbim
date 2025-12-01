@@ -9,22 +9,35 @@ export default function PembayaranQRPage() {
     <div className="relative min-h-screen flex flex-col bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF]">
       
       {/* Konten Tengah */}
-      <div className="flex flex-1 items-center justify-center px-6">
+      <div className="flex flex-1 items-center justify-center px-3 sm:px-6">
         
         {/* Div Putih Utama */}
-        <div className="relative flex flex-col bg-white p-6 rounded-xl w-[1200px] h-[700px] shadow-lg my-5">
+        <div className="
+          relative flex flex-col bg-white p-4 sm:p-6 rounded-xl 
+          w-full max-w-[1200px] 
+          h-auto sm:h-[700px]
+          shadow-lg my-5
+        ">
           
           {/* TopBar */}
           <TopBar />
 
           {/* Judul & QR Code */}
-          <div className="flex flex-col flex-1 ">
-            <p className="font-semibold text-[#1D172F] text-lg">Pembayaran</p>
+          <div className="flex flex-col flex-1 mt-3 sm:mt-0">
+            <p className="font-semibold text-[#1D172F] text-lg sm:text-xl">
+              Pembayaran
+            </p>
 
-            <div className="flex flex-1 items-center justify-center">
-              <div className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 p-8 rounded-lg w-[350px] text-center">
+            <div className="flex flex-1 items-center justify-center py-6">
+              <div className="
+                bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 
+                p-5 sm:p-8 rounded-lg 
+                w-full max-w-[350px] 
+                text-center
+              ">
+                
                 {/* Total */}
-                <div className="flex justify-between mb-5 text-[#1D172F] font-semibold">
+                <div className="flex justify-between mb-5 text-[#1D172F] font-semibold text-sm sm:text-base">
                   <span>Total Pembelian</span>
                   <span>Rp 120.000</span>
                 </div>
@@ -32,11 +45,12 @@ export default function PembayaranQRPage() {
                 {/* QR Code */}
                 <div className="bg-white p-4 rounded-md inline-block">
                   <img
-                    src="/img/assets/qrcode.png" // ganti dengan path gambar QR yang kamu punya
+                    src="/img/assets/qrcode.png"
                     alt="QR Code Pembayaran"
-                    className="w-[220px] h-[220px] mx-auto"
+                    className="w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] mx-auto"
                   />
                 </div>
+
               </div>
             </div>
           </div>
