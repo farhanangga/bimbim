@@ -17,34 +17,26 @@ export default function DetailPembelianPage() {
     { id: 8, nama: "SATE AYAM", harga: 18000, jumlah: 1 },
   ]);
 
-  const totalJumlah = keranjang.reduce((sum, item) => sum + item.jumlah, 0);
-  const totalHarga = keranjang.reduce(
-    (sum, item) => sum + item.harga * item.jumlah,
-    0
-  );
+  const totalJumlah = keranjang.reduce((s, i) => s + i.jumlah, 0);
+  const totalHarga = keranjang.reduce((s, i) => s + i.harga * i.jumlah, 0);
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF]">
+      
       {/* Konten Tengah */}
       <div className="flex flex-1 items-center justify-center px-4 md:px-6">
         <div
           className="
             flex flex-col bg-white p-4 md:p-6 rounded-xl 
             w-full max-w-[1200px] 
-            min-h-[600px] md:h-[700px]
-            shadow-lg my-5
+            min-h-[600px] md:min-h-[700px]
+            shadow-lg my-5 pb-10
           "
         >
-          {/* TopBar */}
           <TopBar />
 
-          {/* Isi Konten */}
-          <div
-            className="
-              flex flex-col md:flex-row 
-              flex-1 mt-3 gap-4 md:gap-6
-            "
-          >
+          <div className="flex flex-col md:flex-row flex-1 mt-3 gap-4 md:gap-6">
+            
             {/* Detail Pembelian */}
             <div
               className="
@@ -52,7 +44,7 @@ export default function DetailPembelianPage() {
                 bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 
                 rounded-lg 
                 p-5 md:p-6 
-                w-full md:w-[300px]
+                w-full md:w-[360px]
               "
             >
               <div className="space-y-2">
@@ -80,7 +72,9 @@ export default function DetailPembelianPage() {
 
               <div className="flex flex-col">
                 <button
-                  onClick={() => router.push("/dashboard/modeKasir/pilihProduk")}
+                  onClick={() =>
+                    router.push("/dashboard/modeKasir/pilihProduk")
+                  }
                   className="w-full bg-[#5D33DA] hover:bg-[#4A28B5] text-white py-3 rounded-md mb-4"
                 >
                   Pilih Produk
@@ -107,20 +101,6 @@ export default function DetailPembelianPage() {
             >
               {keranjang.length === 0 ? (
                 <div className="flex flex-col items-center justify-center flex-1 text-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-14 w-14 md:h-16 md:w-16 text-gray-600 mb-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m10-9l2 9m-6 0h4"
-                    />
-                  </svg>
                   <p className="text-gray-800 font-semibold">
                     Keranjang Masih Kosong
                   </p>
@@ -156,7 +136,6 @@ export default function DetailPembelianPage() {
                             <p className="font-semibold text-gray-800">
                               {item.nama}
                             </p>
-
                             <p className="text-gray-600 text-sm">
                               Rp {item.harga.toLocaleString("id-ID")} ×{" "}
                               {item.jumlah}
@@ -165,8 +144,7 @@ export default function DetailPembelianPage() {
                         </div>
 
                         <p className="font-semibold text-gray-900 text-sm md:text-base">
-                          Rp{" "}
-                          {(item.harga * item.jumlah).toLocaleString("id-ID")}
+                          Rp {(item.harga * item.jumlah).toLocaleString("id-ID")}
                         </p>
                       </div>
                     ))}
@@ -174,18 +152,19 @@ export default function DetailPembelianPage() {
                 </div>
               )}
             </div>
+
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="w-full">
-        <img
-          src="/img/assets/footer.png"
-          alt="footer"
-          className="w-full object-cover"
+      <footer className="w-full mt-5">
+        <img 
+          src="/img/assets/footer.png" 
+          alt="footer" 
+          className="w-full h-auto pointer-events-none select-none"
         />
-      </div>
+      </footer>
     </div>
   );
 }

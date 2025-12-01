@@ -206,7 +206,10 @@ export default function DetailPembelianPage() {
               Transaksi Selesai
             </h2>
             <button
-              onClick={() => router.push("/dashboard/modeKasir/main")}
+              onClick={() => {
+                document.body.style.overflow = "auto";
+                router.push("/dashboard/modeKasir/main");
+              }}
               className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md"
             >
               Selesai
