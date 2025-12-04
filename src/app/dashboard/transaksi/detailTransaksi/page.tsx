@@ -71,13 +71,15 @@ export default function DetailTransaksiPage() {
           {/* Tombol Kembali */}
           <button
             onClick={() => router.back()}
-            className="hidden sm:inline-flex flex items-center gap-2 bg-[#2B68FF] hover:bg-[#1f4fcc] text-white px-4 py-2 rounded-lg w-fit"
+            className="hidden lg:inline-flex flex items-center gap-2 bg-[#2B68FF] hover:bg-[#1f4fcc] text-white px-4 py-2 rounded-lg w-fit"
           >
             <ArrowLeft size={20} />
             Kembali
           </button>
+        
+        <p className="hidden lg:inline-flex font-semibold text-lg my-5">Detail Pembelian</p>
 
-          <div className="flex flex-col md:flex-row gap-6 lg:mt-10 flex-1">
+          <div className="flex flex-col md:flex-row gap-6 flex-1">
 
             {/* ==================== LEFT: DETAIL ==================== */}
             <div
