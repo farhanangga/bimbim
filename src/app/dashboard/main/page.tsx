@@ -140,15 +140,28 @@ export default function DashboardPage() {
 
           {/* Tombol Cepat */}
           <div className="flex flex-wrap gap-3">
-            {["Tambah Produk", "Edit Produk", "Tambah Stok Produk"].map((text, i) => (
-              <button
-                key={i}
-                className="bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] transition w-full sm:w-auto"
-              >
-                {text}
-              </button>
-            ))}
+
+            <button
+              onClick={() => router.push("/dashboard/commonPage/produkBaru")}
+              className="bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] transition w-full sm:w-auto"
+            >
+              Tambah Produk
+            </button>
+
+            <button
+              className="bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] transition w-full sm:w-auto"
+            >
+              Edit Produk
+            </button>
+
+            <button
+              className="bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] transition w-full sm:w-auto"
+            >
+              Tambah Stok Produk
+            </button>
+
           </div>
+
 
           {/* Grafik */}
           <div className="bg-gray-50 p-4 rounded-xl shadow overflow-x-auto">

@@ -78,11 +78,11 @@ export default function ProdukPage() {
 
           {/* STATISTIK JUMLAH */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-gradient-to-r from-[#A4C2FF] to-[#C8B3FF] rounded-xl p-4 text-center font-bold text-3xl text-gray-800">
+            <div className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-xl p-4 text-center font-bold text-3xl text-gray-800">
               10
               <p className="text-sm font-semibold text-gray-800">JENIS PRODUK</p>
             </div>
-            <div className="bg-gradient-to-r from-[#A4C2FF] to-[#C8B3FF] rounded-xl p-4 text-center font-bold text-3xl text-gray-800">
+            <div className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-xl p-4 text-center font-bold text-3xl text-gray-800">
               67
               <p className="text-sm font-semibold text-gray-800">PRODUK</p>
             </div>
@@ -90,7 +90,7 @@ export default function ProdukPage() {
 
           {/* BUTTON TAMBAH PRODUK */}
           <div className="flex justify-end">
-            <button className="px-6 py-3 bg-gradient-to-r from-[#A66CFF] to-[#7A29FF] text-white rounded-xl shadow">
+            <button onClick={() => router.push("/dashboard/commonPage/produkBaru")} className="px-6 py-3 bg-[#5D33DA] hover:bg-[#4A28B5] text-white rounded-xl shadow">
               Tambah Produk Baru
             </button>
           </div>
