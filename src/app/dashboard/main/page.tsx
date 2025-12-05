@@ -199,7 +199,7 @@ export default function DashboardPage() {
                     <td className="py-3 px-4">{trx.jumlah}</td>
                     <td className="py-3 px-4">{trx.total}</td>
                     <td className="py-3 text-center">
-                      <button className="text-white bg-[#5D33DA] px-6 py-2 rounded-lg hover:bg-[#4A28B5] transition">
+                      <button onClick={() => router.push("/dashboard/commonPage/detailTransaksi")} className="text-white bg-[#5D33DA] px-6 py-2 rounded-lg hover:bg-[#4A28B5] transition">
                         Detail
                       </button>
                     </td>
@@ -239,7 +239,7 @@ export default function DashboardPage() {
                     <td className="py-3 px-4">{item.namaBarang}</td>
                     <td className="py-3 px-4">{item.total}</td>
                     <td className="py-3 text-center">
-                      <button className="text-white bg-[#5D33DA] px-6 py-2 rounded-lg hover:bg-[#4A28B5] transition">
+                      <button onClick={() => router.push("/dashboard/commonPage/detailTransaksi")} className="text-white bg-[#5D33DA] px-6 py-2 rounded-lg hover:bg-[#4A28B5] transition">
                         Detail
                       </button>
                     </td>

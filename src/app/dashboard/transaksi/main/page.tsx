@@ -247,7 +247,7 @@ export default function TransaksiPage() {
                     <td className="py-3 px-4">{trx.jumlah}</td>
                     <td className="py-3 px-4">{trx.total}</td>
                     <td className="py-3 text-center">
-                      <button className="bg-[#5D33DA] text-white px-6 py-2 rounded-lg">Detail</button>
+                      <button onClick={() => router.push("/dashboard/commonPage/detailTransaksi")} className="bg-[#5D33DA] text-white px-6 py-2 rounded-lg">Detail</button>
                     </td>
                   </tr>
                 ))}
@@ -341,7 +341,7 @@ export default function TransaksiPage() {
                     <td className="py-3 px-4">{trx.jumlah}</td>
                     <td className="py-3 px-4">{trx.total}</td>
                     <td className="py-3 text-center">
-                      <button className="bg-[#5D33DA] text-white px-6 py-2 rounded-lg">Detail</button>
+                      <button onClick={() => router.push("/dashboard/commonPage/detailTransaksi")} className="bg-[#5D33DA] text-white px-6 py-2 rounded-lg">Detail</button>
                     </td>
                   </tr>
                 ))}
@@ -456,7 +456,7 @@ export default function TransaksiPage() {
                     <td className="py-3 px-4">{trx.jumlah}</td>
                     <td className="py-3 px-4">{trx.total}</td>
                     <td className="py-3 text-center">
-                      <button className="bg-[#5D33DA] text-white px-6 py-2 rounded-lg">Detail</button>
+                      <button onClick={() => router.push("/dashboard/commonPage/detailTransaksi")} className="bg-[#5D33DA] text-white px-6 py-2 rounded-lg">Detail</button>
                     </td>
                   </tr>
                 ))}
