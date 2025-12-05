@@ -56,13 +56,13 @@ export default function TambahProdukPage() {
           {/* Tombol Kembali */}
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-2 bg-[#367AFF] text-white px-4 py-2 rounded-lg"
+            className="hidden lg:inline-flex flex items-center gap-2 bg-[#367AFF] text-white px-4 py-2 rounded-lg"
           >
             <ArrowLeft size={20} /> Kembali
           </button>
 
           {/* Form Card */}
-          <div className="mt-6 bg-gradient-to-br from-[#D8E1FF] via-[#C0C6FF] to-[#B8A8FF] p-6 rounded-xl">
+          <div className="mt-0 lg:mt-6 bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 p-6 rounded-xl">
 
             {/* Nama Produk */}
             <label className="font-semibold">Nama Produk</label>
