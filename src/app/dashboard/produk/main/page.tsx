@@ -3,22 +3,76 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
-import { Menu, Search, ChevronDown } from "lucide-react";
+import { Menu, Search } from "lucide-react";
+
+// Arrow SVG dari user
+const ARROW_SVG = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke="currentColor"
+    className="w-5 h-5 ml-2"
+    aria-hidden
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+  </svg>
+);
 
 export default function ProdukPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // Search dan Filter
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedJenis, setSelectedJenis] = useState("Default");
+  const [showJenisModal, setShowJenisModal] = useState(false);
+
+  // DATA PRODUK + JENIS
   const produkList = [
-    { nama: "ES TEH MANIS", harga: 5000, stok: 40 },
-    { nama: "NASI PADANG", harga: 15000, stok: 12 },
-    { nama: "AIR MINERAL", harga: 5000, stok: 60 },
-    { nama: "NASI AYAM GORENG", harga: 15000, stok: 9 },
-    { nama: "NASI AYAM GEPREK", harga: 15000, stok: 14 },
-    { nama: "NASI GORENG", harga: 10000, stok: 20 },
-    { nama: "ES JERUK", harga: 5000, stok: 35 },
-    { nama: "ES BUAH", harga: 25000, hargaJual: 25 },
-  ];
+  { nama: "ES TEH MANIS", harga: 5000, stok: 40, jenis: "minuman" },
+  { nama: "NASI PADANG", harga: 15000, stok: 12, jenis: "makanan" },
+  { nama: "AIR MINERAL", harga: 5000, stok: 60, jenis: "minuman" },
+  { nama: "NASI AYAM GORENG", harga: 15000, stok: 9, jenis: "makanan" },
+  { nama: "NASI AYAM GEPREK", harga: 15000, stok: 14, jenis: "makanan" },
+  { nama: "NASI GORENG", harga: 10000, stok: 20, jenis: "makanan" },
+  { nama: "ES JERUK", harga: 5000, stok: 35, jenis: "minuman" },
+  { nama: "KERUPUK", harga: 2000, stok: 30, jenis: "jajanan" },
+
+  { nama: "MIE AYAM", harga: 12000, stok: 18, jenis: "makanan" },
+  { nama: "BAKSO", harga: 15000, stok: 25, jenis: "makanan" },
+  { nama: "SOTO AYAM", harga: 13000, stok: 17, jenis: "makanan" },
+  { nama: "SATE AYAM", harga: 20000, stok: 15, jenis: "makanan" },
+  { nama: "AYAM BAKAR", harga: 18000, stok: 10, jenis: "makanan" },
+  { nama: "TEMPE GORENG", harga: 1000, stok: 100, jenis: "jajanan" },
+  { nama: "TAHU ISI", harga: 2000, stok: 75, jenis: "jajanan" },
+  { nama: "PISANG GORENG", harga: 1000, stok: 85, jenis: "jajanan" },
+  { nama: "CIRENG", harga: 3000, stok: 50, jenis: "jajanan" },
+  { nama: "TELUR GULUNG", harga: 2000, stok: 60, jenis: "jajanan" },
+
+  { nama: "JUS ALPUKAT", harga: 12000, stok: 20, jenis: "minuman" },
+  { nama: "JUS MANGGA", harga: 10000, stok: 22, jenis: "minuman" },
+  { nama: "KOPI HITAM", harga: 6000, stok: 40, jenis: "minuman" },
+  { nama: "KAPUCCINO", harga: 10000, stok: 35, jenis: "minuman" },
+  { nama: "TEH ANGET", harga: 4000, stok: 50, jenis: "minuman" },
+  { nama: "SUSU COKLAT", harga: 8000, stok: 25, jenis: "minuman" },
+
+  { nama: "GARAM 1KG", harga: 5000, stok: 15, jenis: "satuan" },
+  { nama: "GULA 1KG", harga: 14000, stok: 12, jenis: "satuan" },
+  { nama: "BERAS 5KG", harga: 65000, stok: 8, jenis: "satuan" },
+  { nama: "MINYAK GORENG 1L", harga: 14000, stok: 20, jenis: "satuan" },
+];
+
+
+  // FILTER PRODUK
+  const filteredProduk = produkList.filter((item) => {
+    const matchSearch = item.nama.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchJenis =
+      selectedJenis === "Default" ? true : item.jenis === selectedJenis.toLowerCase();
+
+    return matchSearch && matchJenis;
+  });
 
   return (
     <div className="relative min-h-screen text-gray-800">
@@ -54,11 +108,11 @@ export default function ProdukPage() {
         <h1 className="ml-4 font-semibold text-lg text-gray-800">Produk</h1>
       </div>
 
-      {/* ===== MAIN CONTENT ===== */}
+      {/* MAIN */}
       <div className="lg:ml-64 p-0 lg:p-6">
         <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-lg space-y-10">
 
-          {/* TOP STAT CARDS */}
+          {/* TOP CARDS */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {["Terlaris", "Kurang Laris", "Teruntung", "Stok Terbanyak"].map(
               (label, i) => (
@@ -66,7 +120,9 @@ export default function ProdukPage() {
                   key={i}
                   className="bg-gradient-to-br from-[#E9EDFF] to-[#D4CFFE] rounded-xl p-4 flex flex-col items-center shadow"
                 >
-                  <div className="w-20 h-20 bg-gray-200 rounded-lg"></div>
+                  <div className="bg-white rounded-md h-28 md:h-36 flex items-center justify-center w-full">
+                    <div className="w-10 h-10 bg-gray-200 rounded-md" />
+                  </div>
                   <p className="mt-2 text-center text-sm font-semibold text-gray-800">
                     ES TEH MANIS <br /> 1967 Terjual
                   </p>
@@ -76,7 +132,7 @@ export default function ProdukPage() {
             )}
           </div>
 
-          {/* STATISTIK JUMLAH */}
+          {/* STATISTIK */}
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-xl p-4 text-center font-bold text-3xl text-gray-800">
               10
@@ -90,23 +146,26 @@ export default function ProdukPage() {
 
           {/* BUTTON TAMBAH PRODUK */}
           <div className="flex justify-end">
-            <button onClick={() => router.push("/dashboard/commonPage/produkBaru")} className="px-6 py-3 bg-[#5D33DA] hover:bg-[#4A28B5] text-white rounded-xl shadow">
+            <button
+              onClick={() => router.push("/dashboard/commonPage/produkBaru")}
+              className="px-6 py-3 bg-[#5D33DA] hover:bg-[#4A28B5] text-white rounded-xl shadow"
+            >
               Tambah Produk Baru
             </button>
           </div>
 
-          {/* ============================ */}
-          {/* SEARCH + FILTER (PILIH PRODUK STYLE) */}
-          {/* ============================ */}
+          {/* SEARCH + FILTER */}
           <div className="bg-gradient-to-br from-[#E9EDFF] to-[#D4CFFE] p-4 rounded-xl">
             <div className="flex flex-col md:flex-row justify-between items-center gap-3 w-full">
 
-              {/* SEARCH INPUT + BUTTON CARI */}
+              {/* SEARCH INPUT */}
               <div className="flex w-full">
                 <input
                   type="text"
                   placeholder="Ketik nama produk..."
-                  className="flex-1 px-4 py-3 text-black rounded-l-md bg-gray-100 focus:outline-none"
+                  className="w-10 lg:w-auto flex-1 px-4 py-3 text-black rounded-l-md bg-gray-100 focus:outline-none"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                 />
 
                 <button className="bg-[#5D33DA] hover:bg-[#4A28B5] text-white px-6 py-3 rounded-r-md flex items-center gap-2">
@@ -114,9 +173,12 @@ export default function ProdukPage() {
                 </button>
               </div>
 
-              {/* JENIS PRODUK BUTTON (SAMA PERSIS) */}
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md w-full md:w-auto">
-                Jenis Produk
+              {/* JENIS PRODUK BUTTON */}
+              <button
+                onClick={() => setShowJenisModal(true)}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md w-full lg:w-50 flex items-center justify-center"
+              >
+                {selectedJenis} {ARROW_SVG}
               </button>
 
             </div>
@@ -135,7 +197,7 @@ export default function ProdukPage() {
               p-4 rounded-xl overflow-y-auto max-h-[70vh]
             "
           >
-            {produkList.map((item, index) => (
+            {filteredProduk.map((item, index) => (
               <div
                 key={index}
                 className="cursor-pointer bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition h-auto"
@@ -165,8 +227,8 @@ export default function ProdukPage() {
             <h2 className="font-bold text-lg text-gray-800 mb-3">INVENTORIS SINGKAT</h2>
 
             <div className="flex justify-end mb-3">
-              <button className="px-6 py-3 bg-[#7A29FF] text-white rounded-xl shadow">
-                Tambah Stok
+              <button className="px-6 py-3 bg-[#5D33DA] hover:bg-[#4A28B5] text-white rounded-xl shadow">
+                Tambah Stok Produk
               </button>
             </div>
 
@@ -197,11 +259,44 @@ export default function ProdukPage() {
                 ))}
               </div>
             </div>
-
           </div>
 
         </div>
       </div>
+
+      {/* MODAL PILIH JENIS */}
+      {showJenisModal && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl p-6 w-full max-w-sm shadow-xl">
+
+            <h2 className="text-lg font-bold text-gray-800 mb-4">
+              Pilih Jenis Produk
+            </h2>
+
+            {["Default", "makanan", "minuman", "jajanan", "satuan"].map((jenis) => (
+              <button
+                key={jenis}
+                onClick={() => {
+                  setSelectedJenis(jenis);
+                  setShowJenisModal(false);
+                }}
+                className="w-full text-left p-3 rounded-md hover:bg-gray-100 text-gray-800 mb-2 capitalize"
+              >
+                {jenis}
+              </button>
+            ))}
+
+            <button
+              onClick={() => setShowJenisModal(false)}
+              className="mt-4 w-full py-3 bg-gray-200 rounded-lg hover:bg-gray-300"
+            >
+              Tutup
+            </button>
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

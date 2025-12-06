@@ -88,7 +88,7 @@ export default function PilihProdukPage() {
                 placeholder="Ketik nama produk..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="flex-1 px-4 py-3 text-black rounded-l-md bg-gray-100 focus:outline-none"
+                className="w-10 flex-1 px-4 py-3 text-black rounded-l-md bg-gray-100 focus:outline-none"
               />
               <button
                 onClick={handleSearch}
@@ -98,7 +98,7 @@ export default function PilihProdukPage() {
               </button>
             </div>
 
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md w-full md:w-auto">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md w-full lg:w-50 flex items-center justify-center">
               Jenis Produk
             </button>
           </div>
