@@ -191,32 +191,40 @@ export default function ProdukPage() {
               lg:grid-cols-5 
               gap-4 
               bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30
-              p-4 rounded-xl overflow-y-auto max-h-[70vh]
+              p-4 rounded-xl overflow-y-auto max-h-120
             "
           >
-            {filteredProduk.map((item, index) => (
-              <div
-                key={index}
-                className="cursor-pointer bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition h-auto"
-              >
-                <div className="bg-gray-200 rounded-md h-28 md:h-36 flex items-center justify-center">
-                  <div className="w-10 h-10 bg-gray-300 rounded-md" />
-                </div>
+            {filteredProduk.length > 0 ? (
+              filteredProduk.map((item) => (
+                <div
+                  key={item.id}
+                  
+                  className="cursor-pointer bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition max-h-54"
+                >
+                  <div className="bg-gray-200 rounded-md h-28 lg:h-36 flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gray-300 rounded-md" />
+                  </div>
 
-                <div className="flex flex-col justify-between mt-3 text-sm text-gray-800">
-                  <p className="font-bold text-black leading-tight">
-                    {item.nama}
-                  </p>
-
-                  <div className="flex justify-between text-xs md:text-sm">
-                    <p className="text-black font-semibold">Stok: {item.stok ?? 0}</p>
-                    <p className="text-black">
-                      Rp {item.harga.toLocaleString("id-ID")}
+                  <div className="flex flex-col justify-between mt-3 text-sm">
+                    <p
+                      className={`font-bold text-black leading-tight ${
+                        item.nama.length > 17 ? "text-xs md:text-sm" : "text-sm"
+                      }`}
+                    >
+                      {item.nama}
                     </p>
+                    <div className="flex justify-between text-xs md:text-sm">
+                      <p className="text-black font-semibold">Stok: {item.stok}</p>
+                      <p className="text-black">Rp {item.harga.toLocaleString("id-ID")}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <p className="text-center text-gray-600 col-span-full py-10">
+                Produk tidak ditemukan
+              </p>
+            )}
           </div>
 
           {/* INVENTORIS */}
