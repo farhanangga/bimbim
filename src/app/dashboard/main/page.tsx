@@ -150,6 +150,7 @@ export default function DashboardPage() {
 
             <button
               className="bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] transition w-full sm:w-auto"
+              onClick={() => router.push("/dashboard/commonPage/editProduk/pilihProduk")}
             >
               Edit Produk
             </button>
