@@ -71,6 +71,16 @@ export default function PilihProdukPage() {
     router.push("/dashboard/modeKasir/detailPembelian1");
   };
 
+  const filteredProduk = produkList.filter((item) => {
+    const matchSearch = item.nama.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchJenis =
+      selectedJenis === "Default"
+        ? true
+        : item.jenis.toLowerCase() === selectedJenis.toLowerCase();
+
+    return matchSearch && matchJenis;
+  });
+  
   return (
     <div className="relative min-h-screen flex flex-col bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF]">
       <div className="flex flex-1 items-center justify-center px-3 md:px-6">
@@ -81,26 +91,33 @@ export default function PilihProdukPage() {
           <p className="font-semibold mb-3 text-gray-800 text-lg">Pilih Produk</p>
 
           {/* 🔍 Search */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3 mb-6 w-full">
-            <div className="flex w-full">
-              <input
-                type="text"
-                placeholder="Ketik nama produk..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-10 flex-1 px-4 py-3 text-black rounded-l-md bg-gray-100 focus:outline-none"
-              />
-              <button
-                onClick={handleSearch}
-                className="bg-[#5D33DA] hover:bg-[#4A28B5] text-white px-6 py-3 rounded-r-md"
-              >
-                Cari
-              </button>
-            </div>
+          <div className="bg-gradient-to-br from-[#E9EDFF] to-[#D4CFFE] p-4 rounded-xl">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-3 w-full">
 
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md w-full lg:w-50 flex items-center justify-center">
-              Jenis Produk
-            </button>
+              {/* SEARCH */}
+              <div className="flex w-full">
+                <input
+                  type="text"
+                  placeholder="Ketik nama produk..."
+                  className="w-10 lg:w-auto flex-1 px-4 py-3 text-black rounded-l-md bg-gray-100"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+
+                <button className="bg-[#5D33DA] hover:bg-[#4A28B5] text-white px-6 py-3 rounded-r-md flex items-center gap-2">
+                  <Search size={18} /> Cari
+                </button>
+              </div>
+
+              {/* FILTER JENIS */}
+              <button
+                onClick={() => setShowJenisModal(true)}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md w-full lg:w-50 flex items-center justify-center"
+              >
+                {selectedJenis} {ARROW_SVG}
+              </button>
+
+            </div>
           </div>
 
           {/* Grid Produk – RESPONSIVE */}

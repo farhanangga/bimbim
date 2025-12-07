@@ -52,7 +52,7 @@ export default function KasirPage() {
             </div>
 
             {/* Buttons */}
-            <div className="w-full md:w-64 h-max md:my-auto bg-gray-100 rounded-xl p-6 md:mx-6 flex flex-col justify-center gap-4 mt-6 md:mt-0">
+            <div className="w-full md:w-64 h-max lg:my-auto bg-gray-100 rounded-xl p-6 md:mx-6 flex flex-col justify-center gap-4 mt-6 md:mt-0">
               <button
                 onClick={() => router.push("/dashboard/modeKasir/inputNama")}
                 className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg shadow"

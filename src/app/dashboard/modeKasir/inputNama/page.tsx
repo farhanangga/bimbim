@@ -18,7 +18,7 @@ export default function KasirPage() {
             p-4 md:p-6 
             rounded-xl 
             w-full max-w-[1200px] 
-            min-h-[600px] md:h-[700px]
+            min-h-[600px] lg:h-[700px]
             shadow-lg my-5
           "
         >

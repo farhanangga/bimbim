@@ -5,6 +5,15 @@ import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import { Menu, Search } from "lucide-react";
 
+// Tambahkan interface Produk supaya tidak error
+interface Produk {
+  id: number;
+  nama: string;
+  harga: number;
+  stok: number;
+  jenis?: string;
+}
+
 // Arrow SVG dari user
 const ARROW_SVG = (
   <svg
@@ -30,40 +39,28 @@ export default function ProdukPage() {
   const [showJenisModal, setShowJenisModal] = useState(false);
 
   // DATA PRODUK + JENIS
-  const produkList = [
-  { nama: "ES TEH MANIS", harga: 5000, stok: 40, jenis: "minuman" },
-  { nama: "NASI PADANG", harga: 15000, stok: 12, jenis: "makanan" },
-  { nama: "AIR MINERAL", harga: 5000, stok: 60, jenis: "minuman" },
-  { nama: "NASI AYAM GORENG", harga: 15000, stok: 9, jenis: "makanan" },
-  { nama: "NASI AYAM GEPREK", harga: 15000, stok: 14, jenis: "makanan" },
-  { nama: "NASI GORENG", harga: 10000, stok: 20, jenis: "makanan" },
-  { nama: "ES JERUK", harga: 5000, stok: 35, jenis: "minuman" },
-  { nama: "KERUPUK", harga: 2000, stok: 30, jenis: "jajanan" },
-
-  { nama: "MIE AYAM", harga: 12000, stok: 18, jenis: "makanan" },
-  { nama: "BAKSO", harga: 15000, stok: 25, jenis: "makanan" },
-  { nama: "SOTO AYAM", harga: 13000, stok: 17, jenis: "makanan" },
-  { nama: "SATE AYAM", harga: 20000, stok: 15, jenis: "makanan" },
-  { nama: "AYAM BAKAR", harga: 18000, stok: 10, jenis: "makanan" },
-  { nama: "TEMPE GORENG", harga: 1000, stok: 100, jenis: "jajanan" },
-  { nama: "TAHU ISI", harga: 2000, stok: 75, jenis: "jajanan" },
-  { nama: "PISANG GORENG", harga: 1000, stok: 85, jenis: "jajanan" },
-  { nama: "CIRENG", harga: 3000, stok: 50, jenis: "jajanan" },
-  { nama: "TELUR GULUNG", harga: 2000, stok: 60, jenis: "jajanan" },
-
-  { nama: "JUS ALPUKAT", harga: 12000, stok: 20, jenis: "minuman" },
-  { nama: "JUS MANGGA", harga: 10000, stok: 22, jenis: "minuman" },
-  { nama: "KOPI HITAM", harga: 6000, stok: 40, jenis: "minuman" },
-  { nama: "KAPUCCINO", harga: 10000, stok: 35, jenis: "minuman" },
-  { nama: "TEH ANGET", harga: 4000, stok: 50, jenis: "minuman" },
-  { nama: "SUSU COKLAT", harga: 8000, stok: 25, jenis: "minuman" },
-
-  { nama: "GARAM 1KG", harga: 5000, stok: 15, jenis: "satuan" },
-  { nama: "GULA 1KG", harga: 14000, stok: 12, jenis: "satuan" },
-  { nama: "BERAS 5KG", harga: 65000, stok: 8, jenis: "satuan" },
-  { nama: "MINYAK GORENG 1L", harga: 14000, stok: 20, jenis: "satuan" },
-];
-
+  const produkList: Produk[] = [
+    { id: 1, nama: "NASI PADANG", harga: 25000, stok: 15, jenis: "makanan" },
+    { id: 2, nama: "AYAM GEPREK", harga: 20000, stok: 20, jenis: "makanan" },
+    { id: 3, nama: "NASI AYAM GEPREK", harga: 28000, stok: 10, jenis: "makanan" },
+    { id: 4, nama: "ES TEH MANIS", harga: 5000, stok: 40, jenis: "minuman" },
+    { id: 5, nama: "ES JERUK", harga: 7000, stok: 35, jenis: "minuman" },
+    { id: 6, nama: "ES BUAH", harga: 10000, stok: 25, jenis: "minuman" },
+    { id: 7, nama: "SOTO AYAM", harga: 23000, stok: 12, jenis: "makanan" },
+    { id: 8, nama: "BAKSO SAPI", harga: 22000, stok: 18, jenis: "makanan" },
+    { id: 9, nama: "MIE AYAM", harga: 20000, stok: 16, jenis: "makanan" },
+    { id: 10, nama: "NASI GORENG SPESIAL", harga: 27000, stok: 14, jenis: "makanan" },
+    { id: 11, nama: "SATE AYAM", harga: 25000, stok: 20, jenis: "makanan" },
+    { id: 12, nama: "GADO-GADO", harga: 20000, stok: 10, jenis: "makanan" },
+    { id: 13, nama: "RENDANG SAPI", harga: 30000, stok: 8, jenis: "makanan" },
+    { id: 14, nama: "TEMPE MENDOAN", harga: 10000, stok: 22, jenis: "jajanan" },
+    { id: 15, nama: "PISANG GORENG", harga: 8000, stok: 30, jenis: "jajanan" },
+    { id: 16, nama: "TAHU CRISPY", harga: 9000, stok: 28, jenis: "jajanan" },
+    { id: 17, nama: "SOP BUNTUT", harga: 35000, stok: 6, jenis: "makanan" },
+    { id: 18, nama: "TEH HANGAT", harga: 4000, stok: 50, jenis: "minuman" },
+    { id: 19, nama: "KOPI HITAM", harga: 8000, stok: 25, jenis: "minuman" },
+    { id: 20, nama: "AIR MINERAL", harga: 3000, stok: 60, jenis: "minuman" },
+  ];
 
   // FILTER PRODUK
   const filteredProduk = produkList.filter((item) => {
