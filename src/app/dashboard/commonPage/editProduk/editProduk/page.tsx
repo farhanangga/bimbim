@@ -61,6 +61,8 @@ export default function TambahProdukPage() {
             <ArrowLeft size={20} /> Kembali
           </button>
 
+          <p className="hidden lg:flex font-semibold text-lg mt-4">Edit Produk</p>
+
           {/* Form Card */}
           <div className="mt-0 lg:mt-6 bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 p-6 rounded-xl">
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
-import { Menu, Search ,ArrowLeft} from "lucide-react";
+import { Menu, Search, ArrowLeft } from "lucide-react";
 
 // Interface Produk
 interface Produk {
@@ -25,7 +25,11 @@ const ARROW_SVG = (
     className="w-5 h-5 ml-2"
     aria-hidden
   >
-    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="m19.5 8.25-7.5 7.5-7.5-7.5"
+    />
   </svg>
 );
 
@@ -38,8 +42,12 @@ export default function ProdukPage() {
   const [selectedJenis, setSelectedJenis] = useState("Default");
   const [showJenisModal, setShowJenisModal] = useState(false);
 
+  // 🔥 STATE MODAL TAMBAH STOK
+  const [selectedProduct, setSelectedProduct] = useState<Produk | null>(null);
+  const [quantity, setQuantity] = useState(1);
+
   // DATA PRODUK
-  const produkList: Produk[] = [
+  const [produkList, setProdukList] = useState<Produk[]>([
     { id: 1, nama: "NASI PADANG", harga: 25000, stok: 15, jenis: "makanan" },
     { id: 2, nama: "AYAM GEPREK", harga: 20000, stok: 20, jenis: "makanan" },
     { id: 3, nama: "NASI AYAM GEPREK", harga: 28000, stok: 10, jenis: "makanan" },
@@ -60,7 +68,7 @@ export default function ProdukPage() {
     { id: 18, nama: "TEH HANGAT", harga: 4000, stok: 50, jenis: "minuman" },
     { id: 19, nama: "KOPI HITAM", harga: 8000, stok: 25, jenis: "minuman" },
     { id: 20, nama: "AIR MINERAL", harga: 3000, stok: 60, jenis: "minuman" },
-  ];
+  ]);
 
   // FILTER PRODUK
   const filteredProduk = produkList.filter((item) => {
@@ -72,6 +80,32 @@ export default function ProdukPage() {
 
     return matchSearch && matchJenis;
   });
+
+  // 🔥 OPEN MODAL
+  const openModal = (product: Produk) => {
+    setSelectedProduct(product);
+    setQuantity(1);
+  };
+
+  // 🔥 CLOSE MODAL
+  const closeModal = () => {
+    setSelectedProduct(null);
+    setQuantity(1);
+  };
+
+  // 🔥 HANDLE TAMBAH STOK
+  const handleTambah = () => {
+    if (!selectedProduct) return;
+
+    const updated = produkList.map((p) =>
+      p.id === selectedProduct.id
+        ? { ...p, stok: p.stok + quantity }
+        : p
+    );
+
+    setProdukList(updated);
+    closeModal();
+  };
 
   return (
     <div className="relative min-h-screen text-gray-800">
@@ -86,10 +120,7 @@ export default function ProdukPage() {
       {/* Mobile Sidebar */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 flex lg:hidden">
-          <div
-            className="fixed inset-0 bg-black/50"
-            onClick={() => setSidebarOpen(false)}
-          />
+          <div className="fixed inset-0 bg-black/50" onClick={() => setSidebarOpen(false)} />
           <div className="relative bg-white w-64 h-full shadow-xl z-50">
             <Sidebar />
           </div>
@@ -104,14 +135,13 @@ export default function ProdukPage() {
         >
           <Menu size={28} />
         </button>
-        <h1 className="ml-4 font-semibold text-lg text-gray-800">Pilih Produk</h1>
+        <h1 className="ml-4 font-semibold text-lg text-gray-800">Tambah Stok Produk</h1>
       </div>
 
-      {/* MAIN CONTENT (Hanya Search + Produk) */}
+      {/* MAIN CONTENT */}
       <div className="lg:ml-64 p-0 lg:p-6">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-lg">
-
-            {/* Tombol Kembali */}
+        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-lg ">
+          {/* Tombol Kembali */}
           <button
             onClick={() => router.back()}
             className="hidden lg:inline-flex flex items-center gap-2 bg-[#367AFF] text-white px-4 py-2 rounded-lg"
@@ -119,9 +149,9 @@ export default function ProdukPage() {
             <ArrowLeft size={20} /> Kembali
           </button>
 
-          <p className="hidden lg:flex font-semibold text-lg mt-4">Pilih Produk</p>
+          <p className="hidden lg:flex font-semibold text-lg mt-4">Tambah Stok Produk</p>
 
-          {/* SEARCH + FILTER */}
+          {/* SEARCH */}
           <div className=" py-4 rounded-xl">
             <div className="flex flex-col md:flex-row justify-between items-center gap-3 w-full">
 
@@ -155,23 +185,21 @@ export default function ProdukPage() {
           </div>
 
           {/* LIST PRODUK */}
-          <div
-            className="
-              grid 
-              grid-cols-2 
-              sm:grid-cols-3 
-              md:grid-cols-4 
-              lg:grid-cols-5 
-              gap-4 
-              bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30
-              p-4 rounded-xl overflow-y-auto max-h-157 lg:max-h-120
-            "
-          >
+          <div className="
+            grid 
+            grid-cols-2 
+            sm:grid-cols-3 
+            md:grid-cols-4 
+            lg:grid-cols-5 
+            gap-4 
+            bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30
+            p-4 rounded-xl overflow-y-auto max-h-157 lg:max-h-120
+          ">
             {filteredProduk.length > 0 ? (
               filteredProduk.map((item) => (
                 <div
                   key={item.id}
-                  onClick={() => router.push("/dashboard/commonPage/editProduk/editProduk")}
+                  onClick={() => openModal(item)}   // 🔥 Tambah ini
                   className="cursor-pointer bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition"
                 >
                   <div className="bg-gray-200 rounded-md h-28 lg:h-36 flex items-center justify-center">
@@ -179,11 +207,9 @@ export default function ProdukPage() {
                   </div>
 
                   <div className="flex flex-col justify-between mt-3 text-sm">
-                    <p
-                      className={`font-bold text-black leading-tight ${
-                        item.nama.length > 17 ? "text-xs md:text-sm" : "text-sm"
-                      }`}
-                    >
+                    <p className={`font-bold text-black leading-tight ${
+                      item.nama.length > 17 ? "text-xs md:text-sm" : "text-sm"
+                    }`}>
                       {item.nama}
                     </p>
 
@@ -204,6 +230,77 @@ export default function ProdukPage() {
           </div>
         </div>
       </div>
+
+      {/* 🔥 MODAL TAMBAH STOK */}
+      {selectedProduct && (
+        <div
+          className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center px-4"
+          onClick={closeModal}
+        >
+          <div
+            className="bg-white rounded-xl shadow-lg p-6 md:p-10 w-full max-w-md"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+
+              {/* LEFT */}
+              <div className="flex flex-col items-center md:items-start">
+                <div className="bg-gray-200 rounded-md w-40 h-32 md:w-52 md:h-38 flex items-center justify-center mb-3">
+                  <div className="w-12 h-12 bg-gray-300 rounded-md" />
+                </div>
+
+                <p className="font-bold text-lg text-black">
+                  {selectedProduct.nama}
+                </p>
+
+                <div className="flex justify-between w-full">
+                  <p className="text-gray-700">Stok: {selectedProduct.stok}</p>
+                  <p className="text-gray-700">
+                    Rp {selectedProduct.harga.toLocaleString("id-ID")}
+                  </p>
+                </div>
+              </div>
+
+              {/* RIGHT */}
+              <div className="flex flex-col justify-between gap-5 w-full md:w-52">
+                <div className="flex items-center justify-center gap-4">
+                  <button
+                    onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                    className="bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 rounded-md text-lg font-bold"
+                  >
+                    -
+                  </button>
+
+                  <span className="text-2xl font-semibold text-black">{quantity}</span>
+
+                  <button
+                    onClick={() => setQuantity((q) => q + 1)}
+                    className="bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 rounded-md text-lg font-bold"
+                  >
+                    +
+                  </button>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <button
+                    onClick={handleTambah}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-semibold"
+                  >
+                    Tambahkan
+                  </button>
+                  <button
+                    onClick={closeModal}
+                    className="w-full bg-[#5D33DA] hover:bg-[#4A28B5] text-white py-3 rounded-md font-semibold"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* MODAL PILIH JENIS */}
       {showJenisModal && (

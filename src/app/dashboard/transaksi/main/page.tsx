@@ -217,10 +217,13 @@ export default function TransaksiPage() {
           {/* TRANSAKSI TERAKHIR */}
           <div className="flex sm:flex-row justify-between items-center gap-3 mb-4">
             <p className="font-semibold text-lg">Transaksi Terakhir</p>
-            <button className="hidden sm:inline-flex items-center bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] sm:w-auto">
+            <button 
+              className="hidden sm:inline-flex items-center bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] sm:w-auto"
+              onClick={() => router.push("/dashboard/modeKasir/main")}
+            >
               Tambah Transaksi
             </button>
-            <button className="inline-flex sm:hidden items-center justify-center p-2 rounded-lg bg-[#5D33DA] text-white hover:bg-[#4A28B5]">
+            <button onClick={() => router.push("/dashboard/modeKasir/main")} className="inline-flex sm:hidden items-center justify-center p-2 rounded-lg bg-[#5D33DA] text-white hover:bg-[#4A28B5]">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
               </svg>
@@ -361,10 +364,10 @@ export default function TransaksiPage() {
           <div className="flex sm:flex-row justify-between items-center gap-3 mb-4">
             <p className="font-semibold text-lg">Tabel Refund</p>
 
-            <button className="hidden sm:inline-flex items-center bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] sm:w-auto">
+            <button onClick={() => router.push("/dashboard/commonPage/refund/pilihTransaksi")} className="hidden sm:inline-flex items-center bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] sm:w-auto">
               Tambah Refund
             </button>
-            <button className="inline-flex sm:hidden items-center justify-center p-2 rounded-lg bg-[#5D33DA] text-white hover:bg-[#4A28B5]">
+            <button onClick={() => router.push("/dashboard/commonPage/refund/pilihTransaksi")} className="inline-flex sm:hidden items-center justify-center p-2 rounded-lg bg-[#5D33DA] text-white hover:bg-[#4A28B5]">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
               </svg>
