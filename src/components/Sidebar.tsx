@@ -71,17 +71,37 @@ export default function Sidebar() {
       <div className="px-4 py-6">
         <div className="bg-white rounded-2xl p-4 space-y-4 shadow">
           {/* Upgrade Paket */}
-          <div className="relative rounded-lg overflow-hidden">
+          <div
+            onClick={() => router.push("/dashboard/pricing")}
+            className="relative rounded-lg overflow-hidden group cursor-pointer 
+            transition-all duration-300 transform"
+          >
+
+            {/* IMAGE */}
             <img
               src="/img/assets/bg-berlian.png"
               alt="upgrade"
-              className="w-full h-28 object-cover"
+              className="w-full h-28 object-cover transition-transform duration-500 
+              group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
-            <span className="absolute bottom-2 left-2 text-white font-medium text-sm">
+
+            {/* GRADIENT OVERLAY */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent
+            transition-opacity duration-300 group-hover:opacity-80"></div>
+
+            {/* TEXT */}
+            <span className="absolute bottom-2 left-2 text-white font-medium text-sm 
+            transition-all duration-300 group-hover:translate-y-[-2px]">
               Upgrade Paket
             </span>
+
+            {/* GLOW HOVER BORDER */}
+            <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 
+            transition-opacity duration-500 pointer-events-none
+            ring-2 ring-purple-400/60 shadow-[0_0_20px_rgba(168,85,247,0.5)]">
+            </div>
           </div>
+
 
           {/* Mode Kasir */}
           <button onClick={() => router.push("/dashboard/modeKasir/main")} className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-800">
