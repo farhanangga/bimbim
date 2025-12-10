@@ -164,7 +164,7 @@ export default function ProdukPage() {
               lg:grid-cols-5 
               gap-4 
               bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30
-              p-4 rounded-xl overflow-y-auto max-h-162 lg:max-h-120
+              p-4 rounded-xl overflow-y-auto max-h-166 lg:max-h-120
             "
           >
             {filteredProduk.length > 0 ? (
