@@ -59,8 +59,8 @@ export default function Sidebar() {
             <FaFileAlt /> Laporan
           </li>
           <li
-            onClick={() => router.push("/pengaturan")}
-            className={getMenuClass("/pengaturan")}
+            onClick={() => router.push("/dashboard/pengaturan/main")}
+            className={getMenuClass("/dashboard/pengaturan/main")}
           >
             <FaCog /> Pengaturan
           </li>

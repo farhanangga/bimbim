@@ -27,7 +27,7 @@ export default function KasirPage() {
           {/* TopBar */}
           <TopBar />
 
-          <div className="flex flex-1 px-1 flex-col md:flex-row">
+          <div className="flex flex-1 px-1 flex-col md:flex-row gap-5 lg:gap-0">
 
             {/* Card Transaksi */}
             <div className="flex-1 bg-white rounded-xl md:mx-6 h-max flex flex-col mt-4 md:mt-0">
@@ -52,7 +52,7 @@ export default function KasirPage() {
             </div>
 
             {/* Buttons */}
-            <div className="w-full md:w-64 h-max lg:my-auto bg-gray-100 rounded-xl p-6 md:mx-6 flex flex-col justify-center gap-4 mt-6 md:mt-0">
+            <div className="p-4 flex flex-col gap-4 md:w-80 justify-center my-auto bg-gray-100 rounded-xl  ">
               <button
                 onClick={() => router.push("/dashboard/modeKasir/inputNama")}
                 className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg shadow"
