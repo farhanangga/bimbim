@@ -12,8 +12,6 @@ export default function KasirPage() {
     { nama: "DAVIN GHANI", nominal: "Rp 50.000" },
     { nama: "MUHAMMAD INDRA", nominal: "Rp 20.000" },
     { nama: "KUSUMA", nominal: "Rp 30.000" },
-    { nama: "NARUTO", nominal: "Rp 25.000" },
-    { nama: "KUSNAEDI", nominal: "Rp 120.000" },
   ];
 
   return (
@@ -30,7 +28,7 @@ export default function KasirPage() {
           <div className="flex flex-1 px-1 flex-col md:flex-row gap-5 lg:gap-0">
 
             {/* Card Transaksi */}
-            <div className="flex-1 bg-white rounded-xl md:mx-6 h-max flex flex-col mt-4 md:mt-0">
+            <div className="flex-1 bg-white rounded-xl md:mx-6 h-max flex flex-col md:mt-0">
               <h2 className="text-lg font-semibold mb-4 text-black">
                 Transaksi Terakhir
               </h2>
@@ -52,7 +50,7 @@ export default function KasirPage() {
             </div>
 
             {/* Buttons */}
-            <div className="p-4 flex flex-col gap-4 md:w-80 justify-center my-auto bg-gray-100 rounded-xl  ">
+            <div className=" lx-0 lg:p-4 flex flex-col gap-4 md:w-80 justify-center my-auto bg-white lg:bg-gray-100 rounded-xl  ">
               <button
                 onClick={() => router.push("/dashboard/modeKasir/inputNama")}
                 className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg shadow"

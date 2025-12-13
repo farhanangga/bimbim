@@ -104,15 +104,15 @@ export default function Sidebar() {
 
 
           {/* Mode Kasir */}
-          <button onClick={() => router.push("/dashboard/modeKasir/main")} className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-800">
+          <button onClick={() => router.push("/dashboard/modeKasir/main")} className="text-sm w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-800">
             MODE KASIR
           </button>
 
           {/* Info Plan */}
-          <div className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 p-3 rounded-lg">
+          {/* <div className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 p-3 rounded-lg">
             <p className="text-sm font-semibold text-[#1D172F]">Sumber Jaya</p>
             <p className="text-xs text-[#1D172F]/70">Free Plan</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

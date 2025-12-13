@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import { Menu } from "lucide-react"; // ikon hamburger
@@ -8,6 +8,16 @@ import { Menu } from "lucide-react"; // ikon hamburger
 export default function DashboardPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  useEffect(() => {
+  // Cek apakah halaman dibuka dalam mode fullscreen
+  if (typeof document !== "undefined") {
+    if (document.fullscreenElement) {
+      document.exitFullscreen().catch((err) => {
+        console.error("Gagal keluar dari fullscreen:", err);
+      });
+    }
+  }
+}, []);
 
   // Dummy data
   const chartData = [

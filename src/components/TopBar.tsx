@@ -31,11 +31,7 @@ export default function TopBar() {
   const hideNavButtons = cleanPath === "/dashboard/modeKasir/main";
 
   const handleBack = () => {
-    if (cleanPath === "/dashboard/modeKasir/detailPembelian1") {
-      router.push("/dashboard/modeKasir/inputNama");
-    } else {
       router.back();
-    }
   };
 
   return (
