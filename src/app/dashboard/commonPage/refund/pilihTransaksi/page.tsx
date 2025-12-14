@@ -137,7 +137,7 @@ export default function TransaksiPage() {
     <div className="relative min-h-screen text-[#1D172F]">
 
       {/* Background */}
-      <div className="fixed inset-0 bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF] -z-10" />
+      <div className="fixed inset-0 bg-white lg:bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF] -z-10" />
 
       {/* Sidebar Desktop */}
       <div className="hidden lg:block">
@@ -164,7 +164,7 @@ export default function TransaksiPage() {
 
       {/* MAIN — hanya REFUND yang tersisa */}
       <div className="lg:ml-64 p-0 lg:p-6">
-        <div className="bg-white p-4 lg:p-6 rounded-none lg:rounded-2xl shadow-lg space-y-8">
+        <div className="bg-white p-4 lg:p-6 rounded-none lg:rounded-2xl space-y-8">
 
           {/* HEADER */}
           <div className="flex sm:flex-row justify-between items-center gap-3 mb-4">
@@ -233,15 +233,15 @@ export default function TransaksiPage() {
           </div>
 
           {/* Table Refund */}
-          <div className="bg-gray-50 p-4 rounded-xl shadow overflow-x-auto h-157 lg:h-110">
-            <table className="w-full min-w-[700px] text-left border-collapse">
+          <div className="bg-gray-50 p-0 lg:p-4 rounded-xl overflow-x-auto lg:h-110">
+            <table className="w-full lg:min-w-[700px] text-left border-collapse">
               <thead>
                 <tr className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30">
                   <th className="py-3 px-4 rounded-tl-lg">ID Transaksi</th>
                   <th className="py-3 px-4">Nama</th>
-                  <th className="py-3 px-4">Tanggal Refund</th>
-                  <th className="py-3 px-4">Jumlah</th>
-                  <th className="py-3 px-4">Total</th>
+                  <th className="py-3 px-4 hidden lg:block">Tanggal Refund</th>
+                  <th className="py-3 px-4 hidden lg:block">Jumlah</th>
+                  <th className="py-3 px-4 hidden lg:block">Total</th>
                   <th className="py-3 px-4 text-center rounded-tr-lg">Pilih</th>
                 </tr>
               </thead>
@@ -251,9 +251,9 @@ export default function TransaksiPage() {
                   <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
                     <td className="py-3 px-4">{trx.id}</td>
                     <td className="py-3 px-4">{trx.nama}</td>
-                    <td className="py-3 px-4">{trx.tanggal}</td>
-                    <td className="py-3 px-4">{trx.jumlah}</td>
-                    <td className="py-3 px-4">{trx.total}</td>
+                    <td className="py-3 px-4 hidden lg:block">{trx.tanggal}</td>
+                    <td className="py-3 px-4 hidden lg:block">{trx.jumlah}</td>
+                    <td className="py-3 px-4 hidden lg:block">{trx.total}</td>
                     <td className="py-3 text-center">
                       <button
                         onClick={() => router.push("/dashboard/commonPage/refund/detailTransaksi")}

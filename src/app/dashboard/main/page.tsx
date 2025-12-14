@@ -121,7 +121,7 @@ export default function DashboardPage() {
 
       {/* Main Content */}
       <div className="lg:ml-64 p-0 lg:p-6">
-        <div className="bg-white p-4 lg:p-6 rounded-none lg:rounded-2xl shadow-lg space-y-8">
+        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg space-y-8 h-full lg:min-h-148">
           {/* Header Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -139,13 +139,6 @@ export default function DashboardPage() {
                 <p className="text-xs">{item.sub}</p>
               </div>
             ))}
-          </div>
-
-          {/* Best Seller */}
-          <div className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 p-4 text-center rounded-xl shadow w-full sm:w-1/2 md:w-1/3">
-            <p className="text-sm">Best Seller</p>
-            <h2 className="text-lg font-semibold">Es Teh Manis</h2>
-            <p className="text-xs">Total Penjualan 100</p>
           </div>
 
           {/* Tombol Cepat */}

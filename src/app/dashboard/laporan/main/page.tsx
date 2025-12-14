@@ -105,7 +105,7 @@ export default function DashboardPage() {
           {selectedRange}
           {ARROW_SVG}
         </button>
-        <button onClick={() => router.push("/dashboard/modeKasir/main")} className="inline-flex sm:hidden items-center justify-center p-3 rounded-lg bg-[#5D33DA] text-white hover:bg-[#4A28B5]">
+        <button onClick={() => router.push("/dashboard/laporan/tambahLaporan")} className="inline-flex sm:hidden items-center justify-center p-3 rounded-lg bg-[#5D33DA] text-white hover:bg-[#4A28B5]">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
             </svg>
@@ -158,13 +158,13 @@ export default function DashboardPage() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4   gap-6 pt-4">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4   gap-6 pt-0">
               {filteredList.map((item, index) => (
                 <div
                   key={index}
                   className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 rounded-xl p-3 shadow hover:shadow-lg transition"
                 >
-                  <div className="bg-white rounded-lg overflow-hidden h-100 lg:h-76 flex items-center justify-center border">
+                  <div className="bg-white rounded-lg overflow-hidden h-40 lg:h-76 flex items-center justify-center border">
                     <img
                       src="/img/assets/laporanpdf.png"
                       alt="Laporan"
@@ -176,12 +176,12 @@ export default function DashboardPage() {
                     <p className="font-semibold text-sm">{item.jenis}</p>
                     <p className="text-xs text-gray-600">{item.tanggal}</p>
 
-                    <div className="mt-3 flex items-center gap-2">
-                      <button className="flex items-center bg-blue-600 hover:bg-blue-700 px-3 py-3 rounded-lg text-white text-xs">
-                        <Download size={18} />
+                    <div className="mt-3 flex flex-col lg:flex-row items-center gap-2">
+                      <button className="flex items-center bg-blue-600 hover:bg-blue-700 py-2 lg:py-3 rounded-lg text-white text-xs w-full lg:w-0 justify-center">
+                        <Download size={18}/> <p className="text-sm ml-2">Download</p>
                       </button>
 
-                      <button className="bg-[#5D33DA] text-white hover:bg-[#4A28B5] px-3 py-3 rounded-lg text-sm w-full">
+                      <button className="bg-[#5D33DA] text-white hover:bg-[#4A28B5]  py-2 lg:py-3 rounded-lg text-sm w-full">
                         Lihat Laporan
                       </button>
                     </div>

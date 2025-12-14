@@ -19,7 +19,7 @@ export default function TambahProdukPage() {
     <div className="relative min-h-screen text-[#1D172F]">
 
       {/* Background Gradient */}
-      <div className="fixed inset-0 bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF] -z-10" />
+      <div className="fixed inset-0 bg-white lg:bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF] -z-10" />
 
       {/* Desktop Sidebar */}
       <div className="hidden lg:block">
@@ -51,7 +51,7 @@ export default function TambahProdukPage() {
 
       {/* ===================== MAIN CONTENT ===================== */}
       <div className="lg:ml-[260px] p-0 lg:px-4 lg:py-6">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-lg space-y-8 min-h-[660px]">
+        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-148">
 
           {/* Tombol Kembali */}
           <button
@@ -61,12 +61,12 @@ export default function TambahProdukPage() {
             <ArrowLeft size={20} /> Kembali
           </button>
 
-          <p className="hidden lg:flex font-semibold text-lg">
+          <p className="mt-4 hidden lg:flex font-semibold text-lg">
             Tambah Laporan Baru
           </p>
 
           {/* Form Card */}
-          <div className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 p-6 rounded-xl">
+          <div className="mt-4 bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30 p-6 rounded-xl">
 
             {/* Jenis Laporan */}
             <label className="font-semibold block mb-2">
@@ -89,11 +89,11 @@ export default function TambahProdukPage() {
             </button>
           </div>
 
-          {/* Tombol Submit */}
-          <div className="flex justify-end">
+          {/* Tombol Submit*/}
+          <div className="hidden lg:flex justify-end">
             <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg">
-              Tambah Laporan Baru
-            </button>
+             Tambah Laporan Baru
+             </button>
           </div>
         </div>
       </div>
@@ -135,7 +135,12 @@ export default function TambahProdukPage() {
           </div>
         </div>
       )}
-
+      {/* ===================== MOBILE BOTTOM BAR ===================== */}
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-20 bg-white shadow p-4">
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold">
+                Tambah Laporan Baru
+            </button>
+        </div>
     </div>
   );
 }

@@ -23,7 +23,7 @@ export default function DashboardPage() {
     <div className="relative min-h-screen text-[#1D172F]">
 
       {/* Background */}
-      <div className="fixed inset-0 bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF] -z-10" />
+      <div className="fixed inset-0 bg-white lg:bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF] -z-10" />
 
       {/* Sidebar Desktop */}
       <div className="hidden lg:block">
@@ -58,7 +58,7 @@ export default function DashboardPage() {
 
       {/* MAIN CONTENT */}
       <div className="lg:ml-64 lg:p-6">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-lg min-h-[660px] sm:mt-0">
+        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-148">
 
           <h2 className="hidden lg:block text-lg font-semibold mb-6">Pengaturan</h2>
 

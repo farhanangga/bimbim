@@ -107,7 +107,7 @@ export default function ProdukPage() {
 
       {/* MAIN */}
       <div className="lg:ml-64 p-0 lg:p-6">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-lg space-y-10">
+        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full space-y-8 lg:min-h-148">
 
           {/* TOP CARDS */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -145,7 +145,7 @@ export default function ProdukPage() {
           <div className="flex justify-end">
             <button
               onClick={() => router.push("/dashboard/commonPage/produkBaru")}
-              className="px-6 py-3 bg-[#5D33DA] hover:bg-[#4A28B5] text-white rounded-xl shadow"
+              className="w-full lg:w-0 py-6 lg:px-6 lg:py-3 bg-[#5D33DA] hover:bg-[#4A28B5] text-xl  text-white rounded-xl shadow"
             >
               Tambah Produk Baru
             </button>
@@ -165,7 +165,7 @@ export default function ProdukPage() {
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
 
-                <button className="bg-[#5D33DA] hover:bg-[#4A28B5] text-white px-6 py-3 rounded-r-md flex items-center gap-2">
+                <button className="bg-white text-white px-6 py-3 rounded-r-md flex items-center gap-2">
                   <Search size={18} /> Cari
                 </button>
               </div>
@@ -191,7 +191,7 @@ export default function ProdukPage() {
               lg:grid-cols-5 
               gap-4 
               bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30
-              p-4 rounded-xl overflow-y-auto max-h-123.5
+              p-4 rounded-xl overflow-y-auto max-h-120
             "
           >
             {filteredProduk.length > 0 ? (
