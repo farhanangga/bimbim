@@ -126,7 +126,7 @@ export default function DashboardPage() {
             <div className="flex gap-2 w-full sm:w-auto">
 
               <button
-                className="bg-blue-600 text-white px-5 py-3 rounded-lg flex items-center justify-center"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg flex items-center justify-center"
                 onClick={() => setDateOpen(true)}
               >
                 {selectedDate ? `Date: ${selectedDate}` : "Tanggal"}
@@ -134,7 +134,7 @@ export default function DashboardPage() {
               </button>
 
               <button
-                className="bg-blue-600 text-white px-5 py-3 rounded-lg flex items-center justify-center"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg flex items-center justify-center"
                 onClick={() => setRangeOpen(true)}
               >
                 {selectedRange}
@@ -142,7 +142,10 @@ export default function DashboardPage() {
               </button>
 
             </div>
-            <button className=" items-center bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] sm:w-auto">
+            <button 
+              onClick={() => router.push("/dashboard/laporan/tambahLaporan")}
+              className=" items-center bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] sm:w-auto"
+            >
               Tambah Laporan Baru
             </button>
           </div>
