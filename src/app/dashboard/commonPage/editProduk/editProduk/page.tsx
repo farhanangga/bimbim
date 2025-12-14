@@ -45,7 +45,7 @@ export default function TambahProdukPage() {
 
       {/* ===================== MAIN CONTENT ===================== */}
       <div className="lg:ml-[260px] p-0 lg:px-4 lg:py-6">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-148">
+        <div className="bg-white px-4 pt-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-148 pb-20 ">
           
           {/* Tombol Kembali */}
           <button
@@ -151,14 +151,17 @@ export default function TambahProdukPage() {
 
           {/* Tombol Submit */}
           <div className="flex justify-end mt-6">
-            <button className="bg-[#3478F6] text-white px-6 py-3 rounded-lg">
+            <button className="hidden lg:block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg">
               Edit Produk
             </button>
           </div>
-
         </div>
       </div>
-
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-20 bg-white shadow p-4">
+        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold">
+            Edit Produk
+        </button>
+      </div>
     </div>
   );
 }
