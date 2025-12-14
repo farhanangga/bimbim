@@ -180,6 +180,7 @@ export default function LandingPage() {
               dan memantau laporan penjualan dengan cepat & akurat.
             </p>
             <button
+              onClick={() => router.push("/signIn/signUp")}
               style={{
                 background: colors.warnaUtama3,
                 color: colors.warnaText2,
@@ -216,6 +217,7 @@ export default function LandingPage() {
                   ))}
                 </ul>
                 <button
+                  onClick={() => router.push("/signIn/signUp")}
                   style={{
                     background: `linear-gradient(to right, ${colors.warnaUtama2}, ${colors.warnaUtama1})`,
                     color: colors.warnaTerang,
