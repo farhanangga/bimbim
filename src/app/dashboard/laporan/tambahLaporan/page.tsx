@@ -90,7 +90,7 @@ export default function TambahProdukPage() {
           </div>
 
           {/* Tombol Submit*/}
-          <div className="hidden lg:flex justify-end">
+          <div className="hidden lg:flex justify-end mt-4">
             <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg">
              Tambah Laporan Baru
              </button>
