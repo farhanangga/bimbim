@@ -213,7 +213,7 @@ export default function TransaksiPage() {
 
       {/* Main Content */}
       <div className="lg:ml-64 p-0 lg:p-6 ">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-165">
+        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg space-y-8 h-full lg:min-h-165">
           {/* TRANSAKSI TERAKHIR */}
           <div className="flex sm:flex-row justify-between items-center gap-3 mb-4">
             <p className="font-semibold text-lg">Transaksi Terakhir</p>
