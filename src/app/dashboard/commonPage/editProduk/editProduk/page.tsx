@@ -45,7 +45,7 @@ export default function TambahProdukPage() {
 
       {/* ===================== MAIN CONTENT ===================== */}
       <div className="lg:ml-[260px] p-0 lg:px-4 lg:py-6">
-        <div className="bg-white px-4 pt-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-165 pb-20 ">
+        <div className="bg-white px-4 pt-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-165 pb-22 ">
           
           {/* Tombol Kembali */}
           <button
