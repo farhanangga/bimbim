@@ -114,7 +114,7 @@ export default function DashboardPage() {
 
       {/* MAIN CONTENT */}
       <div className="lg:ml-64 lg:p-6">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-lg space-y-8 min-h-[660px] mt-15 sm:mt-0">
+        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-165">
 
           {/* Header */}
           <div className="flex sm:flex-row justify-between items-center gap-3 mb-4">

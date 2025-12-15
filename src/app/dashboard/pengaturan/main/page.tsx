@@ -58,7 +58,7 @@ export default function DashboardPage() {
 
       {/* MAIN CONTENT */}
       <div className="lg:ml-64 lg:p-6">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-148">
+        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-165">
 
           <h2 className="hidden lg:block text-lg font-semibold mb-6">Pengaturan</h2>
 

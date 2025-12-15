@@ -164,7 +164,7 @@ export default function TransaksiPage() {
 
       {/* MAIN — hanya REFUND yang tersisa */}
       <div className="lg:ml-64 p-0 lg:p-6">
-        <div className="bg-white p-4 lg:p-6 rounded-none lg:rounded-2xl space-y-8">
+        <div className="bg-white p-4 lg:p-6 rounded-none lg:rounded-2xl space-y-8 lg:min-h-165">
 
           {/* HEADER */}
           <div className="flex sm:flex-row justify-between items-center gap-3 mb-4">
@@ -239,9 +239,9 @@ export default function TransaksiPage() {
                 <tr className="bg-gradient-to-r from-[#5D3ADA]/30 to-[#2B68FF]/30">
                   <th className="py-3 px-4 rounded-tl-lg">ID Transaksi</th>
                   <th className="py-3 px-4">Nama</th>
-                  <th className="py-3 px-4 hidden lg:block">Tanggal Refund</th>
-                  <th className="py-3 px-4 hidden lg:block">Jumlah</th>
-                  <th className="py-3 px-4 hidden lg:block">Total</th>
+                  <th className="py-3 px-4 hidden lg:table-cell">Tanggal Refund</th>
+                  <th className="py-3 px-4 hidden lg:table-cell">Jumlah</th>
+                  <th className="py-3 px-4 hidden lg:table-cell">Total</th>
                   <th className="py-3 px-4 text-center rounded-tr-lg">Pilih</th>
                 </tr>
               </thead>
@@ -251,9 +251,9 @@ export default function TransaksiPage() {
                   <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
                     <td className="py-3 px-4">{trx.id}</td>
                     <td className="py-3 px-4">{trx.nama}</td>
-                    <td className="py-3 px-4 hidden lg:block">{trx.tanggal}</td>
-                    <td className="py-3 px-4 hidden lg:block">{trx.jumlah}</td>
-                    <td className="py-3 px-4 hidden lg:block">{trx.total}</td>
+                    <td className="py-3 px-4 hidden lg:table-cell">{trx.tanggal}</td>
+                    <td className="py-3 px-4 hidden lg:table-cell">{trx.jumlah}</td>
+                    <td className="py-3 px-4 hidden lg:table-cell">{trx.total}</td>
                     <td className="py-3 text-center">
                       <button
                         onClick={() => router.push("/dashboard/commonPage/refund/detailTransaksi")}

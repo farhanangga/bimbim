@@ -107,7 +107,7 @@ export default function ProdukPage() {
 
       {/* MAIN */}
       <div className="lg:ml-64 p-0 lg:p-6">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full space-y-8 lg:min-h-148">
+        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full space-y-8 lg:min-h-165">
 
           {/* TOP CARDS */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

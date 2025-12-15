@@ -121,7 +121,7 @@ export default function DashboardPage() {
 
       {/* Main Content */}
       <div className="lg:ml-64 p-0 lg:p-6">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg space-y-8 h-full lg:min-h-148">
+        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg space-y-8 h-full lg:min-h-165">
           {/* Header Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
