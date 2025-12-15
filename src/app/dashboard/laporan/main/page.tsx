@@ -177,8 +177,8 @@ export default function DashboardPage() {
                     <p className="text-xs text-gray-600">{item.tanggal}</p>
 
                     <div className="mt-3 flex flex-col lg:flex-row items-center gap-2">
-                      <button className="flex items-center bg-blue-600 hover:bg-blue-700 py-2 lg:py-3 rounded-lg text-white text-xs w-full lg:w-0 justify-center">
-                        <Download size={18}/> <p className="text-sm ml-2">Download</p>
+                      <button className="flex items-center bg-blue-600 hover:bg-blue-700 py-2 lg:py-3 rounded-lg text-white text-xs w-full lg:w-15 justify-center">
+                        <Download size={18}/> <p className="block lg:hidden text-sm ml-2">Download</p>
                       </button>
 
                       <button className="bg-[#5D33DA] text-white hover:bg-[#4A28B5]  py-2 lg:py-3 rounded-lg text-sm w-full">
