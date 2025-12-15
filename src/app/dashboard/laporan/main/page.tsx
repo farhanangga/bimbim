@@ -57,7 +57,7 @@ export default function DashboardPage() {
     <div className="relative min-h-screen text-[#1D172F]">
 
       {/* Background */}
-      <div className="fixed inset-0 bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF] -z-10" />
+      <div className="fixed inset-0 bg-white lg:bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF] -z-10" />
 
       {/* Sidebar Desktop */}
       <div className="hidden lg:block">
@@ -94,7 +94,7 @@ export default function DashboardPage() {
           className="bg-blue-600 text-white px-4 py-3 rounded-lg flex items-center justify-center w-full"
           onClick={() => setDateOpen(true)}
         >
-          {selectedDate ? `Date: ${selectedDate}` : "Tanggal"}
+          {selectedDate ? ` ${selectedDate}` : "Tanggal"}
           {ARROW_SVG}
         </button>
 
@@ -129,7 +129,7 @@ export default function DashboardPage() {
                 className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg flex items-center justify-center"
                 onClick={() => setDateOpen(true)}
               >
-                {selectedDate ? `Date: ${selectedDate}` : "Tanggal"}
+                {selectedDate ? ` ${selectedDate}` : "Tanggal"}
                 {ARROW_SVG}
               </button>
 
@@ -152,13 +152,13 @@ export default function DashboardPage() {
 
           {/* GRID / NO DATA */}
           {filteredList.length === 0 ? (
-            <div className="flex items-center justify-center py-20">
+            <div className="flex items-center justify-center py-55 ">
               <p className="text-gray-600 text-center text-lg">
                 Tidak ada laporan yang sesuai dengan pencarian.
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4   gap-6 pt-0">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-13 lg:pt-0 gap-6 ">
               {filteredList.map((item, index) => (
                 <div
                   key={index}
