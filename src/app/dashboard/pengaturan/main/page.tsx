@@ -72,7 +72,7 @@ export default function DashboardPage() {
                 <div className="flex items-center gap-4">
                   <User size={22} className="text-[#1D172F]" />     
                 </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between w-full">
+                <div onClick={() => router.push("/dashboard/pengaturan/profil")} className="flex flex-col sm:flex-row sm:justify-between w-full">
                     <span className="text-[15px] font-medium">
                         Profil
                     </span>
