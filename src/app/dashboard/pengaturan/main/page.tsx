@@ -44,7 +44,7 @@ export default function DashboardPage() {
       )}
 
       {/* Mobile Header */}
-      <div className="lg:hidden flex items-center p-4 bg-white sticky top-0 z-30">
+      <div className="lg:hidden flex items-center p-4 bg-white sticky shadow top-0 z-30">
         <button
           onClick={() => setSidebarOpen(true)}
           className="text-[#1D172F] focus:outline-none"
@@ -58,11 +58,11 @@ export default function DashboardPage() {
 
       {/* MAIN CONTENT */}
       <div className="lg:ml-64 lg:p-6">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-165">
+        <div className="bg-white py-4 px-2 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-165">
 
           <h2 className="hidden lg:block text-lg font-semibold mb-6">Pengaturan</h2>
 
-          <div className="space-y-4">
+          <div className="space-y-0 lg:space-y-1">
 
             {/* --------------------- LIST ITEM ---------------------- */}
 
@@ -77,14 +77,14 @@ export default function DashboardPage() {
                         Profil
                     </span>
                     <span className="text-sm text-gray-500">
-                    Email, Nama
+                    Nama, Nomor Hp
                     </span>
                 </div>
               </div>
             </div>
 
             {/* Tampilan */}
-            <div className="p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer">
+            <div onClick={() => router.push("/dashboard/pengaturan/tampilan")} className="p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer">
               <div className="flex items-center justify-between gap-5">
                 <div className="flex items-center gap-4">
                   <Brush size={22} className="text-[#1D172F]" />
@@ -101,7 +101,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Keamanan */}
-            <div className="p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer">
+            <div onClick={() => router.push("/dashboard/pengaturan/keamanan")} className="p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer">
               <div className="flex items-center justify-between gap-5">
                 <div className="flex items-center gap-4">
                   <Shield size={22} className="text-[#1D172F]" />
@@ -111,14 +111,14 @@ export default function DashboardPage() {
                         Keamanan
                     </span>
                     <span className="text-sm text-gray-500">
-                    Keamanan, Verifikasi 2 Langkah, PIN
+                    Email, Password , PIN Keamanan
                     </span>
                 </div>
               </div>
             </div>
 
             {/* Akun */}
-            <div className="p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer">
+            <div onClick={() => router.push("/dashboard/pengaturan/akun")} className="p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer">
               <div className="flex items-center justify-between gap-5">
                 <div className="flex items-center gap-4">
                   <Archive size={22} className="text-[#1D172F]" />
@@ -128,14 +128,14 @@ export default function DashboardPage() {
                     Akun
                     </span>
                     <span className="text-sm text-gray-500">
-                    Data, Privasi
+                    Informasi Akun
                     </span>
                 </div>
               </div>
             </div>
 
             {/* FAQ */}
-            <div className="p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer">
+            <div onClick={() => router.push("/dashboard/pengaturan/faq")} className="p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer">
               <div className="flex items-center justify-between gap-5">
                 <div className="flex items-center gap-4">
                   <HelpCircle size={22} className="text-[#1D172F]" />  
@@ -152,7 +152,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Tentang Aplikasi */}
-            <div className="p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer">
+            <div onClick={() => router.push("/dashboard/pengaturan/tentangAplikasi")} className="p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer">
               <div className="flex items-center justify-between gap-5">
                 <div className="flex items-center gap-4">
                   <Info size={22} className="text-[#1D172F] w-6 h-6" />
@@ -169,15 +169,17 @@ export default function DashboardPage() {
             </div>
 
             {/* LOGOUT */}
-            <div
-              className="p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer"
-              onClick={() => router.push("/")}
-            >
-              <div className="flex items-center gap-4">
-                <LogOut size={22} className="text-red-500" />
-                <span className="text-[15px] font-medium text-red-500">
-                  Log Out
-                </span>
+
+            <div onClick={() => router.push("/")} className="p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer">
+              <div className="flex items-center justify-between gap-5">
+                <div className="flex items-center gap-4">
+                  <LogOut size={22} className="text-red-500 w-6 h-6" />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between w-full">
+                    <span className="text-[15px] font-medium text-red-500">
+                      Log Out
+                    </span>
+                </div>
               </div>
             </div>
 

@@ -11,20 +11,20 @@ export default function SignInPage() {
   return (
     <div className="relative min-h-screen flex flex-col justify-between bg-gradient-to-tr from-[#D8E1FF] via-[#88AEFF] to-[#A88FFF]">
       {/* MAIN CONTENT */}
-      <div className="flex flex-1 flex-col md:flex-row items-center justify-center px-4 py-5 gap-5 md:gap-50">
+      <div className="flex flex-1 flex-col lg:flex-row items-center justify-center px-4 py-5 gap-5 lg:gap-50">
         
         {/* LEFT SIDE (Logo) */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <h1 className="text-4xl md:text-[128px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#5D33DA] to-[#266BFF] leading-none">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <h1 className="text-4xl lg:text-[128px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#5D33DA] to-[#266BFF] leading-none">
             Bimbim
           </h1>
-          <h2 className="text-xl md:text-[48px] font-semibold text-black md:-mt-2">
+          <h2 className="text-xl lg:text-[48px] font-semibold text-black lg:-mt-2">
             Kasir Digital
           </h2>
         </div>
 
         {/* RIGHT SIDE (Card) */}
-        <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-5 md:p-8">
+        <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-5 lg:p-8">
           <div className="flex items-center mb-2">
             <h2 className="text-2xl font-bold text-black">Sign In</h2>
           </div>
@@ -32,9 +32,6 @@ export default function SignInPage() {
           <div className="flex items-center justify-between mb-6">
             <p className="text-gray-400 text-sm">
             Welcome Bimbim!!
-            </p>
-            <p onClick={() => router.push("/signIn/signUp")} className="text-gray-400 text-sm">
-            back
             </p>
           </div>
 
@@ -136,7 +133,7 @@ export default function SignInPage() {
       </div>
 
       {/* FOOTER IMAGE */}
-      <div className="w-full hidden md:block">
+      <div className="w-full hidden lg:block">
         <img
           src="/img/assets/footer.png"
           alt="footer"

@@ -14,22 +14,22 @@ export default function SignUpPage() {
         <div
           className="
             flex w-full max-w-[1180px] justify-between items-center mx-auto
-            flex-col md:flex-row gap-5 md:gap-0
+            flex-col lg:flex-row gap-5 lg:gap-0
           "
         >
           {/* LEFT SIDE */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <h1 className="text-4xl md:text-[128px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#5D33DA] to-[#266BFF] leading-none">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <h1 className="text-4xl lg:text-[128px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#5D33DA] to-[#266BFF] leading-none">
             Bimbim
           </h1>
-          <h2 className="text-xl md:text-[48px] font-semibold text-black md:-mt-2">
+          <h2 className="text-xl lg:text-[48px] font-semibold text-black lg:-mt-2">
             Kasir Digital
           </h2>
         </div>
 
           {/* RIGHT SIDE */}
           <div className="w-full max-w-[460px]">
-            <div className="bg-white rounded-2xl shadow-lg p-5 md:p-8">
+            <div className="bg-white rounded-2xl shadow-lg p-5 lg:p-8">
               <h2 className="text-2xl font-bold mb-1 text-black text-left">
                 Daftar
               </h2>
@@ -37,17 +37,11 @@ export default function SignUpPage() {
               <p className="text-gray-400 text-sm">
                 Isi semua data di bawah ini!!
               </p>
-              <span
-                onClick={() => router.back()}
-                className= "text-gray-400 text-sm"
-              >
-                Back
-              </span>
               </div>
 
               <form className="space-y-4">
                 {/* Nama Depan & Belakang */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-black">
                       Nama Depan
@@ -206,7 +200,7 @@ export default function SignUpPage() {
       </div>
 
       {/* Footer Wave */}
-      <div className="hidden md:block w-full">
+      <div className="hidden lg:block w-full">
         <img
           src="/img/assets/footer.png"
           alt="footer"

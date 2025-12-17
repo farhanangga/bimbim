@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
-import { Menu, ArrowLeft, Pencil } from "lucide-react";
+import { ArrowLeft, Info } from "lucide-react";
 
-export default function ProfilPage() {
+export default function TentangAplikasiPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -38,7 +38,7 @@ export default function ProfilPage() {
         <button onClick={() => router.back()}>
           <ArrowLeft size={26} />
         </button>
-        <h1 className="font-semibold text-lg">Profil</h1>
+        <h1 className="font-semibold text-lg">Tentang Aplikasi</h1>
       </div>
 
       {/* MAIN CONTENT */}
@@ -46,38 +46,29 @@ export default function ProfilPage() {
         <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-165">
 
           <h2 className="hidden lg:block text-lg font-semibold mb-6">
-            Profil
+            Tentang Aplikasi
           </h2>
 
           <div className="space-y-5">
 
-            <ProfileItem label="Nama" value="Farhan Angga" />
-            <ProfileItem label="Nomor HP" value="+62 812 3456 7890" />
+            {/* VERSI APLIKASI */}
+            <div className="p-4 rounded-xl border border-gray-200 flex items-center justify-between">
+              <div className="flex items-start gap-3">
+                <Info size={18} className="text-gray-500 mt-1" />
+                <div>
+                  <p className="text-sm text-gray-500">
+                    Versi Aplikasi
+                  </p>
+                  <p className="font-medium">
+                    v1.0.0
+                  </p>
+                </div>
+              </div>
+            </div>
 
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function ProfileItem({
-  label,
-  value
-}: {
-  label: string;
-  value: string;
-}) {
-  return (
-    <div className="p-4 rounded-xl border border-gray-200 flex items-center justify-between hover:bg-gray-50 transition">
-      <div>
-        <p className="text-sm text-gray-500">{label}</p>
-        <p className="font-medium">{value}</p>
-      </div>
-      <button className="flex items-center gap-2 text-sm text-blue-600">
-        <Pencil size={16} />
-        Ubah
-      </button>
     </div>
   );
 }

@@ -145,7 +145,7 @@ export default function ProdukPage() {
           <div className="flex justify-end">
             <button
               onClick={() => router.push("/dashboard/commonPage/produkBaru")}
-              className="w-full lg:w-0 py-6 lg:px-6 lg:py-3 bg-[#5D33DA] hover:bg-[#4A28B5] text-xl  text-white rounded-xl shadow"
+              className="w-full lg:w-50 py-6 lg:px-6 lg:py-3 bg-[#5D33DA] hover:bg-[#4A28B5] text-xl lg:text-sm text-white rounded-xl shadow"
             >
               Tambah Produk Baru
             </button>

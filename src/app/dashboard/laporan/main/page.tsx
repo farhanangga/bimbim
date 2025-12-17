@@ -78,43 +78,44 @@ export default function DashboardPage() {
       )}
 
       {/* Mobile Header */}
-      <div className="lg:hidden flex items-center p-4 bg-white sticky top-0 z-30">
-        <button
-          onClick={() => setSidebarOpen(true)}
-          className="text-[#1D172F] focus:outline-none"
-        >
-          <Menu size={28} />
-        </button>
-        <h1 className="ml-4 font-semibold text-lg text-[#1D172F]">Laporan</h1>
-      </div>
+      <div className="lg:hidden flex  bg-white flex flex-col sticky top-0 z-30">
+        <div className="flex flex-row  p-4">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="text-[#1D172F] focus:outline-none"
+          >
+            <Menu size={28} />
+          </button>
+          <h1 className="ml-4 font-semibold text-lg text-[#1D172F]">Laporan</h1>
+        </div>
+        {/* ✔ NAVBAR FILTER KHUSUS MOBILE (sm) */}
+        <div className="block sm:hidden bg-white shadow px-4 pb-3 flex gap-3 w-full ">
+          <button
+            className="bg-blue-600 text-white px-4 py-3 rounded-lg flex items-center justify-center w-full"
+            onClick={() => setDateOpen(true)}
+          >
+            {selectedDate ? ` ${selectedDate}` : "Tanggal"}
+            {ARROW_SVG}
+          </button>
 
-      {/* ✔ NAVBAR FILTER KHUSUS MOBILE (sm) */}
-      <div className="block sm:hidden bg-white shadow px-4 py-3 flex gap-3 w-full fixed top-[58px] z-20">
-        <button
-          className="bg-blue-600 text-white px-4 py-3 rounded-lg flex items-center justify-center w-full"
-          onClick={() => setDateOpen(true)}
-        >
-          {selectedDate ? ` ${selectedDate}` : "Tanggal"}
-          {ARROW_SVG}
-        </button>
-
-        <button
-          className="bg-blue-600 text-white px-4 py-3 rounded-lg flex items-center justify-center w-full"
-          onClick={() => setRangeOpen(true)}
-        >
-          {selectedRange}
-          {ARROW_SVG}
-        </button>
-        <button onClick={() => router.push("/dashboard/laporan/tambahLaporan")} className="inline-flex sm:hidden items-center justify-center p-3 rounded-lg bg-[#5D33DA] text-white hover:bg-[#4A28B5]">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-            </svg>
-        </button>
+          <button
+            className="bg-blue-600 text-white px-4 py-3 rounded-lg flex items-center justify-center w-full"
+            onClick={() => setRangeOpen(true)}
+          >
+            {selectedRange}
+            {ARROW_SVG}
+          </button>
+          <button onClick={() => router.push("/dashboard/laporan/tambahLaporan")} className="inline-flex sm:hidden items-center justify-center p-3 rounded-lg bg-[#5D33DA] text-white hover:bg-[#4A28B5]">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+              </svg>
+          </button>
+        </div>
       </div>
 
       {/* MAIN CONTENT */}
       <div className="lg:ml-64 lg:p-6">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-165">
+        <div className="bg-white px-4 pb-4  lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-165">
 
           {/* Header */}
           <div className="flex sm:flex-row justify-between items-center gap-3 mb-4">
@@ -158,7 +159,7 @@ export default function DashboardPage() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-13 lg:pt-0 gap-6 ">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ">
               {filteredList.map((item, index) => (
                 <div
                   key={index}
