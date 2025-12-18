@@ -3,11 +3,11 @@
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import { ArrowLeft } from "lucide-react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import type { ChangeEvent, RefObject } from "react";
 
 export default function PinBaruPage() {
   const router = useRouter();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const pin1 = useRef<HTMLInputElement>(null);
   const pin2 = useRef<HTMLInputElement>(null);
@@ -17,8 +17,8 @@ export default function PinBaruPage() {
   const pin6 = useRef<HTMLInputElement>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    nextRef?: React.RefObject<HTMLInputElement>
+    e: ChangeEvent<HTMLInputElement>,
+    nextRef?: RefObject<HTMLInputElement | null>
   ) => {
     if (e.target.value.length === 1 && nextRef?.current) {
       nextRef.current.focus();
@@ -78,10 +78,12 @@ export default function PinBaruPage() {
             </div>
           </div>
 
-          {/* Button */}
+          {/* Button Desktop */}
           <div className="hidden lg:flex justify-end">
             <button
-              onClick={() => router.push("/dashboard/pengaturan/keamanan/konfirmasiPin")}
+              onClick={() =>
+                router.push("/dashboard/pengaturan/keamanan/konfirmasiPin")
+              }
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg"
             >
               Lanjutkan
@@ -93,7 +95,9 @@ export default function PinBaruPage() {
       {/* Mobile Button */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow p-4">
         <button
-          onClick={() => router.push("/dashboard/pengaturan/keamanan/konfirmasiPin")}
+          onClick={() =>
+            router.push("/dashboard/pengaturan/keamanan/konfirmasiPin")
+          }
           className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold"
         >
           Lanjutkan

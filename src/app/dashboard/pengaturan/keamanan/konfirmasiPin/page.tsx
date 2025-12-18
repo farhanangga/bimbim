@@ -3,11 +3,11 @@
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import { ArrowLeft } from "lucide-react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import type { ChangeEvent, RefObject } from "react";
 
 export default function KonfirmasiPinPage() {
   const router = useRouter();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const pin1 = useRef<HTMLInputElement>(null);
   const pin2 = useRef<HTMLInputElement>(null);
@@ -17,8 +17,8 @@ export default function KonfirmasiPinPage() {
   const pin6 = useRef<HTMLInputElement>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    nextRef?: React.RefObject<HTMLInputElement>
+    e: ChangeEvent<HTMLInputElement>,
+    nextRef?: RefObject<HTMLInputElement | null>
   ) => {
     if (e.target.value.length === 1 && nextRef?.current) {
       nextRef.current.focus();
@@ -62,7 +62,7 @@ export default function KonfirmasiPinPage() {
               Masukkan kembali 6 digit PIN Anda
             </p>
 
-            {/* PIN INPUT */}
+            {/* ===== PIN INPUT ===== */}
             <div className="flex justify-center gap-3">
               <input ref={pin1} maxLength={1} inputMode="numeric"
                 onChange={(e) => handleChange(e, pin2)}
@@ -84,7 +84,7 @@ export default function KonfirmasiPinPage() {
             </div>
           </div>
 
-          {/* DESKTOP BUTTON */}
+          {/* Desktop Button */}
           <div className="hidden lg:flex justify-end">
             <button
               onClick={handleSimpan}
@@ -96,7 +96,7 @@ export default function KonfirmasiPinPage() {
         </div>
       </div>
 
-      {/* MOBILE BUTTON */}
+      {/* Mobile Button */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow p-4">
         <button
           onClick={handleSimpan}
