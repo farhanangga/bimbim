@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
-import { Menu, ArrowLeft, Pencil, Lock } from "lucide-react";
+import { ArrowLeft, Pencil, Lock } from "lucide-react";
 
 export default function KeamananPage() {
   const router = useRouter();
@@ -51,67 +51,92 @@ export default function KeamananPage() {
 
           <div className="space-y-5">
 
-            <SecurityItem
-              label="Email"
-              value="farhan@email.com"
-              description="Digunakan untuk login dan notifikasi"
-            />
+            {/* ===== EMAIL ===== */}
+            <div className="p-4 rounded-xl border border-gray-200 hover:bg-gray-50 transition">
+              <div className="flex items-center justify-between">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 text-gray-500">
+                    <Lock size={18} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">Email</p>
+                    <p className="font-medium">farhan@email.com</p>
+                    <p className="text-xs text-gray-400 mt-1">
+                      Digunakan untuk login dan notifikasi
+                    </p>
+                  </div>
+                </div>
 
-            <SecurityItem
-              label="Password"
-              value="••••••••"
-              description="Ubah password secara berkala untuk keamanan"
-            />
+                <button
+                  onClick={() =>
+                    router.push("/dashboard/pengaturan/keamanan/ubahEmail")
+                  }
+                  className="flex items-center gap-2 text-sm text-blue-600"
+                >
+                  <Pencil size={16} />
+                  Ubah
+                </button>
+              </div>
+            </div>
 
-            <SecurityItem
-              label="PIN Keamanan"
-              value="Belum diatur"
-              description="PIN digunakan untuk verifikasi tambahan"
-              isPin
-            />
+            {/* ===== PASSWORD ===== */}
+            <div className="p-4 rounded-xl border border-gray-200 hover:bg-gray-50 transition">
+              <div className="flex items-center justify-between">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 text-gray-500">
+                    <Lock size={18} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">Password</p>
+                    <p className="font-medium">••••••••</p>
+                    <p className="text-xs text-gray-400 mt-1">
+                      Ubah password secara berkala untuk keamanan
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() =>
+                    router.push("/dashboard/pengaturan/keamanan/ubahPassword")
+                  }
+                  className="flex items-center gap-2 text-sm text-blue-600"
+                >
+                  <Pencil size={16} />
+                  Ubah
+                </button>
+              </div>
+            </div>
+
+            {/* ===== PIN KEAMANAN ===== */}
+            <div className="p-4 rounded-xl border border-gray-200 hover:bg-gray-50 transition">
+              <div className="flex items-center justify-between">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 text-gray-500">
+                    <Lock size={18} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">PIN Keamanan</p>
+                    <p className="font-medium">Belum diatur</p>
+                    <p className="text-xs text-gray-400 mt-1">
+                      PIN digunakan untuk verifikasi tambahan
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() =>
+                    router.push("/dashboard/pengaturan/keamanan/tambahPin")
+                  }
+                  className="flex items-center gap-2 text-sm text-blue-600"
+                >
+                  <Pencil size={16} />
+                  Atur
+                </button>
+              </div>
+            </div>
 
           </div>
         </div>
-      </div>
-    </div>
-  );
-}
-
-/* ===================== */
-/* COMPONENT */
-/* ===================== */
-
-function SecurityItem({
-  label,
-  value,
-  description,
-  isPin = false,
-}: {
-  label: string;
-  value: string;
-  description: string;
-  isPin?: boolean;
-}) {
-  return (
-    <div className="p-4 rounded-xl border border-gray-200 hover:bg-gray-50 transition">
-      <div className="flex items-center justify-between">
-        <div className="flex items-start gap-3">
-          <div className="mt-1 text-gray-500">
-            <Lock size={18} />
-          </div>
-          <div>
-            <p className="text-sm text-gray-500">{label}</p>
-            <p className="font-medium">{value}</p>
-            <p className="text-xs text-gray-400 mt-1">
-              {description}
-            </p>
-          </div>
-        </div>
-
-        <button className="flex items-center gap-2 text-sm text-blue-600">
-          <Pencil size={16} />
-          {isPin ? "Atur" : "Ubah"}
-        </button>
       </div>
     </div>
   );

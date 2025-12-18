@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
-import { Menu, ArrowLeft, Pencil } from "lucide-react";
+import { ArrowLeft, Pencil } from "lucide-react";
 
 export default function ProfilPage() {
   const router = useRouter();
@@ -51,33 +51,43 @@ export default function ProfilPage() {
 
           <div className="space-y-5">
 
-            <ProfileItem label="Nama" value="Farhan Angga" />
-            <ProfileItem label="Nomor HP" value="+62 812 3456 7890" />
+            {/* ===== NAMA ===== */}
+            <div className="p-4 rounded-xl border border-gray-200 flex items-center justify-between hover:bg-gray-50 transition">
+              <div>
+                <p className="text-sm text-gray-500">Nama</p>
+                <p className="font-medium">Farhan Angga</p>
+              </div>
+              <button
+                onClick={() =>
+                  router.push("/dashboard/pengaturan/profil/ubahNama")
+                }
+                className="flex items-center gap-2 text-sm text-blue-600"
+              >
+                <Pencil size={16} />
+                Ubah
+              </button>
+            </div>
+
+            {/* ===== NOMOR HP ===== */}
+            <div className="p-4 rounded-xl border border-gray-200 flex items-center justify-between hover:bg-gray-50 transition">
+              <div>
+                <p className="text-sm text-gray-500">Nomor HP</p>
+                <p className="font-medium">+62 812 3456 7890</p>
+              </div>
+              <button
+                onClick={() =>
+                  router.push("/dashboard/pengaturan/profil/ubahNomor")
+                }
+                className="flex items-center gap-2 text-sm text-blue-600"
+              >
+                <Pencil size={16} />
+                Ubah
+              </button>
+            </div>
 
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function ProfileItem({
-  label,
-  value
-}: {
-  label: string;
-  value: string;
-}) {
-  return (
-    <div className="p-4 rounded-xl border border-gray-200 flex items-center justify-between hover:bg-gray-50 transition">
-      <div>
-        <p className="text-sm text-gray-500">{label}</p>
-        <p className="font-medium">{value}</p>
-      </div>
-      <button className="flex items-center gap-2 text-sm text-blue-600">
-        <Pencil size={16} />
-        Ubah
-      </button>
     </div>
   );
 }

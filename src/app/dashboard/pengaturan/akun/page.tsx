@@ -87,7 +87,7 @@ export default function AkunPage() {
                 </div>
               </div>
 
-              <button className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#5D3ADA] to-[#2B68FF] hover:scale-105 transition-transform duration-200 text-white text-sm  transition">
+              <button onClick={() => router.push("/dashboard/pricing")} className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#5D3ADA] to-[#2B68FF] hover:scale-105 transition-transform duration-200 text-white text-sm  transition">
                 Upgrade
               </button>
             </div>

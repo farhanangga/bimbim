@@ -126,7 +126,7 @@ export default function FAQPage() {
                 </div>
               </div>
 
-              <button className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 transition">
+              <button onClick={() => router.push("/dashboard/pengaturan/faq/pertanyaan")} className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 transition">
                 Ajukan Pertanyaan
               </button>
             </div>
