@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 export default function SignInPage() {
   const router = useRouter();
@@ -14,7 +13,7 @@ export default function SignInPage() {
       <div className="flex flex-1 flex-col lg:flex-row items-center justify-center px-4 py-5 gap-5 lg:gap-50">
         
         {/* LEFT SIDE (Logo) */}
-        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+        <div onClick={() => router.push("/")} className="flex flex-col items-center lg:items-start text-center lg:text-left">
           <h1 className="text-4xl lg:text-[128px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#5D33DA] to-[#266BFF] leading-none">
             Bimbim
           </h1>
@@ -100,15 +99,15 @@ export default function SignInPage() {
                 e.preventDefault();
                 router.push("/dashboard/main");
               }}
-              className="w-full py-3 rounded-md bg-[#5D33DA] text-white font-semibold hover:bg-[#4A28B5] transition"
+              className="w-full py-3 rounded-md bg-[#5D33DA] text-white hover:bg-[#4A28B5] transition"
             >
               Masuk
             </button>
 
             {/* GOOGLE SIGN IN */}
-            <Link
-              href="/api/auth/google"
-              className="w-full py-3 rounded-md bg-blue-600 text-white font-semibold flex items-center justify-center gap-2 hover:bg-blue-700 transition"
+            <button
+              onClick={(e) => {e.preventDefault(); router.push("/dashboard/main");}}
+              className="w-full py-3 rounded-md bg-blue-600 text-white flex items-center justify-center gap-2 hover:bg-blue-700 transition"
             >
               <img
                 src="https://www.svgrepo.com/show/355037/google.svg"
@@ -116,7 +115,7 @@ export default function SignInPage() {
                 className="w-5 h-5"
               />
               Masuk dengan Google
-            </Link>
+            </button>
           </form>
 
           {/* LINK DAFTAR */}

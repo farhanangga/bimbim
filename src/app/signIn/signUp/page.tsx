@@ -18,14 +18,14 @@ export default function SignUpPage() {
           "
         >
           {/* LEFT SIDE */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-          <h1 className="text-4xl lg:text-[128px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#5D33DA] to-[#266BFF] leading-none">
-            Bimbim
-          </h1>
-          <h2 className="text-xl lg:text-[48px] font-semibold text-black lg:-mt-2">
-            Kasir Digital
-          </h2>
-        </div>
+          <div onClick={() => router.push("/")}  className="flex flex-col items-center lg:items-start text-center lg:text-left">
+            <h1 className="text-4xl lg:text-[128px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#5D33DA] to-[#266BFF] leading-none">
+              Bimbim
+            </h1>
+            <h2 className="text-xl lg:text-[48px] font-semibold text-black lg:-mt-2">
+              Kasir Digital
+            </h2>
+          </div>
 
           {/* RIGHT SIDE */}
           <div className="w-full max-w-[460px]">
@@ -165,15 +165,15 @@ export default function SignUpPage() {
                 <button
                   type="button"
                   onClick={() => router.push("/signIn/kodeVerifikasi")}
-                  className="w-full py-3 rounded-md bg-[#5D33DA] text-white font-semibold hover:bg-[#4A28B5] transition"
+                  className="w-full py-3 rounded-md bg-[#5D33DA] text-white hover:bg-[#4A28B5] transition"
                 >
                   Daftar
                 </button>
 
                 <button
                   type="button"
-                  onClick={() => router.push("/signIn/kodeVerifikasi")}
-                  className="w-full py-3 rounded-md bg-blue-600 text-white font-semibold flex items-center justify-center gap-2 hover:bg-blue-700 transition"
+                  onClick={() => router.push("/dashboard/main")}
+                  className="w-full py-3 rounded-md bg-blue-600 text-white flex items-center justify-center gap-2 hover:bg-blue-700 transition"
                 >
                   <img
                     src="https://www.svgrepo.com/show/355037/google.svg"

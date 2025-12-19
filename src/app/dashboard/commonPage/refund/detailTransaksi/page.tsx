@@ -126,7 +126,7 @@ export default function DetailTransaksiPage() {
               <button
                 className="
                   hidden lg:block w-full mt-6 bg-red-600 hover:bg-red-700
-                  text-white py-3 rounded-lg font-semibold
+                  text-white py-3 rounded-lg
                 "
               >
                 Refund

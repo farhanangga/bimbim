@@ -77,7 +77,7 @@ export default function VerifyAccountPage() {
           {/* Button Verifikasi */}
           <button
             type="button"
-            onClick={() => router.push("/dashboard")} // sementara arahkan ke halaman dummy
+            onClick={() => router.push("/dashboard/main")} // sementara arahkan ke halaman dummy
             className="
               w-full py-2.5 sm:py-3 rounded-xl bg-[#5D33DA] 
               text-white font-semibold hover:bg-[#4A28B5] transition

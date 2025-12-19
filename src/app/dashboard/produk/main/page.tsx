@@ -142,13 +142,29 @@ export default function ProdukPage() {
           </div>
 
           {/* BUTTON TAMBAH PRODUK */}
-          <div className="flex justify-end">
+          <div className="flex flex-wrap gap-3">
+
             <button
               onClick={() => router.push("/dashboard/commonPage/produkBaru")}
-              className="w-full lg:w-50 py-6 lg:px-6 lg:py-3 bg-[#5D33DA] hover:bg-[#4A28B5] text-xl lg:text-sm text-white rounded-xl shadow"
+              className="bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] transition w-full sm:w-auto"
             >
-              Tambah Produk Baru
+              Tambah Produk
             </button>
+
+            <button
+              className="bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] transition w-full sm:w-auto"
+              onClick={() => router.push("/dashboard/commonPage/editProduk/pilihProduk")}
+            >
+              Edit Produk
+            </button>
+
+            <button
+              className="bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] transition w-full sm:w-auto"
+              onClick={() => router.push("/dashboard/commonPage/tambahStok")}
+            >
+              Tambah Stok Produk
+            </button>
+
           </div>
 
           {/* SEARCH + FILTER */}
@@ -225,7 +241,7 @@ export default function ProdukPage() {
           <div>
             <div className=" flex sm:flex-row justify-between items-center gap-3 mb-4">
               <p className="font-semibold text-lg">Inventori Singkat</p>
-              <button className="hidden sm:inline-flex items-center bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] sm:w-auto">
+              <button onClick={() => router.push("/dashboard/commonPage/tambahStok")} className="hidden sm:inline-flex items-center bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] sm:w-auto">
                 Tambah Stok Produk
               </button>
               <button className="inline-flex sm:hidden items-center justify-center p-2 rounded-lg bg-[#5D33DA] text-white hover:bg-[#4A28B5]">

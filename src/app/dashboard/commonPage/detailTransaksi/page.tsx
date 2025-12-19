@@ -58,7 +58,7 @@ export default function DetailTransaksiPage() {
 
       {/* ===================== MAIN CONTENT ===================== */}
       <div className="lg:ml-[260px] p-0 lg:px-4 lg:py-6">
-        <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-165">
+        <div className="bg-white flex flex-col p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg h-full lg:min-h-165 pb-22">
           {/* Tombol Kembali */}
           <button
             onClick={() => router.back()}
@@ -125,8 +125,8 @@ export default function DetailTransaksiPage() {
 
               <button
                 className="
-                  w-full mt-6 bg-[#2B68FF] hover:bg-[#1f4fcc] 
-                  text-white py-3 rounded-lg font-semibold
+                  hidden lg:block w-full mt-6 bg-[#2B68FF] hover:bg-[#1f4fcc] 
+                  text-white py-3 rounded-lg 
                 "
               >
                 Cetak Struk
@@ -183,6 +183,11 @@ export default function DetailTransaksiPage() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-20 bg-white shadow p-4">
+        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold">
+            Cetak Struk
+        </button>
       </div>
     </div>
   );

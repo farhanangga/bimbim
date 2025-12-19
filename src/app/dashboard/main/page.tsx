@@ -141,33 +141,6 @@ export default function DashboardPage() {
             ))}
           </div>
 
-          {/* Tombol Cepat */}
-          <div className="flex flex-wrap gap-3">
-
-            <button
-              onClick={() => router.push("/dashboard/commonPage/produkBaru")}
-              className="bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] transition w-full sm:w-auto"
-            >
-              Tambah Produk
-            </button>
-
-            <button
-              className="bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] transition w-full sm:w-auto"
-              onClick={() => router.push("/dashboard/commonPage/editProduk/pilihProduk")}
-            >
-              Edit Produk
-            </button>
-
-            <button
-              className="bg-[#5D33DA] text-white px-6 py-3 rounded-lg hover:bg-[#4A28B5] transition w-full sm:w-auto"
-              onClick={() => router.push("/dashboard/commonPage/tambahStok")}
-            >
-              Tambah Stok Produk
-            </button>
-
-          </div>
-
-
           {/* Grafik */}
           <div className="bg-gray-50 p-4 rounded-xl shadow overflow-x-auto">
             <p className="font-semibold mb-4">Grafik Transaksi 30 Hari Terakhir</p>
