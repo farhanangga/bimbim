@@ -10,6 +10,20 @@ export default function DashboardPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [rangeOpen, setRangeOpen] = useState(false);
   const [selectedRange, setSelectedRange] = useState("Harian");
+  
+  const ARROW_SVG = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke="currentColor"
+    className="w-5 h-5 ml-2"
+    aria-hidden
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+  </svg>
+  );
   useEffect(() => {
     if (rangeOpen) {
       document.body.style.overflow = "hidden";
@@ -66,6 +80,42 @@ export default function DashboardPage() {
     { day: "29 Sept", value: 150 },
     { day: "30 Sept", value: 400 },
   ];
+  const summaryByRange: Record<
+    string,
+    {
+      totalPenjualan: string;
+      totalTransaksi: string;
+      totalKeuntungan: string;
+      totalProduk: string;
+    }
+  > = {
+    "Hari ini": {
+      totalPenjualan: "Rp 320.000",
+      totalTransaksi: "8",
+      totalKeuntungan: "Rp 75.000",
+      totalProduk: "21",
+    },
+    "Minggu ini": {
+      totalPenjualan: "Rp 2.100.000",
+      totalTransaksi: "42",
+      totalKeuntungan: "Rp 520.000",
+      totalProduk: "98",
+    },
+    "Bulan ini": {
+      totalPenjualan: "Rp 5.734.000",
+      totalTransaksi: "100",
+      totalKeuntungan: "Rp 1.210.000",
+      totalProduk: "231",
+    },
+    "Tahun ini": {
+      totalPenjualan: "Rp 64.000.000",
+      totalTransaksi: "1.250",
+      totalKeuntungan: "Rp 14.500.000",
+      totalProduk: "3.820",
+    },
+  };
+  const activeSummary =
+  summaryByRange[selectedRange] || summaryByRange["Hari ini"];
 
   const transactions = [
     { id: "TS000005", nama: "Farhan", tanggal: "11/10/2025", jumlah: 12, total: "Rp 200.000" },
@@ -142,18 +192,35 @@ export default function DashboardPage() {
 
             <button
               onClick={() => setRangeOpen(true)}
-              className="text-sm px-4 py-2 rounded-lg bg-[#5D33DA] text-white hover:bg-[#4A28B5] transition"
+              className="text-sm px-4 py-3 rounded-lg bg-blue-600 flex  text-white hover:bg-blue-700 transition"
             >
               {selectedRange}
+              {ARROW_SVG}
             </button>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { title: "Total Penjualan", value: "Rp 5.734.000", sub: "Transaksi" },
-              { title: "Total Transaksi", value: "100", sub: "Transaksi" },
-              { title: "Total Keuntungan", value: "Rp 1.210.000", sub: "Transaksi" },
-              { title: "Total Produk Terjual", value: "231", sub: "Barang" },
+              {
+                title: "Total Penjualan",
+                value: activeSummary.totalPenjualan,
+                sub: selectedRange,
+              },
+              {
+                title: "Total Transaksi",
+                value: activeSummary.totalTransaksi,
+                sub: selectedRange,
+              },
+              {
+                title: "Total Keuntungan",
+                value: activeSummary.totalKeuntungan,
+                sub: selectedRange,
+              },
+              {
+                title: "Total Produk Terjual",
+                value: activeSummary.totalProduk,
+                sub: selectedRange,
+              },
             ].map((item, i) => (
               <div
                 key={i}
@@ -164,6 +231,7 @@ export default function DashboardPage() {
                 <p className="text-xs">{item.sub}</p>
               </div>
             ))}
+
           </div>
 
           {/* Grafik */}
