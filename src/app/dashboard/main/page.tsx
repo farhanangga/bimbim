@@ -8,6 +8,20 @@ import { Menu } from "lucide-react"; // ikon hamburger
 export default function DashboardPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [rangeOpen, setRangeOpen] = useState(false);
+  const [selectedRange, setSelectedRange] = useState("Harian");
+  useEffect(() => {
+    if (rangeOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [rangeOpen]);
+
   useEffect(() => {
   // Cek apakah halaman dibuka dalam mode fullscreen
   if (typeof document !== "undefined") {
@@ -123,6 +137,17 @@ export default function DashboardPage() {
       <div className="lg:ml-64 p-0 lg:p-6">
         <div className="bg-white p-4 lg:p-8 rounded-none lg:rounded-2xl shadow-none lg:shadow-lg space-y-8 h-full lg:min-h-165">
           {/* Header Cards */}
+          <div className="flex items-center justify-between mb-4">
+            <p className="font-semibold">Informasi Singkat</p>
+
+            <button
+              onClick={() => setRangeOpen(true)}
+              className="text-sm px-4 py-2 rounded-lg bg-[#5D33DA] text-white hover:bg-[#4A28B5] transition"
+            >
+              {selectedRange}
+            </button>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { title: "Total Penjualan", value: "Rp 5.734.000", sub: "Transaksi" },
@@ -274,6 +299,35 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+      {rangeOpen && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl p-6 w-full max-w-sm shadow-xl">
+            <h2 className="text-lg font-bold text-gray-800 mb-4">
+              Pilih Rentang Waktu
+            </h2>
+
+            {["Hari ini", "Minggu ini", "Bulan ini", "Tahun ini"].map((jenis) => (
+              <button
+                key={jenis}
+                onClick={() => {
+                  setSelectedRange(jenis);
+                  setRangeOpen(false);
+                }}
+                className="w-full text-left p-3 rounded-md hover:bg-gray-100 text-gray-800 mb-2"
+              >
+                {jenis}
+              </button>
+            ))}
+
+            <button
+              onClick={() => setRangeOpen(false)}
+              className="mt-4 w-full py-3 bg-gray-200 rounded-lg hover:bg-gray-300"
+            >
+              Tutup
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
