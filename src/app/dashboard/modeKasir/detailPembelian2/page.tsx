@@ -110,7 +110,7 @@ export default function DetailPembelianPage() {
 
                 <button
                   onClick={() => setShowModalSelesai(true)}
-                  className="w-full bg-gradient-to-r from-[#5D33DA] to-[#8F3AFF] hover:opacity-90 text-white py-3 rounded-md text-sm sm:text-base"
+                  className="w-full bg-[#5D33DA] hover:opacity-90 text-white py-3 rounded-md text-sm sm:text-base"
                 >
                   Selesai
                 </button>
@@ -160,8 +160,8 @@ export default function DetailPembelianPage() {
       {/* Modal STRUK */}
       {showModalStruk && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
-          <div className="bg-white rounded-2xl shadow-lg w-full max-w-[400px] p-6 sm:p-8 text-center">
-            <div className="flex justify-center mb-4">
+          <div className="bg-white rounded-2xl shadow-lg w-full max-w-[400px] px-8 pb-8 pt-12 lg:p-8 h-70  text-center">
+            <div className="flex justify-center mb-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-16 h-16 sm:w-20 sm:h-20 text-green-500"
@@ -173,12 +173,12 @@ export default function DetailPembelianPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 sm:mb-6">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-8 sm:mb-6">
               Struk Berhasil Dicetak
             </h2>
             <button
               onClick={() => setShowModalStruk(false)}
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-md"
             >
               Kembali
             </button>
@@ -189,8 +189,8 @@ export default function DetailPembelianPage() {
       {/* Modal SELESAI */}
       {showModalSelesai && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
-          <div className="bg-white rounded-2xl shadow-lg w-full max-w-[400px] p-6 sm:p-8 text-center">
-            <div className="flex justify-center mb-4">
+          <div className="bg-white rounded-2xl shadow-lg w-full max-w-[400px] px-8 pb-8 pt-12 lg:p-8 h-70 text-center">
+            <div className="flex justify-center mb-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-16 h-16 sm:w-20 sm:h-20 text-green-500"
@@ -202,7 +202,7 @@ export default function DetailPembelianPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 sm:mb-6">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-8 sm:mb-6">
               Transaksi Selesai
             </h2>
             <button
@@ -210,7 +210,7 @@ export default function DetailPembelianPage() {
                 document.body.style.overflow = "auto";
                 router.push("/dashboard/modeKasir/main");
               }}
-              className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md"
+              className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md"
             >
               Selesai
             </button>
